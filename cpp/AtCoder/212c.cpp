@@ -16,7 +16,6 @@ int main()
     for(int i = 0 ; i < m ; i++)
         cin >> B[i];
     sort(B.begin(), B.end());
-    cout << 777;
     for(int i : A)
     {
         int left = 0, right = m-1, target_idx = m;
