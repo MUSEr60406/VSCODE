@@ -9,7 +9,7 @@ using namespace std;
 ll bigmod(ll b, ll p, ll m)
 {
     ll ans = 1;
-    b %= m; 
+    b %= m; cout << 66;
     while(p > 0)
     {
         if(p & 1)
