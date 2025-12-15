@@ -52,8 +52,7 @@ int main()
             for(int i = 1 ; i <= path.size() ; i++)
                 if(exit[i]) sum += path[i];
         }
-        cout << "Case " << Case << ": average length between pages = ";
+        cout << "Case " << Case++ << ": average length between pages = ";
         cout << fixed << setprecision(3) << sum / (node.size() * ( node.size() - 1 )) << " clicks\n";
-        Case++;
     }
 }
