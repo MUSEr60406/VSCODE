@@ -16,7 +16,7 @@ ppv bfs(int start, vector<vector<int>> &fam)
     {
         int now = q.front();
         q.pop();
-        for(int i : fam[now])
+        for(int i : fam[now]) 
         {
             if(distance[i] == -1)
             {
