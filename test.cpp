@@ -44,6 +44,7 @@ int main()
         }
         if(node.empty())
             break;
+        sort(node.begin(), node.end());
         for(int i : node)
         {
             vector<int> path(node.back() + 1, -1);
