@@ -18,6 +18,8 @@ int main()
             if(i * j > 31700)
                 break;
             isprime[i * j] = false;
+            if(i % j == 0)
+                break;
         }
     }
 
