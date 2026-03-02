@@ -23,6 +23,12 @@ int main()
                 break;
         }
     }
-
+    
+    int n, l, u;
+    cin >> n;
+    while(n--)
+    {
+        cin >> l >> u;
+    }
     return 0;
 }
