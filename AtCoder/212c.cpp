@@ -10,7 +10,7 @@ int main()
     long long int min_differnce = LLONG_MAX;
     cin >> n >> m;
     vector<long long int> A(n);
-    vector<long long int> B(m)
+    vector<long long int> B(m);
     for(int i = 0 ; i < n ; i++)
         cin >> A[i];
     for(int i = 0 ; i < m ; i++)
