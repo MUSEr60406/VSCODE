@@ -51,7 +51,7 @@ int main()
             if(num > 1)
                 total *= 2;
         }
-        cout << "Between " << l << "and" << u << ", 6 has a maximum of " << total << "divisors.";
+        cout << "Between " << l << "and" << u << ", 6 has a maximum of " << total << "divisors.\n";
     }
     return 0;
 }
