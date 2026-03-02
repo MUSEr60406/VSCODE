@@ -24,7 +24,7 @@ int main()
         }
     }
     
-    int n, l, u;
+    int n, l, u, max = 0, ans;
     cin >> n;
     while(n--)
     {
@@ -50,8 +50,13 @@ int main()
             }
             if(num > 1)
                 total *= 2;
+            if(total > max)
+            {
+                ans = i;
+                max = total;
+            }
         }
-        cout << "Between " << l << "and" << u << ", 6 has a maximum of " << total << "divisors.\n";
+        cout << "Between " << l << " and " << u << ", " << ans << " has a maximum of " << total << " divisors.\n";
     }
     return 0;
 }
