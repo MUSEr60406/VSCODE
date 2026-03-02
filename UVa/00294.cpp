@@ -14,7 +14,7 @@ int main()
     {
         if(isprime[i] == true)
             prime.push_back(i);
-        for(int j : prime)
+        for(int &j : prime)
         {
             if(i * j > 31700)
                 break;
@@ -35,8 +35,6 @@ int main()
             int num = i;
             for(int d : prime)
             {
-                if(d * d > num)
-                    break;
                 if(num % d == 0)
                 {
                     int count = 0;
@@ -48,8 +46,6 @@ int main()
                     total *= (count + 1);
                 }
             }
-            if(num > 1)
-                total *= 2;
             if(total > max)
             {
                 ans = i;
