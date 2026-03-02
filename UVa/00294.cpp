@@ -8,7 +8,7 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     //建質數表
-    vector<bool> isprime(31700, true);
+    vector<bool> isprime(31701, true);
     vector<int> prime;
     for(int i = 2 ; i <= 31700 ; i++)
     {
@@ -24,11 +24,11 @@ int main()
         }
     }
     
-    int n, l, u, max = 0, ans;
+    int n, l, u;
     cin >> n;
     while(n--)
     {
-        int total = 1;
+        int total = 1, max = -1, ans;
         cin >> l >> u;
         for(int i = l ; i <= u ; i++)
         {
@@ -56,7 +56,7 @@ int main()
                 max = total;
             }
         }
-        cout << "Between " << l << " and " << u << ", " << ans << " has a maximum of " << total << " divisors.\n";
+        cout << "Between " << l << " and " << u << ", " << ans << " has a maximum of " << max << " divisors.\n";
     }
     return 0;
 }
