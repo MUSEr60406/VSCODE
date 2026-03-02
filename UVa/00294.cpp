@@ -28,7 +28,15 @@ int main()
     cin >> n;
     while(n--)
     {
+        int total = 0;
         cin >> l >> u;
+        for(int i = l ; i <= u ; i++)
+        {
+            for(int d : prime)
+            {
+
+            }
+        }
     }
     return 0;
 }
