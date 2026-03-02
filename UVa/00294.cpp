@@ -13,6 +13,12 @@ int main()
     {
         if(isprime[i] == true)
             prime.push_back(i);
+        for(int j : prime)
+        {
+            if(i * j > 31700)
+                break;
+            isprime[i * j] = false;
+        }
     }
 
     return 0;
