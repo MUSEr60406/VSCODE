@@ -23,7 +23,9 @@ int main()
                 break;
         }
     }
-    
+    for(int i = 0 ; i < 20 ; i++)
+        cout << prime[i] << "\n";
+    /*
     int n, l, u;
     cin >> n;
     while(n--)
@@ -53,6 +55,6 @@ int main()
             }
         }
         cout << "Between " << l << " and " << u << ", " << ans << " has a maximum of " << max << " divisors.\n";
-    }
+    }*/
     return 0;
 }
