@@ -40,7 +40,7 @@ int main()
                 if(num % d == 0)
                 {
                     int count = 0;
-                    while(num % d ==0)
+                    while(num % d == 0)
                     {
                         count++;
                         num /= d;
