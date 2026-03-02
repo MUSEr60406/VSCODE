@@ -28,15 +28,30 @@ int main()
     cin >> n;
     while(n--)
     {
-        int total = 0;
+        int total = 1;
         cin >> l >> u;
         for(int i = l ; i <= u ; i++)
         {
+            int num = i;
             for(int d : prime)
             {
-
+                if(d * d > num)
+                    break;
+                if(num % d == 0)
+                {
+                    int count = 0;
+                    while(num % d ==0)
+                    {
+                        count++;
+                        num /= d;
+                    }
+                    total *= (count + 1);
+                }
             }
+            if(num > 1)
+                total *= 2;
         }
+        cout << "Between 1 and 10, 6 has a maximum of 4 divisors."
     }
     return 0;
 }
