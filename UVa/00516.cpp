@@ -56,13 +56,10 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    S += char(d);
+                    S += char(count);
+                    cout << S;
                 }
             }
-            if(num > 1)
-                cout << num << " " << 1 << " " << S;
-            else
-                cout << S;
         }
         cout << "\n";
     }
