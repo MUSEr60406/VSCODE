@@ -59,7 +59,7 @@ int main()
                     S += to_string(d) + " " + to_string(count) + " ";
                 }
             }
-            sum > 1 ? cout << sum << " " << 1 << S : cout << S;
+            sum > 1 ? cout << sum << " " << 1 << " " << S : cout << S;
         }
         cout << "\n";
     }
