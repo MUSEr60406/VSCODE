@@ -48,6 +48,7 @@ int main()
             string S = "";
             for(int d : prime)
             {
+                bool first = false;
                 if(sum % d == 0)
                 {
                     int count = 0;
@@ -56,7 +57,10 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    S += to_string(d) + " " + to_string(count) + " ";
+                    first = true;
+                    if(!first)
+                        S += " ";
+                    S += to_string(d) + " " + to_string(count);
                 }
             }
             sum > 1 ? cout << sum << " " << 1 << " " << S : cout << S;
