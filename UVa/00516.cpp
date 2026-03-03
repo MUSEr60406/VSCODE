@@ -30,6 +30,15 @@ int main()
             break;
         ll sum = 0;
         bool isNumber = true;
+        string temp = "";
+        for(int i = 0 ; i < s.size() ; i++)
+        {
+            
+            if(isNumber)
+            {
+
+            }
+        }
 
     }
     return 0;
