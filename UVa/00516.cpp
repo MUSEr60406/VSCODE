@@ -29,13 +29,13 @@ int main()
         if(s == "0")
             break;
         stringstream ss(s);
-        ll num, pow, sum = 0;
+        ll num, pow, sum = 1;
         while(ss >> num >> pow)
         {
             ll temp = 1;
             for(int i = 0 ; i < pow ; i++)
                 temp *= num;
-            sum += temp;
+            sum *= temp;
         }
         sum--;
         if(sum == 0)
