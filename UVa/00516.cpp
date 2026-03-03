@@ -39,6 +39,7 @@ int main()
             sum *= temp;
         }
         sum--;
+        set<pair<int,int>> Set;
         if(sum == 0)
             cout << 0 << "\n";
         else if(sum == 1)
@@ -56,10 +57,11 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    S += char(count);
-                    cout << S;
+                    Set.insert({d, count});
                 }
             }
+            if(sum > 1)
+                Set.insert({sum, 1});
         }
         cout << "\n";
     }
