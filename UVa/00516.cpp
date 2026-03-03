@@ -57,10 +57,10 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    first = true;
                     if(first)
                         S += " ";
                     S += to_string(d) + " " + to_string(count);
+                    first = true;
                 }
             }
             sum > 1 ? cout << sum << " " << 1 << " " << S : cout << S;
