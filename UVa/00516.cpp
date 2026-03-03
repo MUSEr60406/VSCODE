@@ -60,7 +60,7 @@ int main()
                     }
                     if(first)
                         S += " ";
-                    S += to_string(d) + " " + to_string(count);
+                    S += (to_string(d) + " " + to_string(count));
                     first = true;
                 }
             }
