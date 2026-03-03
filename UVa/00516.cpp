@@ -28,6 +28,9 @@ int main()
     {
         if(s == "0")
             break;
+        ll sum = 0;
+        bool isNumber = true;
+
     }
     return 0;
 }
