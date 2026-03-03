@@ -25,7 +25,7 @@ int main()
     }
     reverse(prime.begin(), prime.end());
     string s;
-    bool First = true;
+    bool First = false;
     while(getline(cin, s))
     {
         if(s == "0")
@@ -68,7 +68,7 @@ int main()
         }
         if(First)
             cout << "\n";
-        First = false;
+        First = true;
     }
     return 0;
 }
