@@ -38,6 +38,27 @@ int main()
             sum += temp;
         }
         sum--;
+        if(sum == 0)
+            cout << 0 << "\n";
+        else if(sum == 1)
+            cout << "1 1\n";
+        else
+        {
+            for(int d : prime)
+            {
+                if(sum % d == 0)
+                {
+                    int count = 0;
+                    while(sum % d == 0)
+                    {
+                        count++;
+                        sum /= d;
+                    }
+                    cout << d << " " << count << " ";
+                }
+            }
+        }
+        cout << "\n";
     }
     return 0;
 }
