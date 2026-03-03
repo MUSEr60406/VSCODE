@@ -30,7 +30,14 @@ int main()
             break;
         stringstream ss(s);
         ll num, pow, sum = 1;
-        
+        while(ss >> num >> pow)
+        {
+            ll temp = 1;
+            for(int i = 0 ; i < pow ; i++)
+                temp *= num;
+            sum += temp;
+        }
+        cout << sum;
     }
     return 0;
 }
