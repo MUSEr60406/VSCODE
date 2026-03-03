@@ -8,15 +8,15 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     //建質數表
-    vector<bool> isprime(501, true);
+    vector<bool> isprime(191, true);
     vector<int> prime;
-    for(int i = 2 ; i <= 500 ; i++)
+    for(int i = 2 ; i <= 190 ; i++)
     {
         if(isprime[i] == true)
             prime.push_back(i);
         for(int &j : prime)
         {
-            if(i * j > 500)
+            if(i * j > 190)
                 break;
             isprime[i * j] = false;
             if(i % j == 0)
@@ -45,6 +45,7 @@ int main()
             cout << "1 1\n";
         else
         {
+            string S = "";
             for(int d : prime)
             {
                 if(sum % d == 0)
@@ -55,9 +56,11 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    cout << d << " " << count << " ";
+                    S += ((d + '0') + ' ' + (count + '0') + ' ');
                 }
             }
+            if(num > 1)
+                cout << num << " " << 1 << " " << S;
         }
         cout << "\n";
     }
