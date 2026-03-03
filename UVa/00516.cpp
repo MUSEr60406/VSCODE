@@ -47,8 +47,6 @@ int main()
         {
             for(int d : prime)
             {
-                if(sum == 1)
-                    break;
                 if(sum % d == 0)
                 {
                     int count = 0;
@@ -60,6 +58,8 @@ int main()
                     cout << d << " " << count << " ";
                 }
             }
+            if(sum > 1)
+                cout << sum << " " << 1;
         }
         cout << "\n";
     }
