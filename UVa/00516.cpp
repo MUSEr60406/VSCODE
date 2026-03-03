@@ -28,29 +28,9 @@ int main()
     {
         if(s == "0")
             break;
-        ll int sum = 0, number;
-        bool isNumber = true;
-        string temp = "";
-        for(int i = 0 ; i < s.size() ; i++)
-        {
-            if(s[1] != ' ')
-                temp += s[i];
-            else
-            {
-                if(isNumber)
-                {
-                    number = stoi(temp);
-                    isNumber = false;
-                }
-                else
-                {
-                    sum += pow(number, stoi(temp));
-                    temp = "";
-                    isNumber = true;
-                }
-            }
-        }
-        cout << sum;
+        stringstream ss(s);
+        ll num, pow, sum = 1;
+        
     }
     return 0;
 }
