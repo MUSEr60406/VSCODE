@@ -56,11 +56,13 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    S += ((d + '0') + ' ' + (count + '0') + ' ');
+                    S += char(d);
                 }
             }
             if(num > 1)
                 cout << num << " " << 1 << " " << S;
+            else
+                cout << S;
         }
         cout << "\n";
     }
