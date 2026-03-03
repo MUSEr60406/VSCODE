@@ -28,20 +28,29 @@ int main()
     {
         if(s == "0")
             break;
-        ll int sum = 0;
+        ll int sum = 0, number;
         bool isNumber = true;
         string temp = "";
         for(int i = 0 ; i < s.size() ; i++)
         {
             if(s[1] != ' ')
-            {
                 temp += s[i];
-            }
             else
             {
-                sum += stoi(temp);
+                if(isNumber)
+                {
+                    number = stoi(temp);
+                    isNumber = false;
+                }
+                else
+                {
+                    sum += pow(number, stoi(temp));
+                    temp = "";
+                    isNumber = true;
+                }
             }
         }
+        cout << sum;
     }
     return 0;
 }
