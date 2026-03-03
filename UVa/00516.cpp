@@ -25,7 +25,7 @@ int main()
     }
     reverse(prime.begin(), prime.end());
     string s;
-    bool First = false;
+    bool First = true;
     while(getline(cin, s))
     {
         if(s == "0")
