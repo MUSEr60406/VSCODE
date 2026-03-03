@@ -23,6 +23,7 @@ int main()
                 break;
         }
     }
+    reverse(prime.begin(), prime.end());
     string s;
     while(getline(cin, s))
     {
@@ -46,6 +47,8 @@ int main()
         {
             for(int d : prime)
             {
+                if(sum == 1)
+                    break;
                 if(sum % d == 0)
                 {
                     int count = 0;
