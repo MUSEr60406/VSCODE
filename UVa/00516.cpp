@@ -46,6 +46,7 @@ int main()
         else
         {
             string S = "";
+            vector<int> N, P;
             bool first = false;
             for(int d : prime)
             {
@@ -57,13 +58,15 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    if(first)
-                        S += " ";
-                    S += (to_string(d) + " " + to_string(count));
-                    first = true;
+                    N.push_back(d);
+                    P.push_back(count);
                 }
             }
-            sum > 1 ? cout << sum << " " << 1 << " " << S : cout << S;
+            if(N.empty())
+                cout << sum << " " << 1;
+            else
+                for(int i = 0 ; i < N.size() ; i++)
+                    cout << N[i] << " " << P[i] << " ";
         }
         cout << "\n";
     }
