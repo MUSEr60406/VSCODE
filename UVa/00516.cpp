@@ -46,9 +46,9 @@ int main()
         else
         {
             string S = "";
+            bool first = false;
             for(int d : prime)
             {
-                bool first = false;
                 if(sum % d == 0)
                 {
                     int count = 0;
@@ -58,7 +58,7 @@ int main()
                         sum /= d;
                     }
                     first = true;
-                    if(!first)
+                    if(first)
                         S += " ";
                     S += to_string(d) + " " + to_string(count);
                 }
