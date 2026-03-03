@@ -28,18 +28,20 @@ int main()
     {
         if(s == "0")
             break;
-        ll sum = 0;
+        ll int sum = 0;
         bool isNumber = true;
         string temp = "";
         for(int i = 0 ; i < s.size() ; i++)
         {
-            
-            if(isNumber)
+            if(s[1] != ' ')
             {
-
+                temp += s[i];
+            }
+            else
+            {
+                sum += stoi(temp);
             }
         }
-
     }
     return 0;
 }
