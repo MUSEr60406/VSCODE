@@ -11,9 +11,9 @@ void f(string pre, string in)
     int pos = in.find(root);
     string
     preL = pre.substr(1, pos),
-    preR = pre.substr(pos + 1, pos),
+    preR = pre.substr(pos + 1),
     inL = in.substr(0, pos),
-    inR = in.substr(pos + 1, pos);
+    inR = in.substr(pos + 1);
     f(preL, inL);
     f(preR, inR);
     cout << root;
