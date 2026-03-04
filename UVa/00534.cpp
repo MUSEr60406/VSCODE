@@ -28,6 +28,10 @@ int main()
                 M[i][j] = temp;
             }
         }
+        for(int i = 0 ; i < n ; i++)
+            for(int j = 0 ; j < n ; j++)
+                for(int k = 0 ; k < n ; k++)
+                    M[i][j] = min(M[i][j], M[i][k] + M[k][j]);
 
     return 0;
 }
