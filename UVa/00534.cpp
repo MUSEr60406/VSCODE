@@ -4,9 +4,9 @@
 #define ll long long
 using namespace std;
 ll M[201][201];
-int pow(int n, int p)
+ll pow(int n, int p)
 {
-    int temp = 1;
+    ll temp = 1;
     for(int i = 0 ; i < p ; i++)
         temp *= n;
     return temp;
@@ -24,7 +24,8 @@ int main()
         {
             for(int j = 0 ; j < n ; j++)
             {
-                int temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
+                ll temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
+                M[i][j] = temp;
             }
         }
 
