@@ -61,7 +61,8 @@ int main()
             if(sum > 1)
                 s.push_back({sum, 1});
             for(int i = 0 ; i < s.size() ; i++)
-                cout << s[i].first << " " << s[i].second << (i == s.size() - 1) ? "\n" : " ";
+                cout << s[i].first << " " << s[i].second << (i == s.size() - 1) ? "" : " ";
+            cout << "\n";
         }
     }
     return 0;
