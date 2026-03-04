@@ -3,18 +3,27 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-void f(string front, string middle)
+void f(string pre, string in)
 {
-    char root = front[0];
-    int pos = middle.find(root);
+    char root = pre[0];
+    int pos = in.find(root);
+    string
+    preL = pre.substr(1, pos),
+    preR = pre.substr(pos + 1, pre.length() - 1),
+    inL = in.substr(0, pos - 1),
+    inR = in.substr(pos + 1, in.length() - 1);
+    f(preL, inR);
+    f(preR, inR);
+    cout << root;
+    
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    string front, middle;
-    while(cin >> front >> middle)
+    string pre, in;
+    while(cin >> pre >> in)
     {
-        f(front, middle);
+        f(pre, in);
         cout << "\n";
     }
 
