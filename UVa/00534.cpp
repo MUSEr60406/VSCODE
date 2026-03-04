@@ -24,7 +24,7 @@ int main()
         {
             for(int j = 0 ; j < n ; j++)
             {
-                int temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
+                double temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
                 M[i][j] = temp;
             }
         }
@@ -34,7 +34,7 @@ int main()
                 for(int k = 0 ; k < n ; k++)
                     M[i][j] = min(M[i][j], M[i][k] + M[k][j]);
 
-        cout << "Scenario #" << count++ <<"\nFrog Distance = " << fixed << setw(3) << sqrt(M[0][1]) << "\n";
+        cout << "Scenario #" << count++ <<"\nFrog Distance = " << fixed << setprecision(3) << sqrt(M[0][1]) << "\n";
     }
 
     return 0;
