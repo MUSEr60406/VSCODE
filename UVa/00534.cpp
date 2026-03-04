@@ -10,7 +10,7 @@ int main()
     int n ,count = 0;
     while(cin >> n && n != 0)
     {
-
+        vector<pii> stone;
     }
 
     return 0;
