@@ -32,7 +32,10 @@ int main()
             for(int j = 0 ; j < n ; j++)
                 for(int k = 0 ; k < n ; k++)
                     M[i][j] = min(M[i][j], M[i][k] + M[k][j]);
+
         double ans = sqrt(M[0][1]);
+        cout << "Scenario #" << count++ <<"Frog Distance = " << ans << "\n";
+    }
 
     return 0;
 }
