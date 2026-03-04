@@ -11,13 +11,12 @@ void f(string pre, string in)
     int pos = in.find(root);
     string
     preL = pre.substr(1, pos),
-    preR = pre.substr(pos + 1, pre.length() - 1),
-    inL = in.substr(0, pos - 1),
-    inR = in.substr(pos + 1, in.length() - 1);
-    f(preL, inR);
+    preR = pre.substr(pos + 1, pos),
+    inL = in.substr(0, pos),
+    inR = in.substr(pos + 1, pos);
+    f(preL, inL);
     f(preR, inR);
     cout << root;
-    
 }
 int main()
 {
@@ -28,6 +27,5 @@ int main()
         f(pre, in);
         cout << "\n";
     }
-
     return 0;
 }
