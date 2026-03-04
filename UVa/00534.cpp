@@ -4,6 +4,13 @@
 #define ll long long
 using namespace std;
 ll M[201][201];
+int pow(int n, int p)
+{
+    int temp = 1;
+    for(int i = 0 ; i < p ; i++)
+        temp *= n;
+    return temp;
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -13,6 +20,13 @@ int main()
         vector<pii> stone(n);
         for(auto &i : stone)
             cin >> i.first >> i.second;
+        for(int i = 0 ; i < n ; i++)
+        {
+            for(int j = 0 ; j < n ; j++)
+            {
+                int temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
+            }
+        }
 
     return 0;
 }
