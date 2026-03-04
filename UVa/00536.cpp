@@ -5,6 +5,8 @@
 using namespace std;
 void f(string pre, string in)
 {
+    if(pre.empty())
+        return;
     char root = pre[0];
     int pos = in.find(root);
     string
