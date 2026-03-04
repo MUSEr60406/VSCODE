@@ -35,7 +35,7 @@ int main()
                     M[i][j] = min(M[i][j], max(M[i][k], M[k][j]));
 
         double ans = sqrt(M[0][1]);
-        cout << "Scenario #" << ++count <<"\nFrog Distance = " << fixed << setprecision(3) << ans << "\n";
+        cout << "Scenario #" << ++count <<"\nFrog Distance = " << fixed << setprecision(3) << ans << "\n\n";
     }
     return 0;
 }
