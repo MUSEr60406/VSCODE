@@ -23,7 +23,6 @@ int main()
                 break;
         }
     }
-    reverse(prime.begin(), prime.end());
     string s;
     while(getline(cin, s))
     {
@@ -45,7 +44,7 @@ int main()
             cout << "1 1\n";
         else
         {
-            set<pair<ll, int>> s;
+            vector<pair<ll, int>> s;
             for(int d : prime)
             {
                 if(sum % d == 0)
@@ -56,9 +55,12 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    s.insert({d, count});
+                    s.push_back({d, count});
                 }
             }
+            if(sum > 1)
+                s.push_back({sum, 1});
+            for(auto [x, y] : s);
         }
         cout << "\n";
     }
