@@ -29,11 +29,12 @@ int main()
             }
         }
 
-        for(int k = 1 ; k <= n ; k++)
-            for(int i = 1 ; i <= n ; i++)
-                for(int j = 1 ; j <= n ; j++)
+        for(int k = 0 ; k < n ; k++)
+            for(int i = 0 ; i < n ; i++)
+                for(int j = 0 ; j < n ; j++)
                     M[i][j] = min(M[i][j], max(M[i][k], M[k][j]));
-        double ans = sqrt(sqrt(M[0][1]));
+
+        double ans = sqrt(M[0][1]);
         cout << "Scenario #" << ++count <<"\nFrog Distance = " << fixed << setprecision(3) << ans << "\n";
     }
 
