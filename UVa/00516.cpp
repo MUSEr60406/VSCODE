@@ -44,7 +44,7 @@ int main()
             cout << "1 1\n";
         else
         {
-            vector<pair<ll, int>> s;
+            vector<pair<ll, int>> v;
             for(int d : prime)
             {
                 if(sum % d == 0)
@@ -55,13 +55,13 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    s.push_back({d, count});
+                    v.push_back({d, count});
                 }
             }
             if(sum > 1)
-                s.push_back({sum, 1});
-            for(int i = 0 ; i < s.size() ; i++)
-                cout << s[i].first << " " << s[i].second << (i == s.size() - 1) ? "" : " ";
+                v.push_back({sum, 1});
+            for(int i = v.size() - 1 ; i >= 0 ; i--)
+                cout << v[i].first << " " << v[i].second << (i == 0) ? "" : " ";
             cout << "\n";
         }
     }
