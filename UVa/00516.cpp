@@ -45,8 +45,7 @@ int main()
             cout << "1 1\n";
         else
         {
-            vector<int> N, P;
-            bool first = false;
+            set<pair<ll, int>> s;
             for(int d : prime)
             {
                 if(sum % d == 0)
@@ -57,18 +56,8 @@ int main()
                         count++;
                         sum /= d;
                     }
-                    N.push_back(d);
-                    P.push_back(count);
+                    s.insert({d, count});
                 }
-            }
-            if(N.empty())
-                cout << sum << " " << 1;
-            else
-            {
-                string S = "";
-                for(int i = 0 ; i < N.size() ; i++)
-                    S += to_string(N[i]) + " " + to_string(P[i]) + " ";
-                cout << S;
             }
         }
         cout << "\n";
