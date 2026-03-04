@@ -61,8 +61,7 @@ int main()
             if(sum > 1)
                 v.push_back({sum, 1});
             for(int i = v.size() - 1 ; i >= 0 ; i--)
-                cout << v[i].first << " " << v[i].second << (i == 0 ? "" : " ");
-            cout << "\n";
+                cout << v[i].first << " " << v[i].second << (i == 0 ? "\n" : " ");
         }
     }
     return 0;
