@@ -3,8 +3,8 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-double M[201][201];
-int pow(int n, int p)
+ll M[201][201];
+ll pow(int n, int p)
 {
     int temp = 1;
     for(int i = 0 ; i < p ; i++)
@@ -24,7 +24,7 @@ int main()
         {
             for(int j = 0 ; j < n ; j++)
             {
-                double temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
+                ll temp = pow(stone[i].first - stone[j].first, 2) + pow(stone[i].second - stone[j].second, 2);
                 M[i][j] = temp;
             }
         }
@@ -33,8 +33,8 @@ int main()
             for(int i = 1 ; i <= n ; i++)
                 for(int j = 1 ; j <= n ; j++)
                     M[i][j] = min(M[i][j], max(M[i][k], M[k][j]));
-
-        cout << "Scenario #" << count++ <<"\nFrog Distance = " << fixed << setprecision(3) << sqrt(M[0][1]) << "\n";
+        double ans = sqrt(sqrt(M[0][1]));
+        cout << "Scenario #" << ++count <<"\nFrog Distance = " << fixed << setprecision(3) << ans << "\n";
     }
 
     return 0;
