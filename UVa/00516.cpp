@@ -60,9 +60,9 @@ int main()
             }
             if(sum > 1)
                 s.push_back({sum, 1});
-            for(auto [x, y] : s);
+            for(int i = 0 ; i < s.size() ; i++)
+                cout << s[i].first << " " << s[i].second << (i == s.size() - 1) ? "\n" : " ";
         }
-        cout << "\n";
     }
     return 0;
 }
