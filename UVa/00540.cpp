@@ -31,11 +31,8 @@ int main()
                 cin >> number;
                 if(m.find(number) != m.end())
                 {
-                    auto it = m.end();
-                    for(auto &i : q)
-                    {
-                        it = m.find(i);
-                    }
+                    
+
                 }
                 else
                     q.push_back(number);
