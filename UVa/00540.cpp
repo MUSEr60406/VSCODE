@@ -38,10 +38,17 @@ int main()
                     if(!exit[m[number]])
                         team_order.push(m[number]);
                 }
+                else
+                {
+                    team[t].push(number);
+                    if(!exit[t])
+                        team_order.push(t);
+                }
             }
             else if(command == "DEQUEUE")
             {
-                
+                cout << team[team_order.front()].front() << "\n";
+                team[team_order.front()].pop();
             }
         }
     }
