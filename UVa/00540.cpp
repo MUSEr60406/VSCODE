@@ -11,7 +11,7 @@ int main()
     while(cin >> t && t != 0)
     {
         map<int, int> m;
-        queue<int> q;
+        vector<int> q;
         for(int i = 0 ; i < t ; i++)
         {
             int n;
@@ -30,6 +30,15 @@ int main()
             {
                 cin >> number;
                 auto it = m.find(number);
+                if(it != m.end())
+                {
+                    for(auto i : q)
+                    {
+                        auto pos = m.find(i);
+                    }
+                }
+                else
+                    q.push_back(number);
             }
         }
     }
