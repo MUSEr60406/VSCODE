@@ -14,6 +14,7 @@ int main()
         map<int, int> m;
         queue<int> q;
         queue<int> team[1000];
+        bool exit[1005] = {false};
         for(int i = 0 ; i < t ; i++)
         {
             int n;
@@ -31,27 +32,9 @@ int main()
             if(command == "ENQUEUE")
             {
                 cin >> number;
-                if(m.find(number) != m.end())
-                {
-                    int index = -1;
-                    for(int i = 0; i < q.size() ; i++)
-                        if(m.find(q[i]) == m.end())
-                            index = i;
-                    if(index == -1)
-                        q.push_back(number);
-                    else
-                        q.insert(q.begin() + index, number);
-                }
-                else
-                    q.push_back(number);
-                for(auto i : q)
-                    cout << i << " ";
-                cout << "\n";
             }
             else if(command == "DEQUEUE")
             {
-                //cout << q[0] << "\n";
-                q.erase(q.begin());
             }
         }
     }
