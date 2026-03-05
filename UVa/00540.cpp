@@ -14,7 +14,8 @@ int main()
         map<int, int> m;
         queue<int> team_order;
         queue<int> team[1000];
-        bool exit[1000] = {false}
+        bool exit[1000] = {false};
+        int no_team = t;
 ;       for(int i = 0 ; i < t ; i++)
         {
             int n;
