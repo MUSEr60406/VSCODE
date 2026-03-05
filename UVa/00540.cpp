@@ -14,7 +14,8 @@ int main()
         map<int, int> m;
         queue<int> team_order;
         queue<int> team[1000];
-        for(int i = 0 ; i < t ; i++)
+        bool exit[1000] = {false}
+;       for(int i = 0 ; i < t ; i++)
         {
             int n;
             for(int j = 0 ; j < n ; j++)
@@ -34,6 +35,8 @@ int main()
                 if(m.find(number) != m.end())
                 {
                     team[m[number]].push(number);
+                    if(!exit[m[number]])
+                        team_order.push(m[number]);
                 }
             }
             else if(command == "DEQUEUE")
