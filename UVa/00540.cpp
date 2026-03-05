@@ -11,6 +11,7 @@ int main()
     while(cin >> t && t != 0)
     {
         map<int, int> m;
+        queue<int> q;
         for(int i = 0 ; i < t ; i++)
         {
             int n;
@@ -21,6 +22,7 @@ int main()
                 m.insert({value, team});
             }
         }
+        string command;
     }
 
     return 0;
