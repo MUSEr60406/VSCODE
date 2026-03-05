@@ -13,8 +13,8 @@ int main()
         cout << "Scenario #" << ++count << "\n";
         map<int, int> m;
         queue<int> team_order;
-        queue<int> team[1000];
-        bool exit[1000] = {false};
+        queue<int> team[1005];
+        bool exit[1005] = {false};
         int no_team = t;
 ;       for(int i = 0 ; i < t ; i++)
         {
@@ -38,7 +38,10 @@ int main()
                 {
                     team[m[number]].push(number);
                     if(!exit[m[number]])
+                    {
                         team_order.push(m[number]);
+                        exit[m[number]] = true;
+                    }
                 }
                 else
                 {
