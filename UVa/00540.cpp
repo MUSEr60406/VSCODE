@@ -12,9 +12,8 @@ int main()
     {
         cout << "Scenario #" << ++count << "\n";
         map<int, int> m;
-        queue<int> q;
+        queue<int> team_order;
         queue<int> team[1000];
-        bool exit[1005] = {false};
         for(int i = 0 ; i < t ; i++)
         {
             int n;
@@ -32,9 +31,14 @@ int main()
             if(command == "ENQUEUE")
             {
                 cin >> number;
+                if(m.find(number) != m.end())
+                {
+                    team[]
+                }
             }
             else if(command == "DEQUEUE")
             {
+                
             }
         }
     }
