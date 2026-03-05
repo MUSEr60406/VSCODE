@@ -19,11 +19,12 @@ int main()
 ;       for(int i = 0 ; i < t ; i++)
         {
             int n;
+            cin >> n;
             for(int j = 0 ; j < n ; j++)
             {
                 int value;
                 cin >> value;
-                m.insert({value, t});
+                m.insert({value, i});
             }
         }
         string command;
@@ -41,21 +42,21 @@ int main()
                 }
                 else
                 {
-                    team[t].push(number);
-                    if(!exit[t])
-                        team_order.push(t);
-                    t++;
+                    team[no_team].push(number);
+                    if(!exit[no_team])
+                        team_order.push(no_team);
+                    no_team++;
                 }
             }
             else if(command == "DEQUEUE")
             {
                 cout << team[team_order.front()].front() << "\n";
+                team[team_order.front()].pop();
                 if(team[team_order.front()].empty())
                 {
                     exit[team_order.front()] = false;
                     team_order.pop();
                 }   
-                team[team_order.front()].pop();
             }
         }
     }
