@@ -29,6 +29,12 @@ int main()
             if(command == "ENQUEUE")
             {
                 cin >> number;
+                if(m.find(number) != m.end())
+                {
+
+                }
+                else
+                    q.push_back(number);
             }
         }
     }
