@@ -17,9 +17,9 @@ int main()
             int n;
             for(int j = 0 ; j < n ; j++)
             {
-                int value, team;
-                cin >> value >> team;
-                m.insert({value, team});
+                int value;
+                cin >> value;
+                m.insert({value, j});
             }
         }
         string command;
@@ -29,16 +29,6 @@ int main()
             if(command == "ENQUEUE")
             {
                 cin >> number;
-                auto it = m.find(number);
-                if(it != m.end())
-                {
-                    for(auto i : q)
-                    {
-                        auto pos = m.find(i);
-                    }
-                }
-                else
-                    q.push_back(number);
             }
         }
     }
