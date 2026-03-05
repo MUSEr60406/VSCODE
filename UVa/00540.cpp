@@ -63,8 +63,7 @@ int main()
             }
             else if(command == "STOP")
                 break;
-            else
-                cout << "\n";
+            cout << "\n";
             
         }
     }
