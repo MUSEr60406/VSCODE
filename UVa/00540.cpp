@@ -53,7 +53,7 @@ int main()
             }
             else if(command == "DEQUEUE")
             {
-                cout << team[team_order.front()].front() << "\n";
+                cout << team[team_order.front()].front();
                 team[team_order.front()].pop();
                 if(team[team_order.front()].empty())
                 {
@@ -61,6 +61,7 @@ int main()
                     team_order.pop();
                 }   
             }
+            cout << "\n";
         }
     }
     return 0;
