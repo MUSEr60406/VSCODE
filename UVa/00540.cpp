@@ -33,7 +33,7 @@ int main()
                 cin >> number;
                 if(m.find(number) != m.end())
                 {
-                    team[]
+                    team[m[number]].push(number);
                 }
             }
             else if(command == "DEQUEUE")
