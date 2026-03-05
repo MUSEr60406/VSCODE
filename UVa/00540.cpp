@@ -43,12 +43,12 @@ int main()
                     team[t].push(number);
                     if(!exit[t])
                         team_order.push(t);
+                    t++;
                 }
             }
             else if(command == "DEQUEUE")
             {
-                cout << team[team_order.front()].front() << "\n";
-                team[team_order.front()].pop();
+                
             }
         }
     }
