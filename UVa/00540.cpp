@@ -23,6 +23,15 @@ int main()
             }
         }
         string command;
+        while(cin >> command && command != "STOP")
+        {
+            int number;
+            if(command == "ENQUEUE")
+            {
+                cin >> number;
+                auto it = m.find(number);
+            }
+        }
     }
 
     return 0;
