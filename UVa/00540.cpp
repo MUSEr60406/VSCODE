@@ -43,10 +43,13 @@ int main()
                 }
                 else
                     q.push_back(number);
+                for(auto i : q)
+                    cout << i << " ";
+                cout << "\n";
             }
             else if(command == "DEQUEUE")
             {
-                cout << q[0] << "\n";
+                //cout << q[0] << "\n";
                 q.erase(q.begin());
             }
         }
