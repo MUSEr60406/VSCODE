@@ -28,7 +28,7 @@ int main()
             }
         }
         string command;
-        while(cin >> command && command != "STOP")
+        while(cin >> command)
         {
             int number;
             if(command == "ENQUEUE")
@@ -61,7 +61,11 @@ int main()
                     team_order.pop();
                 }   
             }
-            cout << "\n";
+            else if(command == "STOP")
+                break;
+            else
+                cout << "\n";
+            
         }
     }
     return 0;
