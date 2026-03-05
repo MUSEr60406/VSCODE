@@ -31,11 +31,22 @@ int main()
                 cin >> number;
                 if(m.find(number) != m.end())
                 {
-                    
-
+                    int index = -1;
+                    for(int i = 0; i < q.size() ; i++)
+                        if(m.find(q[i]) == m.end())
+                            index = i;
+                    if(index == -1)
+                        q.push_back(number);
+                    else
+                        q.insert(q.begin() + index, number);
                 }
                 else
                     q.push_back(number);
+            }
+            else if(command == "DEQUEUE")
+            {
+                cout << q[0] << "\n";
+                q.erase(q.begin());
             }
         }
     }
