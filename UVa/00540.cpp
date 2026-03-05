@@ -7,9 +7,10 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int t;
+    int t, count = 0;
     while(cin >> t && t != 0)
     {
+        cout << "Scenario #" << ++count << "\n";
         map<int, int> m;
         vector<int> q;
         for(int i = 0 ; i < t ; i++)
