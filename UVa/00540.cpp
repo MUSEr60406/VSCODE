@@ -12,7 +12,8 @@ int main()
     {
         cout << "Scenario #" << ++count << "\n";
         map<int, int> m;
-        vector<int> q;
+        queue<int> q;
+        queue<int> team[1000];
         for(int i = 0 ; i < t ; i++)
         {
             int n;
@@ -20,7 +21,7 @@ int main()
             {
                 int value;
                 cin >> value;
-                m.insert({value, j});
+                m.insert({value, t});
             }
         }
         string command;
