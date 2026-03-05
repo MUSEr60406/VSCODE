@@ -38,7 +38,7 @@ int main()
                     if(index == -1)
                         q.push_back(number);
                     else
-                        q.insert(q.begin() + index, number);
+                        q.insert(q.begin() + index + 1, number);
                 }
                 else
                     q.push_back(number);
