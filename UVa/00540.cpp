@@ -49,12 +49,12 @@ int main()
             else if(command == "DEQUEUE")
             {
                 cout << team[team_order.front()].front() << "\n";
-                team[team_order.front()].pop();
                 if(team[team_order.front()].empty())
                 {
                     exit[team_order.front()] = false;
                     team_order.pop();
                 }   
+                team[team_order.front()].pop();
             }
         }
     }
