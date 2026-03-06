@@ -8,7 +8,7 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     ll dp[7490], coin[] = {1, 5, 10, 25, 50};
-    dp[0] = 0;
+    dp[0] = 1;
     dp[1] = 1;
     for(ll &c : coin)
     {
