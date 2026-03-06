@@ -17,8 +17,7 @@ void bfs(int start_x, int start_y, vector<string> &Map, vector<vector<bool>> &vi
         for(int i = 0 ; i < 8 ; i++)
         {
             int newx = p.first + dx[i], newy = p.second + dy[i];
-            if(newx < 0 || newx >= n || newy < 0 || newy >= n || visited[newx][newy] == true || Map[newx][newy] == 0)
-                continue;
+            if(newx < 0 || newx >= n || newy < 0 || newy >= n || visited[newx][newy] == true || Map[newx][newy] == '0')
             visited[newx][newy] = true;
             q.push({newx, newy});
         }
@@ -39,14 +38,14 @@ int main()
         {
             for(int j = 0 ; j < n ; j++)
             {
-                if(visited[i][j] == false && Map[i][j] == 1)
+                if(visited[i][j] == false && Map[i][j] == '1')
                 {
                     bfs(i, j, Map, visited);
                     ans++;
                 }
             }
         }
-        cout << "Image number " << ++cnt << " contains " << ans << " warsgles.\n";
+        cout << "Image number " << ++cnt << " contains " << ans << " wareagles.\n";
     }
     return 0;
 }
