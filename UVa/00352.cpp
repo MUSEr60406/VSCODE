@@ -28,6 +28,7 @@ void bfs(int start_x, int start_y, vector<vector<int>> &Map, vector<vector<bool>
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int cnt = 0;
     while(cin >> n)
     {
         vector<vector<int>> Map(25, vector<int>(25));
@@ -40,14 +41,14 @@ int main()
         {
             for(int j = 0 ; j < n ; j++)
             {
-                if(visited[i][j] == false && Map[i][j] == 0)
+                if(visited[i][j] == false && Map[i][j] == 1)
                 {
                     bfs(i, j, Map, visited);
                     ans++;
                 }
             }
         }
-        cout << ans << "\n";
+        cout << "Image number " << ++cnt << " contains " << ans << " warsgles.\n";
     }
     return 0;
 }
