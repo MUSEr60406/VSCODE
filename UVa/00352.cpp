@@ -18,6 +18,7 @@ void bfs(int start_x, int start_y, vector<string> &Map, vector<vector<bool>> &vi
         {
             int newx = p.first + dx[i], newy = p.second + dy[i];
             if(newx < 0 || newx >= n || newy < 0 || newy >= n || visited[newx][newy] == true || Map[newx][newy] == '0')
+                continue;
             visited[newx][newy] = true;
             q.push({newx, newy});
         }
@@ -45,7 +46,7 @@ int main()
                 }
             }
         }
-        cout << "Image number " << ++cnt << " contains " << ans << " wareagles.\n";
+        cout << "Image number " << ++cnt << " contains " << ans << " war eagles.\n";
     }
     return 0;
 }
