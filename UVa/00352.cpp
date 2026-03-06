@@ -4,7 +4,7 @@
 #define ll long long
 using namespace std;
 int n;
-void bfs(int start_x, int start_y, vector<vector<int>> &Map, vector<vector<bool>> &visited)
+void bfs(int start_x, int start_y, vector<string> &Map, vector<vector<bool>> &visited)
 {
     int dx[8] = {-1, 0, 1, 0, -1, 1, -1, 1}, dy[8] = {0, 1, 0, -1, 1, 1, -1, -1}; 
     queue<pii> q;
@@ -30,12 +30,11 @@ int main()
     int cnt = 0;
     while(cin >> n)
     {
-        vector<vector<int>> Map(25, vector<int>(25));
+        vector<string> Map(25);
         vector<vector<bool>> visited(25, vector<bool>(25, false));
         int ans = 0;
         for(int i = 0 ; i < n ; i++)
-            for(int j = 0 ; j < n ; j++)
-                cin >> Map[i][j];
+            cin >> Map[i];
         for(int i = 0 ; i < n ; i++)
         {
             for(int j = 0 ; j < n ; j++)
