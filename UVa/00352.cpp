@@ -23,7 +23,6 @@ void bfs(int start_x, int start_y, vector<vector<int>> &Map, vector<vector<bool>
             q.push({newx, newy});
         }
     }
-
 }
 int main()
 {
