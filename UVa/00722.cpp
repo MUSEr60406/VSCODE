@@ -3,9 +3,11 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-int bfs(pii, vector<string> &Map)
+int bfs(pii p, vector<string> &Map)
 {
-
+    int ans = 1;
+    queue<pii> q;
+    q.push(p);
 }
 int main()
 {
