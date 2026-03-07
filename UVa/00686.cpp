@@ -11,7 +11,7 @@ int main()
     vector<int> prime;
     for(int i = 2 ; i <= 300 ; i++)
     {
-        if(isprime[i] == true && i % 2 != 0)
+        if(isprime[i] == true)
             prime.push_back(i);
         for(int &j : prime)
         {
