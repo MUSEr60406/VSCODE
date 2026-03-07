@@ -25,6 +25,7 @@ int main()
             int pos = 1, pre = 1;
             for(int j = 1 ; j <= D ; j++)
             {
+                cout << pos << "\n";
                 pre = pos;
                 pos = (node[pos]) ? pos * 2 + 1 : pos * 2;
                 node[pre] = !node[pre];
