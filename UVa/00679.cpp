@@ -22,8 +22,16 @@ int main()
         vector<bool> node((1 - pow(2,D)) / -1 + 1, false);
         for(int i = 1 ; i < I ; i++)
         {
-            int pos = 1;
+            int pos = 1, pre;
             for(int j = 1 ; j <= D ; j++)
+            {
+                pre = pos;
+                pos = (node[pos]) ? pos * 2 + 1 : pos * 2;
+                node[pre] = !node[pre];
+            }
+            if(i == I - 1)
+                cout << pos << "\n";
+        }
                 
     }
 
