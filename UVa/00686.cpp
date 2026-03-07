@@ -23,17 +23,22 @@ int main()
         }
     }
     int n;
-    vector<bool> visited(prime.size(), false);
+    vector<bool> visited(prime.back() + 1, false);
     while(cin >> n && n != 0)
     {
         int ans = 0;
         for(int i = 0 ; i < prime.size() - 1 ; i++)
         {
             for(int j = i + 1 ; j < prime.size() ; j++)
-                
+            {
+                if(!visited[i] && !visited[j] && i + j == n)
+                {
+                    visited[i] = visited[j] = true;
+                    ans++;
+                }
+            }
         }
+        cout << ans << "\n";
     }
-
-
     return 0;
 }
