@@ -40,12 +40,7 @@ int main()
         cin.ignore();
         while(getline(cin, s) && !s.empty()) 
             Map.push_back(s);
-        if(flag)
-        {
-            cout << bfs({x - 1, y - 1}, Map) << "\n";
-            flag = false;
-        }
-        cout << "\n" << bfs({x - 1, y - 1}, Map) << "\n";
+        cout << bfs({x - 1, y - 1}, Map) << (n ? "\n\n" : "\n");
     }
     return 0;
 }
