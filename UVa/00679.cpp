@@ -19,7 +19,7 @@ int main()
     {
         int d;
         cin >> d;
-        vector<int> node(((1 - pow(2, d)) / 1 - 2));
+        vector<int> node((1 - pow(2,d)) / -1, false);
         cout << node.size();
     }
 
