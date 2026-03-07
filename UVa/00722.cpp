@@ -32,7 +32,6 @@ int main()
     cin >> n;
     while(n--)
     {
-        cin.ignore();
         int x, y;
         vector<string> Map;
         string s;
