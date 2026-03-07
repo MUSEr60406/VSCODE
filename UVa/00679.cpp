@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define pii pair<int,int>
+#define pll pair<long,long>
+#define ll long long
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int n;
+    cin >> n;
+    while(n--)
+    {
+        int d;
+        cin >> d;
+        vector<int> node((1 - pow(2, d)) / 1 - 2);
+        cout << node.size();
+    }
+
+    return 0;
+}
