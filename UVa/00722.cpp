@@ -5,9 +5,18 @@
 using namespace std;
 int bfs(pii p, vector<string> &Map)
 {
-    int ans = 1;
+    int ans = 1, dx[4] = {1,0,-1,0}, dy[4] = {0,1,0,-1};
     queue<pii> q;
     q.push(p);
+    while(!q.empty())
+    {
+        pii p = q.front();
+        q.pop();
+        for(int i = 0 ; i < 4 ; i++)
+        {
+            int newx = p.first + dx[i], newy = p.second + dy[i];
+        }
+    }
 }
 int main()
 {
