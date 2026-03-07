@@ -8,6 +8,7 @@ int bfs(pii p, vector<string> &Map)
     int ans = 1, dx[4] = {1,0,-1,0}, dy[4] = {0,1,0,-1};
     queue<pii> q;
     q.push(p);
+    Map[p.first][p.second] = '1';
     while(!q.empty())
     {
         pii p = q.front();
@@ -15,8 +16,14 @@ int bfs(pii p, vector<string> &Map)
         for(int i = 0 ; i < 4 ; i++)
         {
             int newx = p.first + dx[i], newy = p.second + dy[i];
+            if(newx < 0 || newx >= Map[0].length() || newy < 0 || newy >= Map[0].length() || Map[newx][newy] == '1')
+                continue;
+            Map[newx][newy] = '1';
+            q.push({newx, newy});
+            ans++;
         }
     }
+    return ans;
 }
 int main()
 {
@@ -25,14 +32,14 @@ int main()
     cin >> n;
     while(n--)
     {
-        cin.ignore();
+        cout << "\n";
         pii p;
         vector<string> Map;
         string s;
         cin >> p.first >> p.second;
         while(getline(cin, s))
             Map.push_back(s);
-        cout << bfs(p, Map);
+        cout << bfs(p, Map) << "\n";
     }
     return 0;
 }
