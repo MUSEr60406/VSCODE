@@ -17,19 +17,18 @@ int main()
     cin >> n;
     while(n--)
     {
-        int D, I, pos = 1;
+        int D, I, pos = 1;;
         cin >> D >> I;
-        vector<bool> node((1 - pow(2,D)) / -1 + 1, false);
-        for(int i = 1 ; i <= I ; i++)
+        for(int i = 1 ; i <= D ; i++)
         {
-            pos = 1; 
-            int pre = 1;
-            for(int j = 1 ; j <= D ; j++)
+            if(I % 2 == 0)
             {
-                pre = pos;
-                pos = (node[pos]) ? pos * 2 + 1 : pos * 2;
-                node[pre] = !node[pre];
+                I /= 2;
+                pos = pos * 2 + 1;
             }
+            else
+                I = I / 2 + 1;
+                pos *= 2;
         }
         cout << pos / 2 << "\n";
     }
