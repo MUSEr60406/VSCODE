@@ -17,10 +17,10 @@ int main()
     cin >> n;
     while(n--)
     {
-        int d;
-        cin >> d;
-        vector<int> node((1 - pow(2,d)) / -1, false);
-        cout << node.size();
+        int d, i;
+        cin >> d >> i;
+        vector<int> node((1 - pow(2,d)) / -1 + 1, false);
+        
     }
 
     return 0;
