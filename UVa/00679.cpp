@@ -20,7 +20,7 @@ int main()
         int D, I;
         cin >> D >> I;
         vector<bool> node((1 - pow(2,D)) / -1 + 1, false);
-        for(int i = 1 ; i < I ; i++)
+        for(int i = 1 ; i <= I ; i++)
         {
             int pos = 1, pre;
             for(int j = 1 ; j <= D ; j++)
@@ -32,7 +32,6 @@ int main()
             if(i == I - 1)
                 cout << pos << "\n";
         }
-                
     }
 
     return 0;
