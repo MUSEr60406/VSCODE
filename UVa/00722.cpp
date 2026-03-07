@@ -35,8 +35,9 @@ int main()
         int x, y;
         vector<string> Map;
         string s;
+        cin.ignore();
         cin >> x >> y;
-        while(getline(cin, s) && !s.empty()) 
+        while(getline(cin, s)) 
             Map.push_back(s);
         cout << bfs({x - 1, y -1}, Map) << "\n";
     }
