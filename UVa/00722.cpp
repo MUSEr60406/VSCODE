@@ -16,7 +16,7 @@ int bfs(pii p, vector<string> &Map)
         for(int i = 0 ; i < 4 ; i++)
         {
             int newx = p.first + dx[i], newy = p.second + dy[i];
-            if(newx < 0 || newx >= Map[0].length() || newy < 0 || newy >= Map[0].length() || Map[newx][newy] == '1')
+            if(newx < 0 || newx >= Map.size() || newy < 0 || newy >= Map[0].length() || Map[newx][newy] == '1')
                 continue;
             Map[newx][newy] = '1';
             q.push({newx, newy});
@@ -33,13 +33,13 @@ int main()
     while(n--)
     {
         cin.ignore();
-        pii p;
+        int x, y;
         vector<string> Map;
         string s;
-        cin >> p.first >> p.second;
+        cin >> x >> y;
         while(getline(cin, s))
             Map.push_back(s);
-        cout << bfs(p, Map) << "\n";
+        cout << bfs({x - 1, y -1}, Map) << "\n";
     }
     return 0;
 }
