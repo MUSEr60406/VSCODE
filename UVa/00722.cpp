@@ -32,6 +32,7 @@ int main()
     cin >> n;
     while(n--)
     {
+        cout << "\n";
         int x, y;
         vector<string> Map;
         string s;
@@ -39,9 +40,7 @@ int main()
         cin.ignore();
         while(getline(cin, s) && !s.empty()) 
             Map.push_back(s);
-        cout << bfs({x - 1, y -1}, Map);
-        if(n > 0)
-            cout << "\n";
+        cout << bfs({x - 1, y -1}, Map) << (n > 0 ? "\n" : "");
     }
     return 0;
 }
