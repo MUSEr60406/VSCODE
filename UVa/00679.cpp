@@ -3,7 +3,13 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-
+int pow(int n, int p)
+{
+    int temp = 1;
+    while(p--)
+        temp *= n;
+    return temp;
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
