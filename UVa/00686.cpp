@@ -7,21 +7,33 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    vector<bool> isprime(31701, true);
+    vector<bool> isprime(301, true);
     vector<int> prime;
-    for(int i = 2 ; i <= 31700 ; i++)
+    for(int i = 2 ; i <= 300 ; i++)
     {
         if(isprime[i] == true && i % 2 != 0)
             prime.push_back(i);
         for(int &j : prime)
         {
-            if(i * j > 31700)
+            if(i * j > 300)
                 break;
             isprime[i * j] = false;
             if(i % j == 0)
                 break;
         }
     }
+    int n;
+    vector<bool> visited(prime.size(), false);
+    while(cin >> n && n != 0)
+    {
+        int ans = 0;
+        for(int i = 0 ; i < prime.size() - 1 ; i++)
+        {
+            for(int j = i + 1 ; j < prime.size() ; j++)
+                
+        }
+    }
+
 
     return 0;
 }
