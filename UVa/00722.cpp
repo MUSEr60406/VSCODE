@@ -29,6 +29,7 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n;
+    bool flag = true;
     cin >> n;
     while(n--)
     {
@@ -39,7 +40,12 @@ int main()
         cin.ignore();
         while(getline(cin, s) && !s.empty()) 
             Map.push_back(s);
-        cout << bfs({x - 1, y -1}, Map);
+        if(flag)
+        {
+            cout << bfs({x - 1, y - 1}, Map) << "\n";
+            flag = false;
+        }
+        cout << "\n" << bfs({x - 1, y - 1}, Map) << "\n";
     }
     return 0;
 }
