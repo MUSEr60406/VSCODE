@@ -27,8 +27,10 @@ int main()
                 pos = pos * 2 + 1;
             }
             else
+            {
                 I = I / 2 + 1;
                 pos *= 2;
+            }
         }
         cout << pos / 2 << "\n";
     }
