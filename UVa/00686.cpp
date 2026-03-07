@@ -31,7 +31,7 @@ int main()
         {
             for(int j = i + 1 ; j < prime.size() ; j++)
             {
-                if(!visited[i] && !visited[j] && i + j == n)
+                if(!visited[i] && !visited[j] && prime[i] + prime[j] == n)
                 {
                     visited[i] = visited[j] = true;
                     ans++;
