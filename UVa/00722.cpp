@@ -7,7 +7,6 @@ int bfs(pii p, vector<string> &Map)
 {
     int ans = 1, dx[4] = {1,0,-1,0}, dy[4] = {0,1,0,-1};
     queue<pii> q;
-    p.first--, p.second--;
     q.push(p);
     Map[p.first][p.second] = '1';
     while(!q.empty())
