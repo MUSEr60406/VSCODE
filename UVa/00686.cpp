@@ -23,6 +23,8 @@ int main()
         }
     }
     int n;
+    for(int i : prime)
+        cout << i << "\n";
     vector<bool> visited(prime.back() + 1, false);
     while(cin >> n && n != 0)
     {
