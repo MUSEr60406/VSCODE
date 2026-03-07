@@ -32,7 +32,7 @@ int main()
     cin >> n;
     while(n--)
     {
-        cout << "\n";
+        cin.ignore();
         pii p;
         vector<string> Map;
         string s;
