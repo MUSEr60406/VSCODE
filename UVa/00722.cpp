@@ -39,9 +39,7 @@ int main()
         cin.ignore();
         while(getline(cin, s) && !s.empty()) 
             Map.push_back(s);
-        cout << bfs({x - 1, y -1}, Map);
-        if(n)
-            cout << "\n";
+        cout << bfs({x - 1, y -1}, Map) << "\n";
     }
     return 0;
 }
