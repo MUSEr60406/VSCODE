@@ -17,10 +17,14 @@ int main()
     cin >> n;
     while(n--)
     {
-        int d, i;
-        cin >> d >> i;
-        vector<bool> node((1 - pow(2,d)) / -1 + 1, false);
-        
+        int D, I;
+        cin >> D >> I;
+        vector<bool> node((1 - pow(2,D)) / -1 + 1, false);
+        for(int i = 1 ; i < I ; i++)
+        {
+            int pos = 1;
+            for(int j = 1 ; j <= D ; j++)
+                
     }
 
     return 0;
