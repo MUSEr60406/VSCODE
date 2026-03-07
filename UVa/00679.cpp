@@ -19,7 +19,7 @@ int main()
     {
         int d, i;
         cin >> d >> i;
-        vector<int> node((1 - pow(2,d)) / -1 + 1, false);
+        vector<bool> node((1 - pow(2,d)) / -1 + 1, false);
         
     }
 
