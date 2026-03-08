@@ -13,7 +13,17 @@ int main()
     {
         int decimal = 0, i = 0, j = 0;
         vector<int> number;
-        cout << "\n" << decimal;        
+        vector<int> temp(100, 0);
+        for(int i = 0 ; i < n.size() ; i++)
+        {
+            if(n[i] == '.')
+            {
+                decimal = n.size() - i - 1;
+                continue;
+            }
+            number.push_back(n[i] - '0');
+        }        
+
     }
 
     return 0;
