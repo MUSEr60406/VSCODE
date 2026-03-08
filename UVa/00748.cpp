@@ -23,7 +23,8 @@ int main()
             }
             number.push_back(n[i] - '0');
         }        
-
+        for(int i = 0 ; i < number.size() ; i++)
+            temp[i] = number[i];
     }
 
     return 0;
