@@ -14,7 +14,7 @@ int main()
         int decimal = 0, i = 0, j = 0;
         vector<int> number;
         vector<int> temp = {1};
-        for(int i = n.size() - 1 ;  >= 0 ; i--)
+        for(int i = n.size() - 1 ; i >= 0 ; i--)
         {
             if(n[i] == '.')
             {
