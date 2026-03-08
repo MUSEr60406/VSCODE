@@ -11,7 +11,10 @@ int main()
     while(getline(cin, s) && !s.empty())
     {
         int decimal = 0;
+        stringstream ss;
+        string number, power;
         vector<int> num(100, 0);
+        
     }
 
     return 0;
