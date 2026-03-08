@@ -19,6 +19,12 @@ int main()
             {
                 decimal = n.size() - i - 1;
                 i++;
+                number[i] = n[i];
+            }
+            else
+            {
+                number[i] = n[i];
+                i++;
             }
         }
         for(int &i : number)
