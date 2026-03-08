@@ -13,6 +13,7 @@ int main()
     {
         int decimal = 0, i = 0, j = 0;
         vector<int> number(100, 0);
+        cout << n.size() << "\n";
         while(i < n.size() || j < n.size())
         {
             if(n[j] == '.')
