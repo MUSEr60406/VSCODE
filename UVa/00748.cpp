@@ -13,7 +13,7 @@ int main()
     {
         int decimal = 0, i = 0, j = 0;
         vector<int> number;
-        vector<int> temp(100, 0);
+        vector<int> temp = {1};
         for(int i = 0 ; i < n.size() ; i++)
         {
             if(n[i] == '.')
@@ -23,16 +23,24 @@ int main()
             }
             number.push_back(n[i] - '0');
         }        
-        for(int i = 0 ; i < number.size() ; i++)
-            temp[i] = number[i];
-        
-        int tempSize = number.size();
-        for(int k = 0 ; k < power ; k++)
+        for(int k = 0; k < power; k++) 
         {
-            for(int i = 0 ; i < number.size() ; i++)
+            vector<int> next_temp(number.size() + temp.size() + 1, 0);
+
+            for(int i = 0; i < number.size(); i++) 
             {
-                for(int j = 0 ; j <  )
+                for(int j = 0; j < temp.size(); j++) 
+                {
+                    next_temp[i + j] += number[i] * temp[j];
+                    if (next_temp[i + j] >= 10) 
+                    {
+                        next_temp[i + j + 1] += next_temp[i + j] / 10;
+                        next_temp[i + j] %= 10;
+                    }
+                }
             }
+            while(next_temp.size() > 1 && next_temp.back() == 0) next_temp.pop_back();
+            temp = next_temp; 
         }
     }
 
