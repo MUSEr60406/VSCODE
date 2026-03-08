@@ -43,10 +43,8 @@ int main()
             temp = next_temp; 
         }
         for(int i = temp.size() - 1 ; i >= 0 ; i--)
-        {
-            cout << temp[i];
-        }
+            cout << (i == decimal * power - 1 ? "." : "") << temp[i];
+        cout << "\n";
     }
-
     return 0;
 }
