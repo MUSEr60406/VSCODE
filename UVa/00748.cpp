@@ -17,7 +17,7 @@ int main()
         {
             if(n[i] == '.')
             {
-                decimal = n.size() - i;
+                decimal = n.size() - i - 1;
                 continue;
             }
             number[i] = n[i] - '0';
