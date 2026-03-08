@@ -11,16 +11,14 @@ int main()
     int power;
     while(cin >> n >> power)
     {
-        int decimal = 0;
+        int decimal = 0, i = 0;
         vector<int> number(100, 0);
-        for(int i = 0 ; i < n.size() ; i++)
+        while(i < n.size())
         {
             if(n[i] == '.')
             {
                 decimal = n.size() - i - 1;
-                continue;
             }
-            number[i] = n[i] - '0';
         }
         for(int &i : number)
             cout << i << " ";
