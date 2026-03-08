@@ -26,7 +26,6 @@ int main()
         for(int k = 0; k < power; k++) 
         {
             vector<int> next_temp(number.size() + temp.size() + 1, 0);
-
             for(int i = 0; i < number.size(); i++) 
             {
                 for(int j = 0; j < temp.size(); j++) 
@@ -39,8 +38,13 @@ int main()
                     }
                 }
             }
-            while(next_temp.size() > 1 && next_temp.back() == 0) next_temp.pop_back();
+            while(next_temp.size() > 1 && next_temp.back() == 0) 
+                next_temp.pop_back();
             temp = next_temp; 
+        }
+        for(int i = temp.size() - 1 ; i >= 0 ; i--)
+        {
+            cout << temp[i];
         }
     }
 
