@@ -11,8 +11,9 @@ int main()
     while(getline(cin, s) && !s.empty())
     {
         int decimal = 0;
-        stringstream ss;
+        stringstream ss(s);
         string number, power;
+        while(ss >> number >> power)
         vector<int> num(100, 0);
         
     }
