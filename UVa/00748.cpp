@@ -14,7 +14,7 @@ int main()
         int decimal = 0, i = 0, j = 0;
         vector<int> number;
         vector<int> temp = {1};
-        for(int i = 0 ; i < n.size() ; i++)
+        for(int i = n.size() - 1 ;  >= 0 ; i--)
         {
             if(n[i] == '.')
             {
@@ -26,9 +26,9 @@ int main()
         for(int k = 0; k < power; k++) 
         {
             vector<int> next_temp(number.size() + temp.size() + 1, 0);
-            for(int i = 0; i < number.size(); i++) 
+            for(int i = 0 ; i < number.size() ; i++) 
             {
-                for(int j = 0; j < temp.size(); j++) 
+                for(int j = 0 ; j < temp.size() ; j++) 
                 {
                     next_temp[i + j] += number[i] * temp[j];
                     if (next_temp[i + j] >= 10) 
