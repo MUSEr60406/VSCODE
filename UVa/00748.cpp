@@ -18,6 +18,7 @@ int main()
             if(n[i] == '.')
             {
                 decimal = n.size() - i - 1;
+                i++;
             }
         }
         for(int &i : number)
