@@ -11,21 +11,17 @@ int main()
     int power;
     while(cin >> n >> power)
     {
-        int decimal = 0, i = 0;
+        int decimal = 0, i = 0, j = 0;
         vector<int> number(100, 0);
-        while(i < n.size())
+        while(i < n.size() || j < n.size())
         {
-            if(n[i] == '.')
+            if(n[j] == '.')
             {
-                decimal = n.size() - i - 1;
-                i++;
-                number[i] = n[i];
+                decimal = n.size() - j - 1;
+                j++;
             }
-            else
-            {
-                number[i] = n[i];
-                i++;
-            }
+            number[i] = n[j] - '0';
+            i++, j++;
         }
         for(int &i : number)
             cout << i << " ";
