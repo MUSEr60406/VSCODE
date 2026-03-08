@@ -15,6 +15,14 @@ int main()
         string number, power;
         while(ss >> number >> power)
         vector<int> num(100, 0);
+        for(int i = 0 ; i < number.size() ; i++)
+        {
+            if(s[i] == '.')
+            {
+                decimal = number.size() - i;
+                break;
+            }
+        }
         
     }
 
