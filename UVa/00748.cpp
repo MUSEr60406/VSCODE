@@ -42,7 +42,17 @@ int main()
                 next_temp.pop_back();
             temp = next_temp; 
         }
-        for(int i = temp.size() - 1 ; i >= 0 ; i--)
+        while(temp.size() < decimal * power) temp.push_back(0);
+
+        int left = temp.size() - 1;
+        while(left >= decimal * power && temp[left] == 0) 
+            left--;
+
+        int right = 0;
+        while(right < decimal * power && temp[right] == 0) 
+            right++;
+
+        for(int i = left; i >= right; i--) 
             cout << (i == decimal * power - 1 ? "." : "") << temp[i];
         cout << "\n";
     }
