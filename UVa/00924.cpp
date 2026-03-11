@@ -28,6 +28,7 @@ void bfs(int start)
         }
         day++;
     }
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -35,9 +36,11 @@ int main()
     fri.assign(E, {});
     for(int i = 0 ; i < E ; i++)
     {
-        int temp;
-        cin >> temp;
-        fri[i].push_back(temp);
+        int N;
+        cin >> N;
+        fri[i].assign(N, {});
+        for(int &j : fri[i])
+            cin >> j;
     }
     cin >> T;
     for(int i = 0 ; i < T ; i++)
