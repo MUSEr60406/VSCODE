@@ -17,6 +17,5 @@ int main()
 
     while(cin >> n && n != 0)
         cout << dp[n] << "\n";
-    cout << 111;
     return 0;
 }
