@@ -4,9 +4,10 @@
 #define ll long long
 using namespace std;
 vector<vector<int>> fri;
-vector<int> source;
+vector<pii> day_boom;
 int main()
 {
+    //input
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int E, T;
     cin >> E;
@@ -18,9 +19,7 @@ int main()
         fri[i].push_back(temp);
     }
     cin >> T;
-    source.assign(T,{});
-    for(int &i : source)
-        cin >> i;
+    for(int i = 0 ; i < T ; i++)
 
 
     return 0;
