@@ -39,7 +39,7 @@ void bfs(int start)
     int max = -1, day;
     for(auto &i : person_day)
         count[i.second]++;
-    for(int i = 0 ; i <= last_day ; i++)
+    for(int i = 1 ; i <= last_day ; i++)
     {
         if(count[i] > max)
         {
