@@ -6,16 +6,6 @@ using namespace std;
 
 vector<vector<int>> fri;
 int E, T;
-struct cnt
-{
-    int size, day;
-    bool operator <(const cnt& a, const cnt& b)
-    {
-        if(a.size == b.size)
-            return a.day < b.day;
-        return b.size < a.size
-    }
-};
 void bfs(int start)
 {
     int last_day = -1;
@@ -36,10 +26,11 @@ void bfs(int start)
             if(visited[v])
                 continue;
             person_day.insert({v, person_day[now] + 1});
+            q.push(v);
             visited[v] = true;
         }
     }
-    vector<cnt> count(last_day + 1);
+    
 
 }
 int main()
