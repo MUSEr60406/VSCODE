@@ -6,28 +6,41 @@ using namespace std;
 
 vector<vector<int>> fri;
 int E, T;
+struct cnt
+{
+    int size, day;
+    bool operator <(const cnt& a, const cnt& b)
+    {
+        if(a.size == b.size)
+            return a.day < b.day;
+        return b.size < a.size
+    }
+};
 void bfs(int start)
 {
-    int day = 0;
-    vector<pii> day_person;
+    int last_day = -1;
+    map<int,int> person_day;
     vector<bool> visited(E, false);
     queue<int> q;
-    day_person.push_back({day, start});
+    person_day.insert(start, 0);
     visited[start] = true;
     q.push(start);
     while(!q.empty())
     {
         int now = q.front();
+        if(last_day < person_day[now])
+            last_day = person_day[now];
         q.pop();
-        day++;
         for(int &v : fri[now])
         {
             if(visited[v])
                 continue;
-            day_person.push_back({day, v});
+            person_day.insert({v, person_day[now] + 1});
             visited[v] = true;
         }
     }
+    vector<cnt> count(last_day + 1);
+
 }
 int main()
 {
