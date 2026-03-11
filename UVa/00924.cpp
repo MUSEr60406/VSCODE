@@ -12,7 +12,7 @@ void bfs(int start)
     map<int,int> person_day;
     vector<bool> visited(E, false);
     queue<int> q;
-    person_day.insert(start, 0);
+    person_day.insert({start, 0});
     visited[start] = true;
     q.push(start);
     while(!q.empty())
@@ -30,8 +30,24 @@ void bfs(int start)
             visited[v] = true;
         }
     }
-    
-
+    if(person_day.size() == 1)
+    {
+        cout << "0\n";
+        return;
+    }
+    vector<int> count(last_day + 1, 0);
+    int max = -1, day;
+    for(auto &i : person_day)
+        count[i.second]++;
+    for(int i = 0 ; i <= last_day ; i++)
+    {
+        if(count[i] > max)
+        {
+            max = count[i];
+            day = i;
+        }
+    }
+    cout << max << " " << day << "\n";
 }
 int main()
 {
@@ -42,7 +58,7 @@ int main()
     {
         int N;
         cin >> N;
-        fri[i].assign(N, {});
+        fri[i].resize(N);
         for(int &j : fri[i])
             cin >> j;
     }
@@ -53,7 +69,5 @@ int main()
         cin >> source;
         bfs(source);
     }
-
-
     return 0;
 }
