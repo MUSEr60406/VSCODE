@@ -17,6 +17,5 @@ int main()
 
     while(cin >> n && n != 0)
         cout << dp[n] << "\n";
-    system("pause");
     return 0;
 }
