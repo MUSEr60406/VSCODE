@@ -10,15 +10,16 @@ void bfs(int start)
 {
     int day = 0;
     vector<pii> day_person;
-    day_person.push_back({day, start});
     vector<bool> visited(E, false);
     queue<int> q;
-    q.push(start);
+    day_person.push_back({day, start});
     visited[start] = true;
+    q.push(start);
     while(!q.empty())
     {
         int now = q.front();
         q.pop();
+        day++;
         for(int &v : fri[now])
         {
             if(visited[v])
@@ -26,7 +27,6 @@ void bfs(int start)
             day_person.push_back({day, v});
             visited[v] = true;
         }
-        day++;
     }
 }
 int main()
