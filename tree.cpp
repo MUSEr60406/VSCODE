@@ -3,13 +3,13 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-vector<vector<int>> edge(200001, vector<int>());
-vector<bool> dis(2000001, -1);
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n;
     cin >> n;
+    vector<vector<int>> edge(n + 1, vector<int>());
+    vector<int> dis(n + 1, -1);
     for(int i = 0 ; i < n - 1 ; i++)
     {
         int parent, child;
@@ -24,6 +24,13 @@ int main()
     {
         int now = q.front();
         q.pop();
+        for(int &v : edge[now])
+        {
+            if(dis[v] != -1)
+                continue;
+            dis[v] = dis[now] + 1;
+            q.push(v);
+        }
     }
 
     return 0;
