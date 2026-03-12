@@ -33,5 +33,33 @@ int main()
         }
     }
 
+    int u, max = -1;
+    for(int i = 1 ; i <= 5 ; i++)
+        if(dis[i] > max)
+            u = i;
+
+    dis.assign(n + 1, -1);
+    q.push(u);
+    dis[u] = 0;
+    while(!q.empty())
+    {
+        int now = q.front();
+        q.pop();
+        for(int &v : edge[now])
+        {
+            if(dis[v] != -1)
+                continue;
+            dis[v] = dis[now] + 1;
+            q.push(v);
+        }
+    }
+
+    int ans = -1;
+    for(int &d : dis)
+        if(d > ans)
+            ans = d;
+    
+    cout << ans << "\n";
+
     return 0;
 }
