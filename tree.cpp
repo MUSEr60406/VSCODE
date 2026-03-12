@@ -34,7 +34,7 @@ int main()
     }
 
     int u, max = -1;
-    for(int i = 1 ; i <= 5 ; i++)
+    for(int i = 1 ; i <= n ; i++)
         if(dis[i] > max)
             u = i;
 
@@ -55,9 +55,9 @@ int main()
     }
 
     int ans = -1;
-    for(int &d : dis)
-        if(d > ans)
-            ans = d;
+    for(int i = 1 ; i <= n ; i++)
+        if(ans < dis[i])
+            ans = dis[i];
     
     cout << ans << "\n";
 
