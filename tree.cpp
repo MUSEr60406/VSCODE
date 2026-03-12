@@ -35,8 +35,13 @@ int main()
 
     int u, max = -1;
     for(int i = 1 ; i <= n ; i++)
+    {
         if(dis[i] > max)
+        {
+            max = dis[i];
             u = i;
+        }
+    }
 
     dis.assign(n + 1, -1);
     q.push(u);
@@ -56,8 +61,10 @@ int main()
 
     int ans = -1;
     for(int i = 1 ; i <= n ; i++)
+    {
         if(ans < dis[i])
             ans = dis[i];
+    }
     
     cout << ans << "\n";
 
