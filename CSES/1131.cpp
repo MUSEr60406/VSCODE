@@ -12,10 +12,10 @@ int main()
     vector<int> dis(n + 1, -1);
     for(int i = 0 ; i < n - 1 ; i++)
     {
-        int parent, child;
-        cin >> parent >> child;
-        edge[parent].push_back(child);
-        edge[child].push_back(parent);
+        int a, b;
+        cin >> a >> b;
+        edge[a].push_back(b);
+        edge[b].push_back(a);
     }
     queue<int> q;
     q.push(1);
@@ -33,7 +33,7 @@ int main()
         }
     }
 
-    int u, max = -1;
+    int u, max = -1; //u代表距離節點1最遠的節點
     for(int i = 1 ; i <= n ; i++)
     {
         if(dis[i] > max)
