@@ -11,10 +11,13 @@ int main()
     cin >> n;
     while(n--)
     {
-        int s[500], r;
-        cin >> s;
-        for(int i = 0 ; i < s ; i++)
-            cin >> r[i];
+        int r;
+        vector<int> s(500, 0);
+        cin >> r;
+        for(int i = 0 ; i < r ; i++)
+            cin >> s[i];
+        sort(s.begin(), s.end());
+        
     }
 
     return 0;
