@@ -25,8 +25,11 @@ int main()
             }
         }
 
-        int mid = (r - 1 / 2);
-        
+        int mid = (r - 1) / 2, total_dis = 0;
+        for(int i = 0 ; i < r ; i++)
+            total_dis += abs(s[mid] - s[i]);
+
+        cout << total_dis << "\n";
     }
 
     return 0;
