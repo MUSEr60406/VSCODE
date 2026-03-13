@@ -24,6 +24,9 @@ int main()
                     swap(s[i], s[j]);
             }
         }
+
+        for(int i = 0 ; i < r ; i++)
+            cout << s[i] << " ";
         
     }
 
