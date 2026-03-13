@@ -11,7 +11,7 @@ int main()
     cin >> n;
     while(n--)
     {
-        int s, r[500];
+        int s[500], r;
         cin >> s;
         for(int i = 0 ; i < s ; i++)
             cin >> r[i];
