@@ -16,11 +16,12 @@ int main()
         for(int i = 0 ; i < r ; i++)
             cin >> s[i];
 
-        for(int i = 0 ; i < r ; i++)
+        for(int i = 0 ; i < r - 1 ; i++)
         {
-            for(int j = i ; j < r ; j++)
+            for(int j = i + 1 ; j < r ; j++)
             {
-                int temp;
+                if(s[j] < s[i])
+                    swap(s[i], s[j]);
             }
         }
         
