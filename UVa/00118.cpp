@@ -14,9 +14,13 @@ int main()
     while(cin >> r >> c >> x >> y >> D >> command)
     {
         bool map[51][51] = {false};
-        char move[4] = {'N', 'S', 'E', 'W'};    
-        int dx[4] = {0, 0, 1, -1} , dy[4] = {1, -1, 0, 0};
-    }
+        int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
+        //0 = n, 1 = e, 2 = s, 3 = w
+        for(int i = 0 ; i < command.size() ; i++) //simulate
+        {
+
+        }
+    }   
 
     return 0;
 }
