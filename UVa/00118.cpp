@@ -15,12 +15,20 @@ int main()
     {
         bool Map[51][51] = {false};
         int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
+        //0 = n, 1 = e, 2 = s, 3 = w
         map<char, int> f = {{'N',0}, {'E',1}, {'S',2}, {'W',3}};
         d = f[D];
-        //0 = n, 1 = e, 2 = s, 3 = w
         for(int i = 0 ; i < command.size() ; i++) //simulate
         {
-
+            if(command[i] == 'R')
+                d = (d + 1) % 4;
+            else if(command[i] == 'L')
+            {
+                d--;
+                if(d < 0)
+                    d = 3;
+            else
+                x += dx[d], y += dy[d];
         }
     }   
 
