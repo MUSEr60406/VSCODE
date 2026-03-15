@@ -39,7 +39,13 @@ int main()
                     if(Map[x][y])
                         continue;
                     Map[x][y] = true; //標記
-                    cout << x << " " << y << F[d] << "\n";
+                    cout << x << " " << y << F[d] << " LOST\n";
+                    break;
+                }
+                else
+                {
+                    x = nx;
+                    y = ny;
                 }
             }
         }
