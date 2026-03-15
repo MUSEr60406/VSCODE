@@ -8,7 +8,11 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int start_x, starty;
+    int r, c;
+    while(cin >> start_x >> start_y)
+    {
+
+    }
 
     return 0;
 }
