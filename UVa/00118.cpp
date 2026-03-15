@@ -10,11 +10,12 @@ int main()
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int r, c, x, y;
     char D;
+    bool Map[51][51] = {false};
     string command;
     cin >> r >> c;
     while(cin >> x >> y >> D >> command)
     {
-        bool Map[51][51] = {false}, lost = false;
+        bool lost = false;
         int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
         //0 = n, 1 = e, 2 = s, 3 = w
         map<char, int> f = {{'N',0}, {'E',1}, {'S',2}, {'W',3}};
