@@ -15,10 +15,10 @@ int main()
     cin >> r >> c;
     while(cin >> x >> y >> D >> command)
     {
-        bool lost = false;
+        bool lost = false; // lost = true 代表掉出邊界
         int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
         //0 = n, 1 = e, 2 = s, 3 = w
-        map<char, int> f = {{'N',0}, {'E',1}, {'S',2}, {'W',3}};
+        map<char, int> f = {{'N',0}, {'E',1}, {'S',2}, {'W',3}}; 
         char F[4] = {'N', 'E', 'S', 'W'};
         d = f[D];
         for(int i = 0 ; i < command.size() ; i++) //simulate
@@ -38,10 +38,10 @@ int main()
                 int nx = x + dx[d], ny = y + dy[d];
                 if(nx > r || nx < 0 || ny > c || ny < 0)
                 {
-                    if(Map[x][y])
+                    if(Map[x][y]) //越界但該點被標記則跳過此指令
                         continue;
                     Map[x][y] = true; //標記
-                    lost = true;
+                    lost = true; 
                     break;
                 }
                 else
@@ -56,6 +56,5 @@ int main()
         else
             cout << x << " " << y << " " << F[d] << " LOST\n";
     }   
-
     return 0;
 }
