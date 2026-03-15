@@ -11,7 +11,8 @@ int main()
     int r, c, x, y;
     char D;
     string command;
-    while(cin >> r >> c >> x >> y >> D >> command)
+    cin >> r >> c;
+    while(cin >> x >> y >> D >> command)
     {
         bool Map[51][51] = {false}, lost = false;
         int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
