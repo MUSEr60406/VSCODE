@@ -4,7 +4,7 @@
 #define ll long long
 #define pb push_back
 using namespace std;
-ll c[101][101];
+unsigned ll c[101][101];
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -22,6 +22,7 @@ int main()
                 c[i][j]  =c[i - 1][j - 1] + c[i - 1][j - 1];
         }
     }
+    int m, n;
 
     return 0;
 }
