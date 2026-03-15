@@ -52,7 +52,7 @@ int main()
         if(!lost)
             cout << x << " " << y << " " << F[d] << "\n";
         else
-            cout << x << " " << y << F[d] << " LOST\n";
+            cout << x << " " << y << " " << F[d] << " LOST\n";
     }   
 
     return 0;
