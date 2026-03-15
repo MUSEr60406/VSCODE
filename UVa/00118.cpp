@@ -32,8 +32,7 @@ int main()
             }
             else
             {
-                x += dx[d];
-                y += dy[d];
+                int nx = x + dx[d], ny = y + dy[d];
             }
         }
     }   
