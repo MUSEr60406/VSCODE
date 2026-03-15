@@ -13,7 +13,7 @@ int main()
     string command;
     while(cin >> r >> c >> x >> y >> D >> command)
     {
-        bool Map[51][51] = {false};
+        bool Map[51][51] = {false}, lost = false;
         int d, dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
         //0 = n, 1 = e, 2 = s, 3 = w
         map<char, int> f = {{'N',0}, {'E',1}, {'S',2}, {'W',3}};
@@ -39,7 +39,7 @@ int main()
                     if(Map[x][y])
                         continue;
                     Map[x][y] = true; //標記
-                    cout << x << " " << y << F[d] << " LOST\n";
+                    lost = true;
                     break;
                 }
                 else
@@ -49,6 +49,10 @@ int main()
                 }
             }
         }
+        if(lost == false)
+            cout << x << " " << y << " " << F[d] << "\n";
+        else
+            cout << x << " " << y << F[d] << " LOST\n";
     }   
 
     return 0;
