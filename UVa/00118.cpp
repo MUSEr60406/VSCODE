@@ -21,14 +21,20 @@ int main()
         for(int i = 0 ; i < command.size() ; i++) //simulate
         {
             if(command[i] == 'R')
+            {
                 d = (d + 1) % 4;
+            }
             else if(command[i] == 'L')
             {
                 d--;
                 if(d < 0)
                     d = 3;
+            }
             else
-                x += dx[d], y += dy[d];
+            {
+                x += dx[d];
+                y += dy[d];
+            }
         }
     }   
 
