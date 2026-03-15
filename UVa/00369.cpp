@@ -19,7 +19,7 @@ int main()
             else if(i < j)
                 c[i][j] = 0;
             else
-                c[i][j]  =c[i - 1][j - 1] + c[i - 1][j - 1];
+                c[i][j]  =c[i - 1][j - 1] + c[i - 1][j];
         }
     }
     int n, m;
