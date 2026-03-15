@@ -33,6 +33,10 @@ int main()
             else
             {
                 int nx = x + dx[d], ny = y + dy[d];
+                if(nx > r || nx < 0 || ny > c || ny < 0)
+                {
+                    Map[x][y] = true;
+                }
             }
         }
     }   
