@@ -17,11 +17,11 @@ int main()
             cin >> v[i];
         for(int i = 0 ; i < n ; i++)
         {
-            for(int j = i ; j < n ; j++)
+            for(int j = i ; j < n - i - 1 ; j++)
             {
-                if(v[j] < v[i])
+                if(v[j] > v[j + 1])
                 {
-                    swap(v[i], v[j]);
+                    swap(v[j + 1], v[j]);
                     cnt++;
                 }
             }
