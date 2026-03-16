@@ -19,6 +19,7 @@ void dfs(int u, int p)
         {
             children++;
             dfs(v, u);
+            low[u] = min(low[v], low[u]);
         }
     }
     
