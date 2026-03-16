@@ -52,7 +52,7 @@ int main()
         t = 0; //遍歷先後順序
         int ans = 0;
         d.assign(n + 1, 0); //0 = unvisited
-        low.assign(n + 1, 0); //low-link
+        low.assign(n + 1, 0); //low link value
         cut.assign(n + 1, false);
         for(int i = 1 ; i <= n ; i++)
             if(d[i] == 0)
@@ -62,6 +62,5 @@ int main()
                 ans++;
         cout << ans << "\n";
     }
-
     return 0;
 }
