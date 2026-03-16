@@ -27,10 +27,14 @@ int main()
                 g[v].push_back(u);
             }
         }
-        t = 0;
-        ids.assign(n + 1, 0);
+        t = 0; //遍歷先後順序
+        ids.assign(n + 1, 0); //0 = unvisited
         low.assign(n + 1, 0); //low-link
-        
+        for(int i = 1 ; i <= n ; i++)
+        {
+            if(ids[i] == 0)
+                tarjan(i);
+        }
     }
 
     return 0;
