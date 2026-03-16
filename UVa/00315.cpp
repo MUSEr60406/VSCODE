@@ -14,6 +14,15 @@ void tarjan(int start)
     st.push(start);
     instack[start] = true;
     ids[start] = low[start] = t++;
+    
+    for(int &v : g[start])
+    {
+        if(ids[v] == 0)
+            tarjan(v);
+        else if(instack[v])
+            low[start] = min(low[start], low[v]);
+        
+    }
 }
 int main()
 {
