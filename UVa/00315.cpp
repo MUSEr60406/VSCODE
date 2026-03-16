@@ -5,17 +5,21 @@
 using namespace std;
 int t, scc = 0;
 vector<vector<int>> g;
-vector<int> ids;
+vector<int> d;
 vector<int> low;
 vector<bool> cut;
 void dfs(int u, int p)
 {
-    ids[u] = low[u] = t++;
+    d[u] = low[u] = t++;
     int children = 0;
     
     for(int &v : g[u])
     {
-        
+        if(d[v] == 0)
+        {
+            children++;
+            dfs(v, u);
+        }
     }
     
     
@@ -41,11 +45,11 @@ int main()
             }
         }
         t = 0; //遍歷先後順序
-        ids.assign(n + 1, 0); //0 = unvisited
+        d.assign(n + 1, 0); //0 = unvisited
         low.assign(n + 1, 0); //low-link
         cut.assign(n + 1, false);
         for(int i = 1 ; i <= n ; i++)
-            if(ids[i] == 0)
+            if(d[i] == 0)
                 dfs(i, -1);
     }
 
