@@ -49,7 +49,7 @@ int main()
                 g[v].push_back(u);
             }
         }
-        t = 0; //遍歷先後順序
+        t = 1; //遍歷先後順序
         int ans = 0;
         d.assign(n + 1, 0); //0 = unvisited
         low.assign(n + 1, 0); //low link value
