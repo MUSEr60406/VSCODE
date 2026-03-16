@@ -22,9 +22,9 @@ void dfs(int u, int p)
             low[u] = min(low[v], low[u]);
             if(p != -1 && low[v] >= d[u])
                 cut[u] = true;
-            else
-                low[u] = min(low[u], d[v]);
         }
+        else
+            low[u] = min(low[u], d[v]); 
     }
     if(p == -1 && children > 1)
         cut[u] = true;
