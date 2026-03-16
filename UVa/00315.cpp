@@ -2,7 +2,6 @@
 #define pii pair<int,int>
 #define pll pair<long,long>
 #define ll long long
-#define pb push_back
 using namespace std;
 
 int main()
@@ -22,6 +21,11 @@ int main()
             stringstream ss(s);
             int u, v;
             ss >> u;
+            while(ss >> v)
+            {
+                g[u].push_back(v);
+                g[v].push_back(u);
+            }
         }
         
     }
