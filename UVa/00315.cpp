@@ -12,8 +12,16 @@ int main()
     while(cin >> n && n != 0)
     {
         int t = 0;
+        string s;
         vector<int> ids(n + 1, -1);
-        vector<int> low(n + 1);
+        vector<int> low(n + 1); //low-link
+        cin.ignore();
+        while(getline(cin, s))
+        {
+            if(s == '0')
+                break;
+        }
+        
     }
 
     return 0;
