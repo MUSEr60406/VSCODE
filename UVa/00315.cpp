@@ -7,12 +7,9 @@ int t, scc = 0;
 vector<vector<int>> g;
 vector<int> ids;
 vector<int> low;
-vector<bool> instack;
-stack <int> st;
+vector<bool> cut;
 void tarjan(int start)
 {
-    st.push(start);
-    instack[start] = true;
     ids[start] = low[start] = t++;
     
     for(int &v : g[start])
@@ -58,7 +55,7 @@ int main()
         t = 0; //遍歷先後順序
         ids.assign(n + 1, 0); //0 = unvisited
         low.assign(n + 1, 0); //low-link
-        instack.assign(n + 1, false);
+        cut.assign(n + 1, false);
         for(int i = 1 ; i <= n ; i++)
         {
             if(ids[i] == 0)
