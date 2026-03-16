@@ -20,6 +20,10 @@ void dfs(int u, int p)
             children++;
             dfs(v, u);
             low[u] = min(low[v], low[u]);
+            if(p != -1 && d[v] <= low[u])
+                cut[u] = true;
+            else
+                low[u] = min(low[u], d[v]);
         }
     }
     
