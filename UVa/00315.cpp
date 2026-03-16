@@ -12,7 +12,6 @@ void dfs(int u, int p)
 {
     d[u] = low[u] = t++;
     int children = 0;
-    
     for(int &v : g[u])
     {
         if(d[v] == 0)
