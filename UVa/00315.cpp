@@ -42,7 +42,7 @@ int main()
     while(cin >> n && n != 0)
     {
         string s;
-        g.resize(n + 1);
+        g.assign(n + 1, vector<int>());
         cin.ignore();
         while(getline(cin, s) && s != "0") 
         {
