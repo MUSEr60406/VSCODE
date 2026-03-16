@@ -17,18 +17,11 @@ int main()
         vector<int> ids(n + 1, -1);
         vector<int> low(n + 1); //low-link
         cin.ignore();
-        while(getline(cin, s))
+        while(getline(cin, s) && s != "0")
         {
-            if(s == "0")
-                break;
-            int now = s[0] - '0';
-            for(int i = 2 ; i < s.size() ; i++)
-            {
-                if(s[i] == ' ') 
-                    continue;
-                g[now].pb(s[i] - '0');
-                g[s[i] - '0'].pb(now);
-            }
+            stringstream ss(s);
+            int u, v;
+            ss >> u;
         }
         
     }
