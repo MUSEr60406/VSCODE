@@ -21,7 +21,18 @@ void tarjan(int start)
             tarjan(v);
         else if(instack[v])
             low[start] = min(low[start], low[v]);
-        
+    }
+    if(ids[start] == low[start])
+    {
+        scc++;
+        while(true)
+        {
+            int node = st.top();
+            st.pop();
+            instack[node] = false;
+            if(start == node)
+                break;
+        }
     }
 }
 int main()
