@@ -3,20 +3,20 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-
+int t;
+vector<vector<int>> g;
+vector<int> ids;
+vector<int> low;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n;
     while(cin >> n && n != 0)
     {
-        int t = 0;
         string s;
-        vector<vector<int>> g(n + 1);
-        vector<int> ids(n + 1, -1);
-        vector<int> low(n + 1); //low-link
+        g.resize(n + 1);
         cin.ignore();
-        while(getline(cin, s) && s != "0")
+        while(getline(cin, s) && s != "0") 
         {
             stringstream ss(s);
             int u, v;
@@ -27,6 +27,9 @@ int main()
                 g[v].push_back(u);
             }
         }
+        t = 0;
+        ids.assign(n + 1, 0);
+        low.assign(n + 1, 0); //low-link
         
     }
 
