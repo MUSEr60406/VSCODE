@@ -10,8 +10,14 @@ int main()
     string s; 
     while(getline(cin, s))
     {
-        string country = "";
-        map<string,int> country_cnt;
+        string country = ""; string s1 = "a", s2 = "bb";
+        map<string,int> country_cnt; 
+        for(int i = 0 ; i < s.size() ; i++) //"Spain Donna"
+        {
+            if(s[i] == ' ')
+                break;
+            country += s[i];
+        }
     }
     return 0;
 }
