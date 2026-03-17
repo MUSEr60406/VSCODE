@@ -7,18 +7,24 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    string s; 
-    while(getline(cin, s))
+    int n;
+    cin >> n;
+    while(n--)
     {
-        string country = ""; 
-        map<string,int> country_cnt; 
-        for(int i = 0 ; i < s.size() ; i++) //"Spain Donna"
+        cin.ignore();
+        string s; 
+        while(getline(cin, s))
         {
-            if(s[i] == ' ')
-                break;
-            country += s[i]; 
+            string country = ""; 
+            map<string,int> country_cnt; 
+            for(int i = 0 ; i < s.size() ; i++) //"Spain Donna"
+            {
+                if(s[i] == ' ')
+                    break;
+                country += s[i]; 
+            }
+            country_cnt[country]++; 
         }
-        country_cnt.find(country);
     }
     return 0;
 }
