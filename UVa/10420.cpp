@@ -25,8 +25,8 @@ int main()
             }
             country_cnt[country]++; 
         }
-        for(auto &it : country_cnt)
-            cout << it.first << " " << it.second;
+        for(auto &it : country_cnt) 
+            cout << it.first << " " << it.second << "\n";
     }
     return 0;
 }
