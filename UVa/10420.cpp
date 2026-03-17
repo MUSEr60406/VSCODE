@@ -17,7 +17,7 @@ int main()
         while(getline(cin, s))
         {
             string country = ""; 
-            for(int i = 0 ; i < s.size() ; i++) //"Spain Donna"
+            for(int i = 0 ; i < s.size() ; i++) 
             {
                 if(s[i] == ' ')
                     break;
