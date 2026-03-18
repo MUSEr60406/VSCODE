@@ -105,8 +105,8 @@ int main()
     set1.deleteElement(y);
     printLabeledSet("Set1 after delete: ", set1);
 
-    IntegerSet unionSet;
-    IntegerSet intersectionSet;
+    IntegerSet unionSet = set1.unionOfSets(set2);
+    IntegerSet intersectionSet = set1.intersectionOfSets(set2);
     printLabeledSet("Union: ", unionSet);
     printLabeledSet("Intersection: ", intersectionSet);
 
