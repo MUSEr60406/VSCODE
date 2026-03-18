@@ -30,18 +30,29 @@ public:
     {
         quantity = (qty > 0 ? qty : 0);
     }
-
     void setPricePerItem(int price) 
     {
         pricePerItem = (price > 0 ? price : 0);
     }
-    string getPartNumber() const { return partNumber; }
-    string getPartDescription() const { return partDescription; }
-    int getQuantity() const { return quantity; }
-    int getPricePerItem() const { return pricePerItem; }
-
-
-    int getInvoiceAmount() const {
+    //
+    string getPartNumber() const 
+    { 
+        return partNumber; 
+    }
+    string getPartDescription() const 
+    { 
+        return partDescription; 
+    }
+    int getQuantity() const 
+    { 
+        return quantity; 
+    }
+    int getPricePerItem() const 
+    { 
+        return pricePerItem; 
+    }
+    int getInvoiceAmount() const 
+    {
         return quantity * pricePerItem;
     }
 };
