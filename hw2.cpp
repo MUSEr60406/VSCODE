@@ -63,11 +63,18 @@ class IntegerSet
         }
         void print() const
         {
+            bool empty = true;
             for(int i = 0 ; i <= 100 ; i++)
             {
                 if(Set[i])
+                {
                     cout << i << " ";
+                    empty = false;
+                }
             }
+            if(empty)
+                cout << "---";
+            cout << "\n";
         }
 
 };
