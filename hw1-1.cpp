@@ -12,7 +12,8 @@ private:
     int pricePerItem;
 
 public:
-    Invoice(string pNum, string pDesc, int qty, int price) {
+    Invoice(string pNum, string pDesc, int qty, int price) 
+    {
         partNumber = pNum;
         partDescription = pDesc;
         setQuantity(qty);

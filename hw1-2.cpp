@@ -6,38 +6,40 @@ class Rectangle
 {
     private:
         double length = 1, width = 1;
-    Rectangle(double l, double w)
-    {
-        setL(l);
-        setW(w);
-    }
-    void setL(double l)
-    {
-        if(l > 0 && l < 20.0)
-            length = l;
-    }
-    void setW(double w)
-    {
-        if(w > 0 && w < 20.0)
-            width = w;
-    }
-    //
-    double getLength() const
-    {
-        return length;
-    }
-    double getWidth() const
-    {
-        return width;
-    }
-    double perimeter() const
-    {
-        return (length + width) * 2;
-    }
-    double area() const
-    {
-        return length * width;
-    }
+
+    public:
+        Rectangle(double l, double w)
+        {
+            setL(l);
+            setW(w);
+        }
+        void setL(double l)
+        {
+            if(l > 0 && l < 20.0)
+                length = l;
+        }
+        void setW(double w)
+        {
+            if(w > 0 && w < 20.0)
+                width = w;
+        }
+        //
+        double getLength() const
+        {
+            return length;
+        }
+        double getWidth() const
+        {
+            return width;
+        }
+        double perimeter() const
+        {
+            return (length + width) * 2;
+        }
+        double area() const
+        {
+            return length * width;
+        }
 };
 
 int main()
