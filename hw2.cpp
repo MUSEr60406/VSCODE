@@ -63,17 +63,12 @@ class IntegerSet
         }
         void print() const
         {
-            bool empty = true, first = true;
+            bool empty = true;
             for(int i = 0 ; i <= 100 ; i++)
             {
-                if(first)
-                {
-                    cout << " ";
-                    first = false;
-                }
                 if(Set[i])
                 {
-                    cout << i << " ";
+                    cout << " " << i;
                     empty = false;
                 }
             }
