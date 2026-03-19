@@ -81,9 +81,16 @@ int main()
             }
         }
         sort(dice.begin(), dice.end());
+        //
+        bool first = true;
         cout << "Throw " << ++cnt << "\n";
         for(int &i : dice)
-            cout << i << " ";
+        {
+            if(!first)
+                cout << " ";
+            first = false;
+            cout << i;
+        }
         cout << "\n";
     }
 
