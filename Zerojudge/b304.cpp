@@ -10,7 +10,7 @@ int main()
     string s;
     while(t--)
     {   
-        getline(cin,s);
+        getline(cin, s);
         if(s[0] == ' ')
         {
             cout  << "Yes\n";
