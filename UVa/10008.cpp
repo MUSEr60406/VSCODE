@@ -14,7 +14,7 @@ int main()
         {
             if(s[i] == ' ')
                 continue;
-            cout << s[i] << ": " << (int)s[i] << " "; 
+            cout << s[i] << ": " << (int)s[i] << ", "; 
         }
         cout << "\n";
     }
