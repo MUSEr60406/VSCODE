@@ -4,7 +4,7 @@
 #define ll long long
 using namespace std;
 vector<string> M;
-int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0}, w, h, X;
+int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0}, w, h;
 void bfsX(int startx, int starty)
 {
     queue<pii> q;
@@ -24,13 +24,15 @@ void bfsX(int startx, int starty)
             q.push({newx, newy});
         }
     }
-    X++;
-    
 }
-void bfs(int startx, int starty)
+int bfs(int startx, int starty)
 {
+    int X = 0;
     if(M[startx][starty] == 'X')
+    {
+        X++;
         bfsX(startx, starty);
+    }
     queue<pii> q;
     q.push({startx, starty});
     M[startx][starty] = '.';
@@ -45,11 +47,15 @@ void bfs(int startx, int starty)
                 continue;
             //
             if(M[newx][newy] == 'X')
+            {
+                X++;
                 bfsX(newx, newy);
+            }
             M[newx][newy] = '.';
             q.push({newx, newy});
         }
     }
+    return X;
 }
 int main()
 {
@@ -58,7 +64,6 @@ int main()
     vector<int> dice;
     while(cin >> w >> h && w != 0 && h != 0)
     {
-        X = 0;
         M.clear();
         dice.clear();
         for(int i = 0 ; i < h ; i++)
@@ -73,8 +78,7 @@ int main()
             {
                 if(M[i][j] != '.')
                 {
-                    bfs(i, j);
-                    dice.push_back(X);
+                    dice.push_back(bfs(i, j));
                 }
             }
         }
