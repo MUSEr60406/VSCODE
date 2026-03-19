@@ -69,11 +69,9 @@ class IntegerSet
                 if(Set[i])
                 {
                     if(!first)
-                    {
                         cout << " ";
-                        first = false;
-                    }
                     cout << i;
+                    first = false;
                     empty = false;
                 }
             }
