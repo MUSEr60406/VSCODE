@@ -34,10 +34,12 @@ int bfs(int startx, int starty)
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int cnt = 0;
     vector<int> dice;
     while(cin >> w >> h && w != 0 && h != 0)
     {
         M.clear();
+        dice.clear();
         for(int i = 0 ; i < h ; i++)
         {
             string s;
@@ -52,6 +54,11 @@ int main()
                     dice.push_back(bfs(i, j));
             }
         }
+        sort(dice.begin(), dice.end());
+        cout << "Throw " << ++cnt << "\n";
+        for(int &i : dice)
+            cout << i << " ";
+        cout << "\n";
     }
 
     return 0;
