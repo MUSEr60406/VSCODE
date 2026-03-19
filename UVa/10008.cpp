@@ -14,8 +14,9 @@ int main()
         {
             if(s[i] == ' ')
                 continue;
-            cout << s[i] << ": " << (int)'k' << "\n"; 
+            cout << s[i] << ": " << (int)s[i] << " "; 
         }
+        cout << "\n";
     }
 
     return 0;
