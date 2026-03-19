@@ -24,13 +24,14 @@ void bfsX(int startx, int starty)
             q.push({newx, newy});
         }
     }
+    X++;
     
 }
 int bfs(int startx, int starty)
 {
     int dice = 0;
     if(M[startx][starty] == 'X')
-    ;
+        bfs(startx, starty);
     queue<pii> q;
     q.push({startx, starty});
     M[startx][starty] = '.';
@@ -45,7 +46,7 @@ int bfs(int startx, int starty)
                 continue;
             //
             if(M[newx][newy] == 'X')
-                dice++;
+                bfsX(newx, newy);
             M[newx][newy] = '.';
             q.push({newx, newy});
         }
