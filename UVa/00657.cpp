@@ -31,7 +31,7 @@ int bfs(int startx, int starty)
 {
     int dice = 0;
     if(M[startx][starty] == 'X')
-        bfs(startx, starty);
+        bfsX(startx, starty);
     queue<pii> q;
     q.push({startx, starty});
     M[startx][starty] = '.';
