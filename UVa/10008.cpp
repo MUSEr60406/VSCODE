@@ -7,8 +7,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    cout << abs('h' - 'k');
-    cout << abs('[' - 'o');
+    cout << int('k');
 
     return 0;
 }
