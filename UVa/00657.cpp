@@ -93,7 +93,7 @@ int main()
             first = false;
             cout << i;
         }
-        cout << "\n";
+        cout << "\n\n";
     }
 
     return 0;
