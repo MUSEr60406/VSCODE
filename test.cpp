@@ -23,11 +23,11 @@ int main(){
         }
         else
         {
-            m = n / 2; // 0 1 2 3 4, n = 5
+            m = n / 2; //
             nm = s[m];
             a = 1;
         }
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) //
         {
             if(n % 2 == 0)
             {
@@ -41,9 +41,6 @@ int main(){
             }
         }
         cout << nm << " " << counts << " " << a << "\n";
-
     }
-
-return 0;
-
+    return 0;
 }
