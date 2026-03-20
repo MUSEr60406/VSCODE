@@ -24,11 +24,11 @@ int main(){
             m = (n + 1) / 2;
             nm = s[m-1];
         }
-              for (int i = 0; i <= m - 1; i++)
-             {
-                 if (s[i] == nm) counts++;
-             }
-             cout << nm << " " << counts;
+        for (int i = 0; i <= m - 1; i++)
+        {
+            if (s[i] == nm) counts++;
+        }
+        cout << nm << " " << counts;
 
     }
 
