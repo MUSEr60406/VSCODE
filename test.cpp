@@ -23,14 +23,18 @@ int main(){
         }
         else
         {
-            m = (n - 1) / 2;
+            m = (n - 1) / 2; 
             nm = s[m];
             a = 1;
         }
         for (int i = 0; i < n; i++)
         {
-            if (s[i] == nm) counts++;
-
+            if(n % 2 == 0)
+                if (s[i] == nm || s[i] == nm1) 
+                    counts++;
+            else
+                if(s[i] == nm)
+                    counts++;
         }
         cout << nm << " " << counts << " " << a << "\n";
 
