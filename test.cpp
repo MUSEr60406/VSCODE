@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include<algorithm>
 using namespace std;
 
@@ -12,8 +13,8 @@ int main(){
         {
             cin >> s[i];
         }
-        sort(s, s + n); //0 1 2 3 4    0 begin, 5 end
-        if (n %2 == 0 )
+        sort(s.begin(), s.end()); //0 1 2 3 4    0 begin, 5 end
+        if (n % 2 == 0 )
         {
              m = n / 2;
              nm = s[m-1];
