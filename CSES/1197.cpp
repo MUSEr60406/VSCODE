@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int n, m;
+    int n, m, last_node = -1;
     cin >> n >> m;
     vector<vector<pii>> MAP(n + 1);
     vector<int> dis(n + 1, 0);
@@ -19,15 +19,19 @@ int main()
         cin >> a >> b >> w;
         MAP[a].push_back({b, w});
     }
-    dis[1] = 0;
     for(int k = 0 ; k < n  ; k++)
     {
+        last_node = -1;
         for(int i = 1 ; i <= n ; i++)
         {
             for(auto &[v, w] : MAP[i])
             {
                 if(dis[i] + w < dis[v])
-                    dis[v] = dis[i] + w;        
+                {
+                    dis[v] = dis[i] + w;       
+                    parent[v] = i;
+                    last_node = v;
+                }    
             }
         }
     }
