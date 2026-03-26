@@ -19,7 +19,7 @@ int main()
         cin >> a >> b >> w;
         MAP[a].push_back({b, w});
     }
-    for(int k = 0 ; k < n  ; k++)
+    for(int k = 0 ; k < n ; k++)
     {
         last_node = -1;
         for(int i = 1 ; i <= n ; i++)
