@@ -21,11 +21,21 @@ void bfs()
         for(int i = 0 ; i < 4 ; i++)
         {
             int newx = x + dx[i], newy = y + dy[i];
-            if(newx < 0 || newx >= N || newy < 0 || newy >= N || dis[newx][newy] != -1 || c[tolower(g[newx][newy]) - 'a'] != g[newx][newy])
+            if(newx < 0 || newx >= N || newy < 0 || newy >= N || dis[newx][newy] != -1)
                 continue;
-            c[tolower(g[newx][newy]) - 'a'] = g[newx][newy];
-            dis[newx][newy] = dis[x][y] + 1;
-            q.push({newx, newy});
+            else if(c[tolower(g[newx][newy] - 'a') - 'a'] == '0')
+            {
+                c[tolower(g[newx][newy] - 'a') - 'a'] = g[newx][newy];
+                c[tolower(g[newx][newy]) - 'a'] = g[newx][newy];
+                dis[newx][newy] = dis[x][y] + 1;
+                q.push({newx, newy});
+            }
+            else
+            {
+                c[tolower(g[newx][newy]) - 'a'] = g[newx][newy];
+                dis[newx][newy] = dis[x][y] + 1;
+                q.push({newx, newy});
+            }
         }
     }
     cout << dis[N - 1][N - 1] << "\n";
@@ -35,8 +45,7 @@ int main()
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     while(cin >> N)
     {
-        c.clear();
-        c.resize(10);
+        c.assign(10, '0');
         g.clear();
         g.resize(N);
         dis.assign(N, vector<int>(N, -1));
