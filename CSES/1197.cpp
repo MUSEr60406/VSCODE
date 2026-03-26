@@ -46,6 +46,13 @@ int main()
         //
         vector<int> cycle;
         int temp = curr;
+        while(true)
+        {
+            cycle.push_back(temp);
+            if(curr == temp && cycle.size() > 1)
+                break;
+            temp = parent[temp];
+        }
     }
     return 0;
 }
