@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int n, m, last_node = -1;
+    int n, m, last_node;
     cin >> n >> m;
     vector<vector<pii>> MAP(n + 1);
     vector<int> dis(n + 1, 0);
@@ -34,6 +34,18 @@ int main()
                 }    
             }
         }
+    }
+    if(last_node == -1)
+        cout << "NO\n";
+    else
+    {
+        cout << "YES\n";
+        int curr = last_node;
+        for(int i = 0 ; i < n ; i++)
+            curr = parent[curr];
+        //
+        vector<int> cycle;
+        int temp = curr;
     }
     return 0;
 }
