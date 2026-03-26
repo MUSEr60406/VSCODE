@@ -56,9 +56,9 @@ int main()
         cout << "YES\n";
         for(int i = 0 ; i < Cycle.size(); i++)
         {
+            cout << Cycle[i] << " ";
             if(i > 0 && Cycle[i] == end)
                 break;
-            cout << Cycle[i] << " ";
         }
     }
     return 0;
