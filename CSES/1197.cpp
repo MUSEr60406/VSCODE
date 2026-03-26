@@ -12,7 +12,7 @@ int main()
     cin >> n >> m;
     vector<vector<pii>> MAP(n + 1);
     vector<int> dis(n + 1, INF);
-    vector<int> Cycle;
+    vector<int> cycle;
     vector<bool> visited(n + 1, false);
     for(int i = 0 ; i < m ; i++)
     {
@@ -41,25 +41,29 @@ int main()
                 if(dis[i] + w < dis[v] && dis[i] != INF)
                 {
                     dis[v] = dis[i] + w;  
-                    cout << i;
-                    Cycle.push_back(i);
+                    if(!visited[i])
+                    {
+                        cycle.push_back(i);
+                        visited[i] = true;
+                    }
                 }
             }
         }
     }
-    if(Cycle.empty())
+    if(cycle.empty())
         cout << "NO\n";
     else
     {
-        cout << Cycle.size() << "\n";
-        int end = Cycle[0];
+        cout << cycle.size() << "\n";
+        int end = cycle[0];
         cout << "YES\n";
-        for(int i = 0 ; i < Cycle.size(); i++)
+        for(int i = 0 ; i < cycle.size(); i++)
         {
-            cout << Cycle[i] << " ";
-            if(i > 0 && Cycle[i] == end)
+            cout << cycle[i] << " ";
+            if(i > 0 && cycle[i] == end)
                 break;
         }
+        cout << end;
     }
     return 0;
 }
