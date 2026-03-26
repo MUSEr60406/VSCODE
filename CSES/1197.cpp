@@ -40,11 +40,8 @@ int main()
             {
                 if(dis[i] + w < dis[v] && dis[i] != INF)
                 {
-                    if(visited[i] == false)
-                    {
-                        Cycle.push_back(i);
-                        visited[i] = true;
-                    }
+                    dis[v] = dis[i] + w;  
+                    Cycle.push_back(i);
                 }
             }
         }
