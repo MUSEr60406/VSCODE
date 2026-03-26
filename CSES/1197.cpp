@@ -2,7 +2,7 @@
 #define pii pair<int,int>
 #define pll pair<long,long>
 #define ll long long
-#define long long int
+#define int ll
 using namespace std;
 
 signed main()
@@ -10,7 +10,7 @@ signed main()
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n, m, last_node;
     cin >> n >> m;
-    vector<vector<pii>> MAP(n + 1);
+    vector<vector<pll>> MAP(n + 1);
     vector<int> dis(n + 1, 0);
     vector<int> parent(n + 1, -1);
     for(int i = 0 ; i < m ; i++)
