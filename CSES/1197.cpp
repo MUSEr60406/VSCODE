@@ -11,9 +11,8 @@ int main()
     int n, m;
     cin >> n >> m;
     vector<vector<pii>> MAP(n + 1);
-    vector<int> dis(n + 1, INF);
-    vector<int> cycle;
-    vector<bool> visited(n + 1, false);
+    vector<int> dis(n + 1, 0);
+    vector<int> parent(n + 1, -1);
     for(int i = 0 ; i < m ; i++)
     {
         int a, b, w;
@@ -21,49 +20,16 @@ int main()
         MAP[a].push_back({b, w});
     }
     dis[1] = 0;
-    for(int k = 0 ; k < n - 1 ; k++)
+    for(int k = 0 ; k < n  ; k++)
     {
         for(int i = 1 ; i <= n ; i++)
         {
             for(auto &[v, w] : MAP[i])
             {
-                if(dis[i] + w < dis[v] && dis[i] != INF)
+                if(dis[i] + w < dis[v])
                     dis[v] = dis[i] + w;        
             }
         }
-    }
-    for(int k = 0 ; k < n - 1 ; k++)
-    {
-        for(int i = 1 ; i <= n ; i++)
-        {
-            for(auto &[v, w] : MAP[i])
-            {
-                if(dis[i] + w < dis[v] && dis[i] != INF)
-                {
-                    dis[v] = dis[i] + w;  
-                    if(!visited[i])
-                    {
-                        cycle.push_back(i);
-                        visited[i] = true;
-                    }
-                }
-            }
-        }
-    }
-    if(cycle.empty())
-        cout << "NO\n";
-    else
-    {
-        cout << cycle.size() << "\n";
-        int end = cycle[0];
-        cout << "YES\n";
-        for(int i = 0 ; i < cycle.size(); i++)
-        {
-            cout << cycle[i] << " ";
-            if(i > 0 && cycle[i] == end)
-                break;
-        }
-        cout << end;
     }
     return 0;
 }
