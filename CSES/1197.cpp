@@ -2,27 +2,26 @@
 #define pii pair<int,int>
 #define pll pair<long,long>
 #define ll long long
-#define int ll
 using namespace std;
 
 signed main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int n, m, last_node;
+    ll n, m, last_node;
     cin >> n >> m;
     vector<vector<pll>> MAP(n + 1);
-    vector<int> dis(n + 1, 0);
-    vector<int> parent(n + 1, -1);
-    for(int i = 0 ; i < m ; i++)
+    vector<ll> dis(n + 1, 0);
+    vector<ll> parent(n + 1, -1);
+    for(ll i = 0 ; i < m ; i++)
     {
-        int a, b, w;
+        ll a, b, w;
         cin >> a >> b >> w;
         MAP[a].push_back({b, w});
     }
-    for(int k = 0 ; k < n ; k++)
+    for(ll k = 0 ; k < n ; k++)
     {
         last_node = -1;
-        for(int i = 1 ; i <= n ; i++)
+        for(ll i = 1 ; i <= n ; i++)
         {
             for(auto &[v, w] : MAP[i])
             {
@@ -40,12 +39,12 @@ signed main()
     else
     {
         cout << "YES\n";
-        int curr = last_node;
-        for(int i = 0 ; i < n ; i++)
+        ll curr = last_node;
+        for(ll i = 0 ; i < n ; i++)
             curr = parent[curr];
         //
-        vector<int> cycle;
-        int temp = curr;
+        vector<ll> cycle;
+        ll temp = curr;
         while(true)
         {
             cycle.push_back(temp);
@@ -53,7 +52,7 @@ signed main()
                 break;
             temp = parent[temp];
         }
-        for(int i = cycle.size() - 1 ; i >= 0 ; i--)
+        for(ll i = cycle.size() - 1 ; i >= 0 ; i--)
             cout << cycle[i] << " ";
     }
     return 0;
