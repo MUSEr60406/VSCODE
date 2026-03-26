@@ -53,6 +53,8 @@ int main()
                 break;
             temp = parent[temp];
         }
+        for(int i = cycle.size() - 1 ; i >= 0 ; i--)
+            cout << cycle[i] << " ";
     }
     return 0;
 }
