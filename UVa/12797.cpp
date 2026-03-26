@@ -6,8 +6,15 @@ using namespace std;
 vector<string> g;
 void bfs()
 {
+    int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
     queue<pii> q;
     q.push({0, 0});
+    while(!q.empty())
+    {
+        auto [x, y] = q.front();
+        q.pop();
+        
+    }
 }
 int main()
 {
