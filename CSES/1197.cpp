@@ -2,7 +2,7 @@
 #define pii pair<int,int>
 #define pll pair<long,long>
 #define ll long long
-#define INF 1e9
+#define long long int
 using namespace std;
 
 int main()
