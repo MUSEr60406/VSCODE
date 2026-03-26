@@ -26,7 +26,7 @@ int main()
             for(auto &[v, w] : MAP[i])
             {
                 if(dis[i] + w < dis[v])
-                    dis[v] = dis[i] + w;
+                dis[v] = dis[i] + w;        
             }
         }
     }
