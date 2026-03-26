@@ -28,10 +28,7 @@ int main()
             for(auto &[v, w] : MAP[i])
             {
                 if(dis[i] + w < dis[v] && dis[i] != INF)
-                {
                     dis[v] = dis[i] + w;        
-                    cout << i;
-                }
             }
         }
     }
@@ -44,6 +41,7 @@ int main()
                 if(dis[i] + w < dis[v] && dis[i] != INF)
                 {
                     dis[v] = dis[i] + w;  
+                    cout << i;
                     Cycle.push_back(i);
                 }
             }
