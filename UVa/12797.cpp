@@ -23,19 +23,13 @@ void bfs()
             int newx = x + dx[i], newy = y + dy[i];
             if(newx < 0 || newx >= N || newy < 0 || newy >= N || dis[newx][newy] != -1)
                 continue;
-            else if(c[tolower(g[newx][newy] - 'a') - 'a'] == '0')
-            {
-                c[tolower(g[newx][newy] - 'a') - 'a'] = g[newx][newy];
+            else if(c[tolower(g[newx][newy]) - 'a'] == '0')
                 c[tolower(g[newx][newy]) - 'a'] = g[newx][newy];
-                dis[newx][newy] = dis[x][y] + 1;
-                q.push({newx, newy});
-            }
-            else
-            {
-                c[tolower(g[newx][newy]) - 'a'] = g[newx][newy];
-                dis[newx][newy] = dis[x][y] + 1;
-                q.push({newx, newy});
-            }
+            //
+            if(c[tolower(g[newx][newy]) - 'a'] != g[newx][newy])
+                continue;
+            dis[newx][newy] = dis[x][y] + 1;
+            q.push({newx, newy});
         }
     }
     cout << dis[N - 1][N - 1] << "\n";
