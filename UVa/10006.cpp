@@ -45,10 +45,13 @@ int main()
             for(int i = 2 ; i <= n - 1 ; i++)
             {
                 if(biEx(i, n, n) % n != i)
+                {
                     car = false;
+                    break;
+                }
             }
             if(car)
-                cout << "The number " << n << " is a Carmichale number.\n";
+                cout << "The number " << n << " is a Carmichael number.\n";
             else
                 cout << n << " is normal.\n";
         }
