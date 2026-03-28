@@ -6,7 +6,7 @@ using namespace std;
 ll pow(int n, int p)
 {
     int temp = 1;
-    while(p--)
+    for(int i = 0 ; i < p ; i++)
         temp *= n;
     return temp;
 }
