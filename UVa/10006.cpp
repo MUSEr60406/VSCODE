@@ -19,7 +19,7 @@ ll biEx(ll base, ll p, ll mod)
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    vector<bool> isprime(true, 65001);
+    vector<bool> isprime(65001, true);
     vector<int> prime;
     for(int i = 2 ; i <= 65000 ; i++)
     {
@@ -48,9 +48,9 @@ int main()
                     car = false;
             }
             if(car)
-                cout << "The number " << n << "is a Carmichale number.\n";
+                cout << "The number " << n << " is a Carmichale number.\n";
             else
-                cout << n << "is normal.\n";
+                cout << n << " is normal.\n";
         }
     }
 
