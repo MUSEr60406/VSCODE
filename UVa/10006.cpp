@@ -36,13 +36,18 @@ int main()
             cout << n << " is normal.\n";
             continue;
         }
+        bool c = false;
         for(int i = 2 ; i <= n - 1 ; i++)
         {
             if(pow(i, n) % n == i && !isprime[n])
+            {
                 cout << "The number " << n << "is a Carmichael number.\n";
-            else
-                cout << n << " is normal.\n";
+                c = true;
+                break;
+            }
         }
+        if(!c)
+            cout << n << " is normal.\n";
     }
     return 0;
 }
