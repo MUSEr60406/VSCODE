@@ -41,12 +41,16 @@ int main()
             cout << n << " is normal.\n";
         else
         {
-            
+            bool car = true;
             for(int i = 2 ; i <= n - 1 ; i++)
             {
-                if(n % 2 == 0 && biEx(i, n, n) % n == i)
-                    cout << "The number " << n << " is a Carmichale number.\n";    
+                if(biEx(i, n, n) % n != i)
+                    car = false;
             }
+            if(car)
+                cout << "The number " << n << "is a Carmichale number.\n";
+            else
+                cout << n << "is normal.\n";
         }
     }
 
