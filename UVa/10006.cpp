@@ -3,17 +3,23 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-ll pow(int n, int p)
+ll biEx(ll base, ll p, ll mod)
 {
-    int temp = 1;
-    for(int i = 0 ; i < p ; i++)
-        temp *= n;
-    return temp;
+    ll res = 1;
+    base %= mod;
+    while(p > 0)
+    {
+        if(p & 1)
+         res = (res * base) % mod;
+         base = (base * base) % mod;
+         p >>= 1;
+    }
+    return res;
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    vector<bool> isprime(65001, true);
+    vector<bool> isprime(true, 65001);
     vector<int> prime;
     for(int i = 2 ; i <= 65000 ; i++)
     {
@@ -32,22 +38,17 @@ int main()
     while(cin >> n && n != 0)
     {
         if(isprime[n])
-        {
             cout << n << " is normal.\n";
-            continue;
-        }
-        bool c = false;
-        for(int i = 2 ; i <= n - 1 ; i++)
+        else
         {
-            if(pow(i, n) % n == i && !isprime[n])
+            
+            for(int i = 2 ; i <= n - 1 ; i++)
             {
-                cout << "The number " << n << "is a Carmichael number.\n";
-                c = true;
-                break;
+                if(n % 2 == 0 && biEx(i, n, n) % n == i)
+                    cout << "The number " << n << " is a Carmichale number.\n";    
             }
         }
-        if(!c)
-            cout << n << " is normal.\n";
     }
+
     return 0;
 }
