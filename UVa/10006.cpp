@@ -23,7 +23,7 @@ int main()
         {
             if(i * j > 65000)
                 break;
-            isprime[i * j] = true;
+            isprime[i * j] = false;
             if(i % j == 0)
                 break;
         }
