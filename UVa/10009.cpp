@@ -4,55 +4,44 @@
 #define ll long long
 using namespace std;
 vector<vector<int>> tree;
-vector<bool> visited;
-vector<int> parent;
-void bfs(int st, int en)
+vector<int> depth;
+vector<vector<int>> up(26, vector<int>(5));
+void dfs(int curr, int par, int d)
 {
-    visited.assign(26, false);
-    parent.assign(26, -1);
-    queue<int> q;
-    q.push(st);
-    visited[st] = 0;
-    while(!q.empty())
-    {
-        int cur = q.front();
-        q.pop();
-        for(int &v : tree[cur])
-        {
-            if(!visited[v])
-            {
-                visited[v] = true;
-                parent[v] = cur;
-            }
-        }
-    }
-
+    depth[curr] = d;
+    up[curr][0] = par;
+    for(int i = 1 ; i < 26 ; i++)
+        up[curr][i] = up[up[curr][i - 1]][i - 1];
+    for(int &v : tree[curr])
+        if(v != par)
+            dfs(v, par, depth[curr] + 1);
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int t;
-    cin.ignore();
     cin >> t;
     while(t--)
     {
-        int m, n;
-        cin >> m >> n;
         tree.clear();
-        tree.resize(m);
+        tree.resize(26);
+        depth.clear();
+        depth.resize(26);
+        up.assign(26, vector<int>(5, 0));
+        //
+        int m, n, root;
+        cin >> m >> n;
         for(int i = 0 ; i < m ; i++)
         {
-            string c1, c2;
-            cin >> c1 >> c2;
-            tree[c1[0] - 'A'].push_back(c2[0] - 'A');
-            tree[c2[0] - 'A'].push_back(c1[0] - 'A');
+            string a, b;
+            cin >> a >> b;
+            tree[a[0] - 'A'].push_back(b[0] - 'A');
+            tree[b[0] - 'A'].push_back(a[0] - 'A');
+            if(a == "Rome")
+                root = 'R' - 'A';
         }
-        for(int i = 0 ; i < n ; i++)
-        {
-            string st, en;
-            cin >> st >> en;
-            bfs(st[0] - 'A', en[0] - 'A');
-        }
+        dfs(root, root, 0); 
+        
     }
 
     return 0;
