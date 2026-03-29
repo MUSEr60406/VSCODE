@@ -5,12 +5,8 @@
 using namespace std;
 int m, n;
 vector<string> g;
-set<pii> Find;
-set<pii> notFind;
 pii f(string s)
 {
-    Find.clear();
-    notFind.clear();
     int dx[8] = {0, 1, 0, -1, 1, 1, -1, -1}, dy[8] = {1, 0, -1, 0, 1, -1, 1, -1};
     for(int i = 0 ; i < m ; i++)
     {
@@ -32,17 +28,11 @@ pii f(string s)
                         }
                     }
                     if(match)
-                        notFind.insert({i, j});
-                    else
-                        Find.insert({i, j});
+                        return {i, j};
                 }
             }
         }
     }
-    if(!Find.empty())
-        return *Find.begin();
-    else
-        return *notFind.begin();
 }
 int main()
 {
