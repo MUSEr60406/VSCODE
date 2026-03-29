@@ -16,6 +16,24 @@ void dfs(int curr, int par, int d)
         if(v != par)
             dfs(v, par, depth[curr] + 1);
 }
+int LCA(int u, int v)
+{
+    if(depth[u] < depth[v])
+        swap(u, v);
+    for(int i = 3 ; i >= 0 ; i--)
+    {
+        if(depth[up[u][i]] >= depth[v])
+            u = up[u][i];
+    }
+    if(u == v)  //代表u是v的子節點
+        return u;
+    for(int i = 3 ; i >= 0 ; i--)
+    {
+        if(up[u][i] == up[v][i])
+            return up[u][i];
+        u = up[u][i], v = up[v][i];
+    }
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -40,8 +58,14 @@ int main()
             if(a == "Rome")
                 root = 'R' - 'A';
         }
-        dfs(root, root, 0); 
-        
+        dfs(root, root, 0); //預處理
+        //
+        for(int i = 0 ; i < n ; i++)
+        {
+            string a, b;
+            cin >> a >> b;
+            int lca = LCA(a[0] - 'A', b[0] - 'A');
+        }
     }
 
     return 0;
