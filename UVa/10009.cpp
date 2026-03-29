@@ -65,7 +65,26 @@ int main()
             string a, b;
             cin >> a >> b;
             int lca = LCA(a[0] - 'A', b[0] - 'A');
+            //
+            string p1 = "", p2 = "";
+            int curr = a[0] - 'A';
+            while(curr != lca)
+            {
+                p1 += curr + 'A';
+                curr = up[curr][0];
+            }
+            curr = b[0] - 'A';
+            while(curr != lca)
+            {
+                p2 += curr + 'A';
+                curr = up[curr][0];
+            }
+            reverse(p2.begin(), p2.end());
+            string ans = p1 + to_string(lca) + p2;
+            cout << ans << "\n";
         }
+        if(t)
+            cout << "\n";
     }
 
     return 0;
