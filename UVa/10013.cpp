@@ -12,7 +12,7 @@ int main()
     while(t--)
     {
         cin >> m;
-        string s1 = "", s2 = "";
+        string s1 = "", s2 = "", res = "";
         char a, b;
         for(int i = 0 ; i < m ; i++)
         {
@@ -22,17 +22,18 @@ int main()
         }
         reverse(s1.begin(), s1.end());
         reverse(s2.begin(), s2.end());
-        for(int i = 0 ; i < m - 1 ; i++)
+        int carry = 0;
+        for(int i = 0 ; i < m ; i++)
         {
             int n1 = s1[i] - '0', n2 = s2[i] - '0';
-            int temp = n1 + n2;
-            int carry = temp / 10;
-            s1[i + 1] += 0 + (s1[i + 1] - '0' + carry);
+            int sum = n1 + n2 + carry;
+            res += (sum % 10 + '0');
+            carry = sum / 10;
         }
-        reverse(s1.begin(), s1.end());
-        cout << s1 << "\n";
+        reverse(res.begin(), res.end());
+        cout << res << "\n";
         if(t)
-            cout << "\n";
+            cout << t;
     }
 
     return 0;
