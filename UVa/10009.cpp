@@ -4,13 +4,28 @@
 #define ll long long
 using namespace std;
 vector<vector<int>> tree;
-vector<int> path;
+vector<bool> visited;
 vector<int> parent;
 void bfs(int st, int en)
 {
+    visited.assign(26, false);
+    parent.assign(26, -1);
     queue<int> q;
     q.push(st);
-    path[st] = 0;
+    visited[st] = 0;
+    while(!q.empty())
+    {
+        int cur = q.front();
+        q.pop();
+        for(int &v : tree[cur])
+        {
+            if(!visited[v])
+            {
+                visited[v] = true;
+                parent[v] = cur;
+            }
+        }
+    }
 
 }
 int main()
@@ -34,8 +49,6 @@ int main()
         }
         for(int i = 0 ; i < n ; i++)
         {
-            path.assign(26, -1);
-            parent.assign(26, -1);
             string st, en;
             cin >> st >> en;
             bfs(st[0] - 'A', en[0] - 'A');
