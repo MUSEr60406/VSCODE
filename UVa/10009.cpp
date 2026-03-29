@@ -17,6 +17,12 @@ int main()
         cin >> m >> n;
         par.assign(26, -1);
         path.assign(26, -1);
+        for(int i = 0 ; i < m ; i++)
+        {
+            string c1, c2;
+            cin >> c1 >> c2;
+            par[c2[0] - 'A'] = c1[0] - 'A';
+        }
     }
 
     return 0;
