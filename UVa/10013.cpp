@@ -30,10 +30,12 @@ int main()
             res += (sum % 10 + '0');
             carry = sum / 10;
         }
+        if(carry) 
+            res += (carry + '0');
         reverse(res.begin(), res.end());
         cout << res << "\n";
         if(t)
-            cout << t;
+            cout << "\n";
     }
 
     return 0;
