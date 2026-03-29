@@ -11,7 +11,6 @@ pii f(string s)
 {
     Find.clear();
     notFind.clear();
-    int len = s.size();
     int dx[8] = {0, 1, 0, -1, 1, 1, -1, -1}, dy[8] = {1, 0, -1, 0, 1, -1, 1, -1};
     for(int i = 0 ; i < m ; i++)
     {
@@ -19,21 +18,20 @@ pii f(string s)
         {
             if(g[i][j] == s[0])
             {
-                bool fail = false;
-                int x = i, y = j;
                 for(int k = 0 ; k < 8 ; k++)
                 {
-                    for(int l = 0 ; l < len ; l++)
+                    bool match = true;
+                    int x = i, y = j;
+                    for(int l = 1 ; l < s.size() ; l++)
                     {
-                        int newx = x + dx[k], newy = y + dy[k];
-                        if(newx < 0 || newx >= m || newy > 0 || newy >= n || g[newx][newy] != s[l])
+                        x += dx[k], y += dy[k];
+                        if(x < 0 || x >= m || y < 0 || y >= n || g[x][y] != s[l])
                         {
-                            fail = true;
-                            break;
+                           match = false;
+                           break;
                         }
-                        x = newx, y = newy;
                     }
-                    if(fail)
+                    if(match)
                         notFind.insert({i, j});
                     else
                         Find.insert({i, j});
@@ -74,7 +72,7 @@ int main()
             ans.push_back(f(s));
         }
         for(auto &[x, y] : ans)
-            cout << x << " " << y << "\n";
+            cout << x + 1 << " " << y + 1 << "\n";
         if(t)
             cout << "\n";
     }
