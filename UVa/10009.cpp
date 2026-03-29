@@ -10,24 +10,24 @@ void dfs(int curr, int par, int d)
 {
     depth[curr] = d;
     up[curr][0] = par;
-    for(int i = 1 ; i < 26 ; i++)
+    for(int i = 1 ; i < 5 ; i++)
         up[curr][i] = up[up[curr][i - 1]][i - 1];
     for(int &v : tree[curr])
         if(v != par)
-            dfs(v, par, depth[curr] + 1);
+            dfs(v, curr, depth[curr] + 1);
 }
 int LCA(int u, int v)
 {
     if(depth[u] < depth[v])
         swap(u, v);
-    for(int i = 3 ; i >= 0 ; i--)
+    for(int i = 4 ; i >= 0 ; i--)
     {
         if(depth[up[u][i]] >= depth[v])
             u = up[u][i];
     }
     if(u == v)  //代表u是v的子節點
         return u;
-    for(int i = 3 ; i >= 0 ; i--)
+    for(int i = 4 ; i >= 0 ; i--)
     {
         if(up[u][i] == up[v][i])
             return up[u][i];
@@ -80,7 +80,7 @@ int main()
                 curr = up[curr][0];
             }
             reverse(p2.begin(), p2.end());
-            string ans = p1 + to_string(lca) + p2;
+            string ans = p1 + (char)(lca + 'A') + p2;
             cout << ans << "\n";
         }
         if(t)
