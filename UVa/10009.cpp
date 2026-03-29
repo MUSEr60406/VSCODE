@@ -29,10 +29,13 @@ int LCA(int u, int v)
         return u;
     for(int i = 4 ; i >= 0 ; i--)
     {
-        if(up[u][i] == up[v][i])
-            return up[u][i];
-        u = up[u][i], v = up[v][i];
+        if(up[u][i] != up[v][i])
+        {
+            u = up[u][i];
+            v = up[v][i];
+        }
     }
+    return up[u][0];
 }
 int main()
 {
