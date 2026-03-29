@@ -3,7 +3,43 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
+int m, n;
 vector<string> g;
+set<pii> Find;
+set<pii> notFind;
+pii bfs(string s)
+{
+    Find.clear();
+    notFind.clear();
+    int len = s.size();
+    int dx[8] = {0, 1, 0, -1, 1, 1, -1, -1}, dy[8] = {1, 0, -1, 0, 1, -1, 1, -1};
+    for(int i = 0 ; i < m ; i++)
+    {
+        for(int j = 0 ; j < n ; j++)
+        {
+            if(g[i][j] == s[0])
+            {
+                bool fail = false;
+                int x = i, y = j;
+                for(int k = 0 ; k < 8 ; k++)
+                {
+                    for(int l = 0 ; l < len ; l++)
+                    {
+                        int newx = x + dx[k], newy = y + dy[k];
+                        if(newx < 0 || newx >= m || newy > 0 || newy >= n || g[newx][newy] != s[l])
+                        {
+                            fail = true;
+                            break;
+                        }
+                        x = newx, y = newy;
+                    }
+                    if(fail)
+                        notFind.insert({})
+                }
+            }
+        }
+    }
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -11,7 +47,6 @@ int main()
     cin >> t;
     while(t--)
     {
-        int m, n;
         cin >> m >> n;
         g.clear();
         g.resize(m);  
@@ -29,6 +64,7 @@ int main()
             cin >> s;
             for(char &c : s)
                 c = tolower(c);
+            auto [x, y] = bfs(s);
         }
     }
 
