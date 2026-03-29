@@ -3,8 +3,10 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-vector<int> par;
+vector<vector<int>> tree;
 vector<int> path;
+vector<int> parent;
+vector<pii> test_case;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -15,13 +17,16 @@ int main()
     {
         int m, n;
         cin >> m >> n;
-        par.assign(26, -1);
+        tree.clear();
+        tree.resize(m);
         path.assign(26, -1);
+        parent.assign(26, -1);
+        test_case.clear();
         for(int i = 0 ; i < m ; i++)
         {
             string c1, c2;
             cin >> c1 >> c2;
-            par[c2[0] - 'A'] = c1[0] - 'A';
+            
         }
     }
 
