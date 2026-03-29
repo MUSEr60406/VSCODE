@@ -7,7 +7,7 @@ int m, n;
 vector<string> g;
 set<pii> Find;
 set<pii> notFind;
-pii bfs(string s)
+pii f(string s)
 {
     Find.clear();
     notFind.clear();
@@ -34,11 +34,17 @@ pii bfs(string s)
                         x = newx, y = newy;
                     }
                     if(fail)
-                        notFind.insert({})
+                        notFind.insert({i, j});
+                    else
+                        Find.insert({i, j});
                 }
             }
         }
     }
+    if(!Find.empty())
+        return *Find.begin();
+    else
+        return *notFind.begin();
 }
 int main()
 {
@@ -57,6 +63,7 @@ int main()
                 c = tolower(c);
         }
         int k;
+        vector<pii> ans;
         cin >> k;
         for(int i = 0 ; i < k ; i++)
         {
@@ -64,8 +71,12 @@ int main()
             cin >> s;
             for(char &c : s)
                 c = tolower(c);
-            auto [x, y] = bfs(s);
+            ans.push_back(f(s));
         }
+        for(auto &[x, y] : ans)
+            cout << x << " " << y << "\n";
+        if(t)
+            cout << "\n";
     }
 
     return 0;
