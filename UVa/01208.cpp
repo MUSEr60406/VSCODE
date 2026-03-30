@@ -3,6 +3,16 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
+int t, n, par[26];
+struct edge
+{
+    int u, v, w;
+    bool operator<(const edge &t) const
+    {
+        return w < t.w;
+    }
+};
+vector<edge> g;
 int read()
 {
     int num = 0;
@@ -18,23 +28,25 @@ int read()
     }
     return num;
 }
+void kruskal()
+{
+
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    vector<tuple<int, int, int>> e;
-    int t, n, g[26][26];
+    memest(par, 0, sizeof(par));
     cin >> t;
     while(t--)
     {
-        memset(g, 0, sizeof(g));
+        g.clear();
         cin >> n;
         for(int i = 0 ; i < n ; i++)
         {
             for(int j = 0 ; j < n ; j++)
             {
-                g[i][j] = read();
-                if(g[i][j] > 0)
-                    e.push_back(g[i][j], i, j);
+                int w = read();
+                g.push_back({i, j, w});
             }
         }
     }
