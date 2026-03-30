@@ -46,32 +46,47 @@ int find(int x)
 {
     if(par[x] == x)
         return x;
-    return par[x] = find(par[x]);
+    return par[x] = find(par[x]); //路徑壓縮
 }
 void kruskal()
 {
     sort(g.begin(), g.end(), cmp);
     for(int i = 0 ; i < n ; i++)
         par[i] = i;
+    for(int i = 0 ; i < g.size() ; i++)
+    {
+        int x = find(g[i].u), y = find(g[i].v);
+        if(x != y)
+        {
+            par[x] = y;
+            ans.push_back({g[i].u, g[i].v, g[i].w});
+        }
+    }
+    sort(ans.begin(), ans.end(), ANS);
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    memset(par,0,sizeof(par));
+    int Case = 1;
     cin >> t;
     while(t--)
     {
         g.clear();
+        memset(par,0,sizeof(par));
         cin >> n;
         for(int i = 0 ; i < n ; i++)
         {
             for(int j = 0 ; j < n ; j++)
             {
                 int w = read();
-                g.push_back({i, j, w});
+                if(w > 0)
+                    g.push_back({i, j, w});
             }
         }
-
+        kruskal();
+        cout << "Case " << Case << ":\n";
+        for(edge &i : ans)
+            cout << (char)(i.w + 'A') << "-" << (char)(i.v + 'A') << " " << i.w << "\n";
     }
 
     return 0;
