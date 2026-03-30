@@ -80,12 +80,12 @@ int main()
             for(int j = 0 ; j < n ; j++)
             {
                 int w = read();
-                if(w > 0 && j > i)
+                if(w > 0)
                     g.push_back({i, j, w});
             }
         }
         kruskal();
-        cout << "Case " << Case << ":\n";
+        cout << "Case " << Case++ << ":\n";
         for(edge &i : ans)
             cout << (char)(i.u + 'A') << "-" << (char)(i.v + 'A') << " " << i.w << "\n";
     }
