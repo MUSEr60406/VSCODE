@@ -15,7 +15,7 @@ bool ANS(edge a, edge b)
 {
     if(a.w == b.w)
     {
-        if(a.u == b.w)
+        if(a.u == b.u)
             return a.v < b.v;
         else
             return a.u < b.u;
@@ -80,7 +80,7 @@ int main()
             for(int j = 0 ; j < n ; j++)
             {
                 int w = read();
-                if(w > 0)
+                if(w > 0 && j > i)
                     g.push_back({i, j, w});
             }
         }
