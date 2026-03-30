@@ -86,7 +86,7 @@ int main()
         kruskal();
         cout << "Case " << Case << ":\n";
         for(edge &i : ans)
-            cout << (char)(i.w + 'A') << "-" << (char)(i.v + 'A') << " " << i.w << "\n";
+            cout << (i.w + 'A') << "-" << (i.v + 'A') << " " << i.w << "\n";
     }
 
     return 0;
