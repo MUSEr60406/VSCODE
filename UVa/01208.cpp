@@ -21,6 +21,7 @@ int read()
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    vector<tuple<int, int, int>> e;
     int t, n, g[26][26];
     cin >> t;
     while(t--)
@@ -32,6 +33,8 @@ int main()
             for(int j = 0 ; j < n ; j++)
             {
                 g[i][j] = read();
+                if(g[i][j] > 0)
+                    e.push_back(g[i][j], i, j);
             }
         }
     }
