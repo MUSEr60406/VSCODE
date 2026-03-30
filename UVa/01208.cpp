@@ -3,16 +3,30 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-int t, n, par[26];
 struct edge
 {
     int u, v, w;
-    bool operator<(const edge &t) const
-    {
-        return w < t.w;
-    }
 };
+bool cmp(edge a, edge b)
+{
+    return a.w < b.w;
+}
+bool ANS(edge a, edge b)
+{
+    if(a.w == b.w)
+    {
+        if(a.u == b.w)
+            return a.v < b.v;
+        else
+            return a.u < b.u;
+    }
+    else
+        return a.w < b.w;
+        
+}
+int t, n, par[26];
 vector<edge> g;
+vector<edge> ans;
 int read()
 {
     int num = 0;
@@ -28,14 +42,22 @@ int read()
     }
     return num;
 }
+int find(int x)
+{
+    if(par[x] == x)
+        return x;
+    return par[x] = find(par[x]);
+}
 void kruskal()
 {
-
+    sort(g.begin(), g.end(), cmp);
+    for(int i = 0 ; i < n ; i++)
+        par[i] = i;
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    memest(par, 0, sizeof(par));
+    memset(par,0,sizeof(par));
     cin >> t;
     while(t--)
     {
@@ -49,6 +71,7 @@ int main()
                 g.push_back({i, j, w});
             }
         }
+
     }
 
     return 0;
