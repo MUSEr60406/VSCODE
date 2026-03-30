@@ -68,12 +68,13 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int Case = 1;
-    cin >> t;
+    t = read();
     while(t--)
     {
         g.clear();
+        ans.clear();
         memset(par,0,sizeof(par));
-        cin >> n;
+        n = read();
         for(int i = 0 ; i < n ; i++)
         {
             for(int j = 0 ; j < n ; j++)
@@ -86,7 +87,7 @@ int main()
         kruskal();
         cout << "Case " << Case << ":\n";
         for(edge &i : ans)
-            cout << (i.w + 'A') << "-" << (i.v + 'A') << " " << i.w << "\n";
+            cout << (char)(i.u + 'A') << "-" << (char)(i.v + 'A') << " " << i.w << "\n";
     }
 
     return 0;
