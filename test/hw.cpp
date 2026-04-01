@@ -29,7 +29,7 @@ public:
 
     bool operator!=(const Complex &other) const
     {
-        return *this != other;
+        return !(*this != other);
     }
 
     friend istream &operator>>(istream &in, Complex &c)
@@ -42,10 +42,10 @@ public:
    {
         out << c.real;
         double i = abs(c.imaginary);
-        cout << (c.imaginary >= 0 ? " + " : " - ") << i << "i";
+        out << (c.imaginary >= 0 ? " + " : " - ") << i << "i";
         return out;
     }
-}
+};
 
 int main()
 {
