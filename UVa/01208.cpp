@@ -30,11 +30,13 @@ vector<edge> ans;
 int read()
 {
     int num = 0;
-    char c  = getchar();
+    char c = 0;
     while(c != EOF && (c < '0' || c > '9'))
         c = getchar();
+
     while(c == EOF)
         return -1;
+        
     while(c >= '0' && c <= '9')
     {
         num = num * 10 + (c - '0');
@@ -51,7 +53,7 @@ int find(int x)
 void kruskal()
 {
     sort(g.begin(), g.end(), cmp);
-    for(int i = 0 ; i < n ; i++)
+    for(int i = 0 ; i < 26 ; i++)
         par[i] = i;
     for(int i = 0 ; i < g.size() ; i++)
     {
@@ -80,7 +82,7 @@ int main()
             for(int j = 0 ; j < n ; j++)
             {
                 int w = read();
-                if(w > 0)
+                if(w > 0 && i < j)
                     g.push_back({i, j, w});
             }
         }
