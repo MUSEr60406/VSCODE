@@ -9,3 +9,5 @@
 
 # 4. (建議) 不要忽略 .gitignore 自己，不然你會找不到地方改設定
 !.gitignore
+
+*/test
