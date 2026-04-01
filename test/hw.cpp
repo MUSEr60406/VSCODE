@@ -29,7 +29,7 @@ public:
 
     bool operator!=(const Complex &other) const
     {
-        return !(*this != other);
+        return !(*this == other);
     }
 
     friend istream &operator>>(istream &in, Complex &c)

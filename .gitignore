@@ -9,7 +9,3 @@
 
 # 4. 不要忽略 .gitignore 自己
 !.gitignore
-
-# 5. 【關鍵】排除特定的 test 資料夾
-# 這樣 test 裡面的 .cpp 就不會被同步了
-test/
