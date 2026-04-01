@@ -18,7 +18,7 @@ public:
         return
         {
             real * other.real - imaginary * other.imaginary,
-            real * other.imaginary + imaginary + other.real
+            real * other.imaginary + imaginary * other.real
         };
     }
 
