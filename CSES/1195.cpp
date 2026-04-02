@@ -28,6 +28,7 @@ void dijkstra()
             }
         }
     }
+    cout << cost[n] - max / 2 << "\n";
 }
 int main()
 {
