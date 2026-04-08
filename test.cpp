@@ -38,8 +38,8 @@ public:
         return in;
     }
 
-   friend ostream &operator<<(ostream &out, const Complex &c)
-   {
+    friend ostream &operator<<(ostream &out, const Complex &c)
+    {
         out << c.real;
         double i = abs(c.imaginary);
         out << (c.imaginary >= 0 ? " + " : " - ") << i << "i";

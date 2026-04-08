@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int n, INF = INT_MAX / 2;
+    int n, INF = 0x3f;
     while(cin >> n)
     {
         int adj[105][105];
