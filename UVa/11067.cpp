@@ -10,20 +10,25 @@ int main()
     int w, h;
     while(cin >> w >> h && w != 0 && h != 0)
     {
-        vector<vector<int>> dp(w + 1, vector<int>(h + 1, 0));
+        vector<vector<int>> dp(w + 1, vector<int>(h + 1, 0)), wolf(w + 1, vector<int>(h + 1, 0));
         int n;
         cin >> n;
         for(int i = 0 ; i < n ; i++)
         {
             int x, y;
             cin >> x >> y;
-            dp[x][y] = INT_MAX / 2;
+            wolf[x][y] = 1;
         }
+        dp[0][0] = 1;
         for(int i = 0 ; i <= w ; i++)
         {
             for(int j = 0 ; j <= h ; j++)
             {
-
+                if((i == 0 && j == 0) || wolf[i][j] == 1)
+                if(i > 0) 
+                    dp[i][j] = dp[i - 1][j] + 1;
+                if(j > 0) 
+                    dp[i][j - 1] = dp[i][j - 1];
             }
         }
         
