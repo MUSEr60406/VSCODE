@@ -35,7 +35,7 @@ int main()
         if(dp[w][h] > 2)
             cout << "There are " << dp[w][h] <<" paths from Little Red Riding Hood's house to her grandmother's house.";
         else if(dp[w][h] == 1)
-            cout << "There is one path from Little Red Riding Hood's house to her grandmother's house.";
+            cout << "There are one paths from Little Red Riding Hood's house to her grandmother's house.";
         else
             cout << "There is no path.";
         cout << "\n";
