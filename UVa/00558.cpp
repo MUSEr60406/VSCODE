@@ -6,6 +6,10 @@ using namespace std;
 int n, m, INF = INT_MAX / 2;
 vector<vector<pii>> g;
 vector<int> d;
+bool f()
+{
+
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -22,6 +26,7 @@ int main()
             cin >> u >> v >> w;
             g[u].push_back({v, w});
         }
+        cout << (f() ? "possible" : "impossible") << (n ? "\n" : "");
     }
 
     return 0;
