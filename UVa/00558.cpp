@@ -15,10 +15,15 @@ bool f()
             for(auto &[v, w] : g[j])
             {
                 if(d[j] + w < d[v])
+                {
+                    if(i == n)
+                        return true;
                     d[v] = d[j] + w;
+                }
             }
         }
     }
+    return false;
 }
 int main()
 {
