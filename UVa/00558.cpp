@@ -8,7 +8,17 @@ vector<vector<pii>> g;
 vector<int> d;
 bool f()
 {
-
+    for(int i = 0 ; i <= n ; i++)
+    {
+        for(int j = 0 ; j < n ; j++)
+        {
+            for(auto &[v, w] : g[j])
+            {
+                if(d[j] + w < d[v])
+                    d[v] = d[j] + w;
+            }
+        }
+    }
 }
 int main()
 {
