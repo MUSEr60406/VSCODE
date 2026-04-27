@@ -54,7 +54,7 @@ int main()
             {
                 cout << "GRANTED\n";
                 if(!locks[item].count(trid) || mode == 'X')
-                    locks[item][trid] = 'X';
+                    locks[item][trid] = mode;
             }
             
         }
