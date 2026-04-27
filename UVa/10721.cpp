@@ -8,7 +8,7 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     int n, m, k;
-    while(cin >> n >> m >> k)
+    while(cin >> n >> k >> m)
     {
         vector<vector<ll>> dp(k + 1, vector<ll>(n + 1, 0));
         dp[0][0] = 1;
