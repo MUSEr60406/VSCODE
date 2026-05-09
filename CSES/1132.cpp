@@ -6,8 +6,11 @@ using namespace std;
 int n;
 vector<vector<int>> tree;
 vector<int> dis;
-int bfs(int start)
+vector<int> a;
+vector<int> b;
+pair<vector<int>, int> bfs(int start)
 {
+    int deepest_node = start, max = 0;
     dis.assign(n + 1, -1);
     queue<int> q;
     q.push(start);
@@ -22,13 +25,14 @@ int bfs(int start)
                 continue;
             dis[v] = dis[u] + 1;
             q.push(v);
+            if(dis[v] > max)
+            {
+                deepest_node = v;
+                max = dis[v];
+            }
         }
     }
-    int max = -1;
-    for(int i = 0 ; i < dis.size() ; i++)
-        if(dis[i] > max)
-            max = dis[i];
-    return max;
+    return dis;
 }
 int main()
 {
@@ -42,7 +46,6 @@ int main()
         tree[a].push_back(b);
         tree[b].push_back(a);
     }
-    for(int i = 1 ; i <= n ; i++)
-        cout << bfs(i) << (i != n ? " " : "");
+
     return 0;
 }
