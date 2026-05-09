@@ -32,7 +32,7 @@ pair<vector<int>, int> bfs(int start)
             }
         }
     }
-    return dis;
+    return {dis, deepest_node};
 }
 int main()
 {
@@ -46,6 +46,12 @@ int main()
         tree[a].push_back(b);
         tree[b].push_back(a);
     }
-
+    auto[d, A] = bfs(1);
+    auto[d, B] = bfs(A);
+    a = d;
+    auto[d, X] = bfs(B);
+    b = d;
+    for(int i = 1 ; i <= n ; i++)
+        cout << max(a[i], b[i]) << (i == n ? "" : " ");
     return 0;
 }
