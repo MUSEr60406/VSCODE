@@ -7,7 +7,7 @@ int n, m;
 vector<vector<int>> g;
 vector<int> deg;
 vector<int> dp;
-void bfs()
+void kahn() //拓樸
 {
     queue<int> q;
     for(int i = 1 ; i <= n ; i++)
@@ -44,7 +44,7 @@ int main()
         g[a].push_back(b);
         deg[b]++;
     }
-    bfs();
+    kahn();
     cout << dp[n];
     return 0;
 }
