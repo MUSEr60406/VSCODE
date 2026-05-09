@@ -23,6 +23,9 @@ void bfs()
         {
             if(dp[u] > 0)
                 dp[v] = (dp[u] + dp[v]) % ((int)1e9 + 7);
+            deg[v]--;
+            if(deg[v] == 0)
+                q.push(v);
         }
     }
 }
