@@ -12,7 +12,7 @@ int main()
     while(cin >> r >> n)
     {
         double angle = 360 / n, a = 0;
-        a = 1/2 * r * r * sin(angle * pi / 180) * n;
+        a = 1.0 / 2.0 * r * r * sin(angle * pi / 180) * n;
         cout << fixed << setprecision(3) << a << "\n";
     }
 
