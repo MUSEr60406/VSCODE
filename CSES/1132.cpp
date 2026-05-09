@@ -3,16 +3,33 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
+int n;
 vector<vector<int>> tree;
 vector<int> dis;
-int bfs(int s)
+int bfs(int start)
 {
-
+    dis.assign(n + 1, -1);
+    queue<int> q;
+    q.push(start);
+    dis[start] = 0;
+    while(!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+        for(int &v : tree[u])
+        {
+            if(dis[v] != -1) 
+                continue;
+            dis[v] = dis[u] + 1;
+            q.push(v);
+        }
+    }
+    sort(dis.begin(), dis.end());
+    return dis[n];
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    int n;
     cin >> n;
     tree.resize(n + 1);
     for(int i = 0 ; i < n ; i++)
@@ -23,6 +40,6 @@ int main()
         tree[b].push_back(a);
     }
     for(int i = 1 ; i <= n ; i++)
-        cout << bfs(i) << "\n";
+        cout << bfs(i) << (i != n ? " " : "");
     return 0;
 }
