@@ -4,6 +4,11 @@
 #define ll long long
 using namespace std;
 vector<vector<int>> tree;
+vector<int> dis;
+int bfs(int s)
+{
+
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -17,5 +22,7 @@ int main()
         tree[a].push_back(b);
         tree[b].push_back(a);
     }
+    for(int i = 1 ; i <= n ; i++)
+        cout << bfs(i) << "\n";
     return 0;
 }
