@@ -4,9 +4,9 @@
 #define ll long long
 using namespace std;
 int n, m;
-vector<vector<int>> g(n);
-vector<int> deg(n + 1, 0);
-vector<int> dp(n + 1, 0);
+vector<vector<int>> g;
+vector<int> deg;
+vector<int> dp;
 void bfs()
 {
     queue<int> q;
@@ -33,6 +33,9 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     cin >> n >> m;
+    g.resize(n);
+    deg.assign(n + 1, 0);
+    dp.assign(n + 1, 0);
     dp[1] = 1;
     for(int i = 0 ; i < m ; i++)
     {
@@ -42,5 +45,6 @@ int main()
         deg[b]++;
     }
     bfs();
+    cout << dp[n];
     return 0;
 }
