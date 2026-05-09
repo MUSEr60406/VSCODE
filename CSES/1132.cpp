@@ -24,15 +24,18 @@ int bfs(int start)
             q.push(v);
         }
     }
-    sort(dis.begin(), dis.end());
-    return dis[n];
+    int max = -1;
+    for(int i = 0 ; i < dis.size() ; i++)
+        if(dis[i] > max)
+            max = dis[i];
+    return max;
 }
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     cin >> n;
     tree.resize(n + 1);
-    for(int i = 0 ; i < n ; i++)
+    for(int i = 0 ; i < n - 1 ; i++)
     {
         int a, b;
         cin >> a >> b;
