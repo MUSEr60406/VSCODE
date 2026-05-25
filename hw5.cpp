@@ -7,9 +7,9 @@ using namespace std;
 class CarbonFootprint
 {
 public:
-    // write the pure virtual functions getCarbonFootprint, getInfo,
-    // and a virtual destructor
-    // <<< please write your code in here!
+    virtual double getCarbonFootprint() const = 0;
+    virtual string getInfo() const = 0;
+    virtual ~CarbonFootprint() {} 
 };
 
 class Building : public CarbonFootprint
@@ -19,7 +19,15 @@ private:
     double electricityUsage;
 
 public:
-    // <<< please write your code in here!
+    Building(string n, double e) : name(n), electricityUsage(e) {};
+    double getCarbonFootprint() const override
+    {
+        return electricityUsage * 0.5;
+    }
+    string getInfo() const override
+    {
+        return "Buliding " + name;
+    }
 };
 
 class Car : public CarbonFootprint
@@ -29,7 +37,15 @@ private:
     double fuelUsed;
 
 public:
-    // <<< please write your code in here!
+    Car(string b, double f) : brand(b), fuelUsed(f) {};
+    double getCarbonFootprint() const override
+    {
+        return fuelUsed * 2.3;
+    }
+    string getInfo() const override
+    {
+        return "Car " + brand;
+    }
 };
 
 class Bicycle : public CarbonFootprint
@@ -39,7 +55,15 @@ private:
     double distance;
 
 public:
-    // <<< please write your code in here!
+    Bicycle(string b, double d) : brand(b), distance(d) {};
+    double getCarbonFootprint() const override
+    {
+        return 0.00;
+    }
+    string getInfo() const override
+    {
+        return "Bicycle " + brand;
+    }
 };
 
 int main()
@@ -51,8 +75,9 @@ int main()
     cin >> carBrand >> fuelUsed;
     cin >> bicycleBrand >> distance;
 
-    // Create objects
-    // <<< please write your code in here!
+    Building *b = new Building(buildingName, electricityUsage);
+    Car *c = new Car(carBrand, fuelUsed);
+    
 
     vector<CarbonFootprint*> items;
 
