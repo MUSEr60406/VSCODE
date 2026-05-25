@@ -77,12 +77,13 @@ int main()
 
     Building *b = new Building(buildingName, electricityUsage);
     Car *c = new Car(carBrand, fuelUsed);
-    
+    Bicycle *bi = new Bicycle(bicycleBrand, distance);
 
     vector<CarbonFootprint*> items;
 
-    // Add objects into the vector
-    // <<< please write your code in here!
+    items.push_back(b);
+    items.push_back(c);
+    items.push_back(bi);
 
     for (CarbonFootprint* item : items)
     {
