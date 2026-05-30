@@ -3,7 +3,7 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-ll n, m, ans = 0;
+ll n, m, ans = 0, used = 0;
 struct edge
 {
     ll u, v, w;
@@ -32,6 +32,7 @@ void kruskal()
         {
             par[x] = y;
             ans += e.w;
+            used++;
         }
     }
 }
@@ -47,6 +48,10 @@ int main()
         g.push_back({a, b, c});
     }
     kruskal();
-    cout << ans << "\n";
+    if(used == n - 1)
+        cout << ans;
+    else
+        cout << "IMPOSSIBLE";
+    cout << "\n";
     return 0;
 }
