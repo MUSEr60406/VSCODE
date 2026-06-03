@@ -26,9 +26,9 @@ public:
         recipientCity = rCity;
         recipientState = rState;
         recipientZIP = rZIP;
-
-        weight = (w > 0.0) ? w : 0.0;
-        costPerOunce = (c > 0.0) ? c : 0.0;
+        weight = (w > 0 ? w : 0.0);
+        costPerOunce = (c ? c : 0.0);
+        cerr << 500;
     }
 
     double calculateCost() const
@@ -48,11 +48,12 @@ public:
                   double w, double c, double fee)
     : Package(sName, sAddress, sCity, sState, sZIP, rName, rAddress, rCity, rState, rZIP, w, c)
     {
-        flatFee = (fee > 0.0) ? fee : 0.0;
+        flatFee = (fee > 0 ? fee : 0.0);
     }
+
     double calculateCost() const
     {
-        return Package::calculateCost() + flatFee;
+       return flatFee + calculateCost();
     }
 };
 
@@ -69,6 +70,7 @@ public:
     {
         additionalFeePerOunce = (addFee > 0.0) ? addFee : 0.0;
     }
+
     double calculateCost() const
     {
         return weight * (costPerOunce + additionalFeePerOunce);
@@ -97,7 +99,7 @@ int main()
             Package package(sName, sAddress, sCity, sState, sZIP,
                             rName, rAddress, rCity, rState, rZIP,
                             weight, costPerOunce);
-            cout << fixed << setprecision(2) << package.calculateCost() << "\n";
+            cout << fixed << setprecision(2) << package.calculateCost() << endl;
         }
         else if (type == 2)
         {
@@ -107,7 +109,7 @@ int main()
             TwoDayPackage package(sName, sAddress, sCity, sState, sZIP,
                                   rName, rAddress, rCity, rState, rZIP,
                                   weight, costPerOunce, flatFee);
-            cout << fixed << setprecision(2) << package.calculateCost() << "\n";
+            cout << fixed << setprecision(2) << package.calculateCost() << endl;
         }
         else if (type == 3)
         {
@@ -117,7 +119,7 @@ int main()
             OvernightPackage package(sName, sAddress, sCity, sState, sZIP,
                                      rName, rAddress, rCity, rState, rZIP,
                                      weight, costPerOunce, additionalFeePerOunce);
-            cout << fixed << setprecision(2) << package.calculateCost() << "\n";
+            cout << fixed << setprecision(2) << package.calculateCost() << endl;
         }
     }
     return 0;
