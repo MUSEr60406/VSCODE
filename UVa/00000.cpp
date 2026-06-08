@@ -24,9 +24,7 @@ int main()
             for (int i = 0; i < N; i++)
             {
                 for (int j = MW; j >= W[i]; j--)
-                {
                     dp[j] = max(dp[j], dp[j - W[i]] + P[i]);
-                }
             }
             int mx = 0;
             for (int i = 0; i <= MW; i++)
