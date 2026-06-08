@@ -1,38 +1,46 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-int T, N, G, MW;
-int P[1005], W[1005];
-int dp[35];
- 
-int main() {
-    ios_base::sync_with_stdio(0);
+
+void solve() 
+{
+    int N;
+    cin >> N;
+    vector<pair<int, int>> items(N);
+    for (int i = 0; i < N; ++i)
+        cin >> items[i].first >> items[i].second;
+
+    vector<int> dp(31, 0);
+    for (int i = 0; i < N; ++i) 
+    {
+        int p = items[i].first;  
+        int w = items[i].second; 
+        for (int j = 30; j >= w; --j)
+            dp[j] = max(dp[j], dp[j - w] + p);
+    }
+    
+    int G;
+    cin >> G;
+    long long total_value = 0;
+    for (int i = 0; i < G; ++i) 
+    {
+        int mw;
+        cin >> mw;
+        total_value += dp[mw];
+    }
+
+    cout << total_value << "\n";
+}
+
+int main() 
+{
+    ios::sync_with_stdio(0);
     cin.tie(0);
+    int T;
     cin >> T;
     while (T--)
-    {
-        cin >> N;
-        for (int i = 0; i < N; i++)
-            cin >> P[i] >> W[i];
-        cin >> G;
-        int ans = 0;
-        while (G--)
-        {
-            cin >> MW;
-            memset(dp, 0, sizeof(dp));
-            for (int i = 0; i < N; i++)
-            {
-                for (int j = MW; j >= W[i]; j--)
-                {
-                    dp[j] = max(dp[j], dp[j - W[i]] + P[i]);
-                }
-            }
-            int mx = 0;
-            for (int i = 0; i <= MW; i++)
-                mx = max(mx, dp[i]);
-            ans += mx;
-        }
-        cout << ans << "\n";
-    }
+        solve();
     return 0;
 }
