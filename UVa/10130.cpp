@@ -11,7 +11,7 @@ int main()
     cin >> t;
     while(t--)
     {
-        int g, n, p[1005] = {0}, w[1005] = {0}, dp[35] = {0};
+        int ans = 0, g, n, p[1005] = {0}, w[1005] = {0}, dp[35] = {0};
         cin >> n;
         for(int i = 0 ; i < n ; i++)
             cin >> p[i] >> w[i];
@@ -21,9 +21,17 @@ int main()
             int max_w;
             cin >> max_w;
             memset(dp, 0, sizeof(dp));
+            for(int i = 0 ; i < n ; i++)
+            {
+                for(int j = max_w ; j >= w[i] ; j--)
+                    dp[j] = max(dp[j], dp[j - w[i]] + p[i]);
+            }
+            int mx = -1;
+            for(int i = 0 ; i <= max_w ; i++)
+                mx = max(mx, dp[i]);
+            ans += mx;
         }
+        cout << ans << "\n";
     }
-    
-
     return 0;
 }
