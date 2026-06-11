@@ -4,6 +4,7 @@
 #include <random>
 #include <algorithm>
 #include <ctime>
+#include <cctype> // 提供 isspace 函式
 
 #ifdef _WIN32
 #include <windows.h>
@@ -247,7 +248,7 @@ int main() {
             "下列哪一項\"非\"決策樹模型的優點？",
             {"(1) 可視覺化，易於醫療人員解釋與使用", "(2) 可直接應用於臨床決策支援流程中", "(3) 可分析非結構化資料(如自由文字)無需轉換", "(4) 適用於分類或風險預測等多種臨床任務"},
             '3',
-            "解析：決策樹適用於結構化資料，非結構化資料(如自由文字病歷)必須先經過自然語言處理(NLP)轉換為結構化特徵後才能分析。"
+            "解析：決策樹適用於結構化資料，非結構化資料(如自由文字病歷)必須先經過自然語言處理(NLP)轉換為結構化特徵後才能分析。因此該選項為錯誤陳述。"
         },
         {
             "根據 WHO定義，下列何者\"不\"屬於 eHealth 的應用領域？",
@@ -341,8 +342,10 @@ int main() {
         }
     };
 
-    // 使用當前時間作為亂數種子，確保每次執行題目順序都不同
+    // 使用當前時間作為亂數種子，確保每次執行題目順序不同
     mt19937 g(static_cast<unsigned>(time(0)));
+    
+    // 將【題目】順序打亂
     shuffle(quiz.begin(), quiz.end(), g);
 
     int score = 0;
@@ -356,8 +359,41 @@ int main() {
         cout << "【第 " << i + 1 << " 題 / 共 " << totalQuestions << " 題】\n";
         cout << quiz[i].text << "\n\n";
         
-        for (const auto& opt : quiz[i].options) {
-            cout << opt << "\n";
+        // 取得原本正確答案的索引 (0, 1, 2, 或 3)
+        int origCorrectIdx = quiz[i].correctAnswer - '1';
+        string correctStr;
+        vector<string> strippedOptions;
+
+        // 移除選項前方的 "(1) "、"(2) " 標籤，保留純文字
+        for (int j = 0; j < quiz[i].options.size(); ++j) {
+            string opt = quiz[i].options[j];
+            size_t pos = opt.find(")");
+            if (pos != string::npos) {
+                size_t start = pos + 1;
+                // 略過括號後面的所有空白字元
+                while (start < opt.length() && isspace(opt[start])) {
+                    start++;
+                }
+                opt = opt.substr(start);
+            }
+            strippedOptions.push_back(opt);
+            
+            // 記錄「正確解答」的純文字內容，以便打亂後比對
+            if (j == origCorrectIdx) {
+                correctStr = opt;
+            }
+        }
+
+        // 將【選項】順序打亂
+        shuffle(strippedOptions.begin(), strippedOptions.end(), g);
+
+        // 顯示打亂後的新選項，並找出「正確解答」的新位置
+        char newCorrectChar = '1';
+        for (int j = 0; j < strippedOptions.size(); ++j) {
+            cout << "(" << j + 1 << ") " << strippedOptions[j] << "\n";
+            if (strippedOptions[j] == correctStr) {
+                newCorrectChar = '1' + j; // 更新正確答案的編號
+            }
         }
         
         cout << "\n請輸入您的答案 (1/2/3/4): ";
@@ -370,11 +406,12 @@ int main() {
             cin >> userAnswer;
         }
 
-        if (userAnswer == quiz[i].correctAnswer) {
+        // 對比使用者的答案與新的正確解答位置
+        if (userAnswer == newCorrectChar) {
             cout << "\n✅ 答對了！\n";
             score++;
         } else {
-            cout << "\n❌ 答錯了！正確答案是: " << quiz[i].correctAnswer << "\n";
+            cout << "\n❌ 答錯了！正確答案是: " << newCorrectChar << "\n";
         }
 
         // 顯示解析
