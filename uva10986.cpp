@@ -3,25 +3,25 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-int n, m, S, T;
+int n, m, s, t;
 vector<vector<pii>> g;
 vector<int> dis;
 void dijkstra()
 {
     priority_queue<pii, vector<pii>, greater<pii>> pq;
-    dis[S] = 0;
-    pq.push({dis[S], S});
+    dis[s] = 0;
+    pq.push({dis[s], s});
     while(!pq.empty())
     {
-        auto [d, u] = pq.top();
+        auto [d, curr] = pq.top();
         pq.pop();
-        if(d > dis[u])
+        if(d > dis[curr])
             continue;
-        for(auto &[v, w] : g[u])
+        for(auto &[v, w] : g[curr])
         {
-            if(dis[u] + w < dis[v])
+            if(dis[curr] + w < dis[v])
             {
-                dis[v] = dis[u] + w;
+                dis[v] = dis[curr] + w;
                 pq.push({dis[v], v});
             }
         }
@@ -34,7 +34,7 @@ int main()
     cin >> c;
     for(int i = 1 ; i <= c ; i++)
     {
-        cin >> n >> m >> S >> T;
+        cin >> n >> m >> s >> t;
         g.clear();
         dis.clear();
         g.resize(n);
@@ -42,15 +42,17 @@ int main()
         for(int j = 0 ; j < m ; j++)
         {
             int u, v, w;
+            cin >> u >> v >> w;
             g[u].push_back({v, w});
             g[v].push_back({u, w});
         }
+        dijkstra();
+        cout << "Case #" << i << ": ";
+        if(dis[t] == 1e8)
+            cout << "unreachable\n";
+        else
+            cout << dis[t] << "\n";
     }
-    dijkstra();
-    if(dis[T] == 1e8)
-        cout << "unreachable\n";
-    else
-        cout << dis[T] << "\n";
 
     return 0;
 }
