@@ -36,6 +36,7 @@ int main()
     {   
         cin >> n >> m >> s >> t;
         g.clear();
+        g.resize(n);
         dis.clear();
         dis.assign(n, 1e8);
         for(int i = 0 ; i < m ; i++)
@@ -45,12 +46,12 @@ int main()
             g[u].push_back({v, w});
             g[v].push_back({u, w});
         }
-        cout << "Case #" << c << ": ";
+        cout << "Case #" << i << ": ";
         dijkstra();
-        if(dis[t] == 1e9)
-            cout << "unreachble\n";
+        if(dis[t] == 1e8)
+            cout << "unreachable\n";
         else
-            cout << dis[t];
+            cout << dis[t] << "\n";
     }
 
     return 0;
