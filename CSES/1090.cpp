@@ -12,9 +12,26 @@ int main()
     for(int i = 0 ; i < n ; i++)
         cin >> ch[i];
     sort(ch.begin(), ch.end());
-    for(int i = 0 ; i < n - 1 ; i++)
+    int l = 0, r = n - 1;
+    while(l <= r)
     {
-        int a = ch[i], b = ch[i + 1];
+        if(l == r)
+        {
+            ans++;
+            break;
+        }
+        if(ch[l] + ch[r] <= x)
+        {
+            ans++;
+            l++;
+            r--;
+        }
+        else
+        {
+            ans++;
+            r--;
+        }
     }
+    cout << ans << "\n";
     return 0;
 }
