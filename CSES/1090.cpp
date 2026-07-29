@@ -3,12 +3,13 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-vector<ll> ch(200000);
+vector<ll> ch;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     ll n, x, ans = 0;
     cin >> n >> x;
+    ch.resize(n);
     for(int i = 0 ; i < n ; i++)
         cin >> ch[i];
     sort(ch.begin(), ch.end());
