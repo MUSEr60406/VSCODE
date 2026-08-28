@@ -54,9 +54,9 @@ int main()
                 path += '\n';
                 cout << "YES\n" << p[e.first][e.second] << "\n" << path;
                 return 0;
+            }
         }
     }
     cout << "NO\n";
-
     return 0;
 }
