@@ -36,7 +36,7 @@ int main()
             int nx = x + dx[i], ny = y + dy[i];
             if(nx < 0 || nx >= n || ny < 0 || ny >= m || M[nx][ny] == '#')
                 continue;
-            
+            d[nx][ny] = dir[i];
         }
     }
 
