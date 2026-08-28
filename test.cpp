@@ -24,6 +24,17 @@ int main()
                 e = {i, j};
         }
     }
+    queue<pii> q;
+    q.push(s);
+    while(!q.empty())
+    {
+        auto [x, y] = q.front();
+        q.pop();
+        for(int i = 0 ; i < 4 ; i++)
+        {
+            int nx = x + dx[i], ny = y + dy[i];
+        }
+    }
 
     return 0;
 }
