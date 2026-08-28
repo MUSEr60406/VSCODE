@@ -13,6 +13,7 @@ int main()
     cin >> n >> m;
     vector<vector<char>> M(1000, vector<char>(1000, '#'));
     vector<vector<int>> d(1000, vector<int>(1000));
+    vector<vector<int>> p(1000, vector<int>(1000, 0));
     for(int i = 0 ; i < n ; i++)
     {
         for(int j = 0 ; j < m ; j++)
@@ -33,6 +34,9 @@ int main()
         for(int i = 0 ; i < 4 ; i++)
         {
             int nx = x + dx[i], ny = y + dy[i];
+            if(nx < 0 || nx >= n || ny < 0 || ny >= m || M[nx][ny] == '#')
+                continue;
+            
         }
     }
 
