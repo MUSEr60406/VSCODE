@@ -40,6 +40,17 @@ int main()
             p[nx][ny] = p[x][y] + 1;
             M[nx][ny] = '#';
             q.push({nx, ny});
+            if(nx == e.first && ny == e.second)
+            {
+                map<char, pii> DIR = {{'U', {1, 0}}, {'D', {-1, 0}}, {'L', {0,1}}, {'R', {0, -1}}};
+                string path = "";
+                int X = nx, Y = ny;
+                while(X != s)
+                {
+
+                }
+
+            }
         }
     }
 
