@@ -45,14 +45,18 @@ int main()
                 map<char, pii> DIR = {{'U', {1, 0}}, {'D', {-1, 0}}, {'L', {0,1}}, {'R', {0, -1}}};
                 string path = "";
                 int X = nx, Y = ny;
-                while(X != s)
+                while(X != s.first && Y != s.second)
                 {
-
+                    path += d[X][Y];
+                    X += DIR[d[X][Y]].first, Y += DIR[d[X][Y]].second;
                 }
-
-            }
+                reverse(path.begin(), path.end());
+                path += '\n';
+                cout << "YES\n" << p[e.first][e.second] << "\n" << path;
+                return 0;
         }
     }
+    cout << "NO\n";
 
     return 0;
 }
