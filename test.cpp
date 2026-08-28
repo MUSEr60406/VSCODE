@@ -20,7 +20,10 @@ int main()
         {
             cin >> M[i][j];
             if(M[i][j] == 'A')
+            {
                 s = {i, j};
+                M[i][j] = '#';
+            }
             if(M[i][j] == 'B')
                 e = {i, j};
         }
