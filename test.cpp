@@ -50,8 +50,9 @@ int main()
                 int X = nx, Y = ny;
                 while(!(X == s.first && Y == s.second))
                 {
-                    path += d[X][Y];
-                    X += DIR[d[X][Y]].first, Y += DIR[d[X][Y]].second;
+                   char now = d[X][Y];
+                   path += now;
+                   X += DIR[now].first, Y += DIR[now].second;
                 }
                 reverse(path.begin(), path.end());
                 path += '\n';
