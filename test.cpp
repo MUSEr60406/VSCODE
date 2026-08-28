@@ -12,7 +12,7 @@ int main()
     pii s, e;
     cin >> n >> m;
     vector<vector<char>> M(1000, vector<char>(1000, '#'));
-    vector<vector<int>> d(1000, vector<int>(1000));
+    vector<vector<char>> d(1000, vector<char>(1000));
     vector<vector<int>> p(1000, vector<int>(1000, 0));
     for(int i = 0 ; i < n ; i++)
     {
@@ -37,6 +37,9 @@ int main()
             if(nx < 0 || nx >= n || ny < 0 || ny >= m || M[nx][ny] == '#')
                 continue;
             d[nx][ny] = dir[i];
+            p[nx][ny] = p[x][y] + 1;
+            M[nx][ny] = '#';
+            q.push({nx, ny});
         }
     }
 
