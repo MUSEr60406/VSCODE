@@ -29,7 +29,9 @@ int main()
             q.push(i);
             while(!q.empty())
             {
-                for(ll &v : M[i])
+                ll u = q.front();
+                q.pop();
+                for(ll &v : M[u])
                 {
                     if(!vis[v])
                     {
