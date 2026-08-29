@@ -12,6 +12,13 @@ int main()
     vector<vector<ll>> road(n + 1);
     vector<bool> vis(n + 1, false);
     vector<ll> fa(n + 1);
+    for(int i = 0 ; i < m ; i++)
+    {
+        ll a, b;
+        cin >> a >> b;
+        road[a].push_back(b);
+        road[b].push_back(a);
+    }
 
     return 0;
 }
