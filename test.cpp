@@ -37,7 +37,7 @@ int main()
         }
     }
     if(!vis[n])
-        cout << "IMPOSSBLE\n";
+        cout << "IMPOSSIBLE\n";
     else
     {
         ll path = 0;
