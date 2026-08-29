@@ -10,6 +10,13 @@ int main()
     ll n, m;
     vector<vector<ll>> M(n + 1);
     vector<bool> vis(n + 1);
+    vector<ll> fa(n + 1);
+    for(int i = 0 ; i < m ; i++)
+    {
+        ll a, b;
+        M[a].push_back(b);
+        M[b].push_back(a);
+    }
 
     return 0;
 }
