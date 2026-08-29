@@ -8,42 +8,8 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     ll n, m;
-    cin >> n >> m;
     vector<vector<ll>> M(n + 1);
-    vector<bool> vis(n + 1, false);
-    vector<int> cities;
-    for(int i = 0 ; i < m ; i++)
-    {
-        ll a, b;
-        cin >> a >> b;
-        M[a].push_back(b);
-        M[b].push_back(a);
-    }
-    for(int i = 1 ; i <= n ; i++)
-    {
-        if(!vis[i])
-        {
-            cities.push_back(i);
-            vis[i] = true;
-            queue<ll> q;
-            q.push(i);
-            while(!q.empty())
-            {
-                ll u = q.front();
-                q.pop();
-                for(ll &v : M[u])
-                {
-                    if(!vis[v])
-                    {
-                        q.push(v);
-                        vis[v] = true;
-                    }
-                }
-            }
-        }
-    }
-    cout << cities.size() - 1 << "\n";
-    for(int i = 0 ; i < cities.size() - 1 ; i++)
-        cout << cities[i] << " " << cities[i + 1] << "\n";
+    vector<bool> vis(n + 1);
+
     return 0;
 }
