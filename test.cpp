@@ -10,7 +10,7 @@ int main()
     ll n, m;
     cin >> n >> m;
     vector<vector<ll>> road(n + 1);
-    vector<bool> vis(n + 1, false);
+    vector<ll> vis(n + 1, 0);
     vector<ll> fa(n + 1);
     for(int i = 0 ; i < m ; i++)
     {
@@ -19,6 +19,13 @@ int main()
         road[a].push_back(b);
         road[b].push_back(a);
     }
+    for(int i = 1 ; i <= n ; i++)
+    {
+        vis.assign(n + 1, 0);
+        fa.clear();
+        queue<ll> q;
+    }
+    
 
     return 0;
 }
