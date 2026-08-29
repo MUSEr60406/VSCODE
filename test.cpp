@@ -40,5 +40,8 @@ int main()
             }
         }
     }
+    cout << cities.size() - 1 << "\n";
+    for(int i = 0 ; i < cities.size() - 1 ; i++)
+        cout << cities[i] << " " << cities[i + 1] << "\n";
     return 0;
 }
