@@ -8,7 +8,7 @@ vector<vector<ll>> M;
 vector<bool> vis;
 vector<bool> Stack;
 vector<ll> path, cycle;
-bool dfs(ll start)
+bool dfs(ll start, ll parent)
 {
     vis[start] = true;
     Stack[start] = true;
@@ -43,6 +43,7 @@ int main()
         ll u, v;
         cin >> u >> v;
         M[u].push_back(v);
+        M[v].push_back(u);
     }
     bool c = false;
     for(ll i = 1 ; i <= n ; i++)
