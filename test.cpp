@@ -24,8 +24,12 @@ bool dfs(ll start)
         {
             auto it = find(path.begin(), path.end(), v);
             cycle.assign(it, path.end());
+            return true;
         }
     }
+    Stack[start] = false;
+    path.pop_back();
+    return false;
 }
 int main()
 {
@@ -42,9 +46,17 @@ int main()
     {
         if(!vis[i])
         {
-
+            if(dfs(i))
+            {
+                c = true;
+                break;
+            }
         }
     }
-
+    if(c)
+    {
+        for(ll &node : cycle)
+            cout << node << " ";
+    }
     return 0;
 }
