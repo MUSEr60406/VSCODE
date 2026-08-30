@@ -35,15 +35,15 @@ int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     cin >> n >> m;
+    M.resize(n + 1);
+    vis.assign(n + 1, false);
+    Stack.assign(n + 1, false);
     for(ll i = 0 ; i < m ; i++)
     {
         ll u, v;
         cin >> u >> v;
         M[u].push_back(v);
     }
-    M.resize(n + 1);
-    vis.assign(n + 1, false);
-    Stack.assign(n + 1, false);
     bool c = false;
     for(ll i = 1 ; i <= n ; i++)
     {
@@ -61,7 +61,7 @@ int main()
         cout << cycle.size() << "\n";
         for(ll &node : cycle)
             cout << node << " ";
-        cout << "\n";
+        cout << *cycle.begin() << "\n";
     }
     else
         cout << "IMPOSSIBLE\n";
