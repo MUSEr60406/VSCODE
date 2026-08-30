@@ -15,9 +15,11 @@ bool dfs(ll start, ll parent)
     path.push_back(start);
     for(ll &v : M[start])
     {
+        if(v == parent)
+            continue;
         if(!vis[v])
         {
-            if(dfs(v))
+            if(dfs(v, start))
                 return true;
         }
         else if(Stack[v])
@@ -50,7 +52,7 @@ int main()
     {
         if(!vis[i])
         {
-            if(dfs(i))
+            if(dfs(i, 0))
             {
                 c = true;
                 break;
