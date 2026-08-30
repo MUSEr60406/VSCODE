@@ -6,8 +6,14 @@ using namespace std;
 ll n, m;
 vector<vector<ll>> M(n + 1);
 vector<bool> vis(n + 1);
-vector<bool> stack(n + 1, false);
+vector<bool> Stack(n + 1, false);
 vector<ll> path, cycle;
+bool dfs(ll start)
+{
+    vis[start] = true;
+    Stack[start] = true;
+    path.push_back(start);
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
