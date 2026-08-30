@@ -22,10 +22,8 @@ bool dfs(ll start)
         }
         else if(Stack[v])
         {
-            auto it = path.end();
-            for(ll i = 0 ; i < path.size() ; i++)
-                if(path[i] == v)
-                    it = i;
+            auto it = find(path.begin(), path.end(), v);
+            cycle.assign(it, path.end());
         }
     }
 }
