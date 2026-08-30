@@ -58,7 +58,7 @@ int main()
     }
     if(c)
     {
-        cout << cycle.size() << "\n";
+        cout << cycle.size() + 1 << "\n";
         for(ll &node : cycle)
             cout << node << " ";
         cout << *cycle.begin() << "\n";
