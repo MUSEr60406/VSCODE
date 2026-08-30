@@ -55,8 +55,12 @@ int main()
     }
     if(c)
     {
+        cout << cycle.size() << "\n";
         for(ll &node : cycle)
             cout << node << " ";
+        cout << "\n";
     }
+    else
+        cout << "IMPOSSIBLE\n";
     return 0;
 }
