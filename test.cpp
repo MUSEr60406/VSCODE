@@ -4,9 +4,9 @@
 #define ll long long
 using namespace std;
 ll n, m;
-vector<vector<ll>> M(n + 1);
-vector<bool> vis(n + 1);
-vector<bool> Stack(n + 1, false);
+vector<vector<ll>> M;
+vector<bool> vis;
+vector<bool> Stack;
 vector<ll> path, cycle;
 bool dfs(ll start)
 {
@@ -41,6 +41,9 @@ int main()
         cin >> u >> v;
         M[u].push_back(v);
     }
+    M.resize(n + 1);
+    vis.assign(n + 1, false);
+    Stack.assign(n + 1, false);
     bool c = false;
     for(ll i = 1 ; i <= n ; i++)
     {
