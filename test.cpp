@@ -13,6 +13,21 @@ bool dfs(ll start)
     vis[start] = true;
     Stack[start] = true;
     path.push_back(start);
+    for(ll &v : M[start])
+    {
+        if(!vis[v])
+        {
+            if(dfs(v))
+                return true;
+        }
+        else if(Stack[v])
+        {
+            auto it = path.end();
+            for(ll i = 0 ; i < path.size() ; i++)
+                if(path[i] == v)
+                    it = i;
+        }
+    }
 }
 int main()
 {
