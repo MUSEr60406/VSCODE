@@ -3,7 +3,7 @@
 #define pll pair<long,long>
 #define ll long long
 using namespace std;
-vector<vector<ll>> M(505, {505, LLONG_MAX / 2});
+vector<vector<ll>> M(505, vector<ll>(505, LLONG_MAX / 2));
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
