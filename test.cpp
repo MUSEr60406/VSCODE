@@ -15,6 +15,8 @@ int main()
         cin >> u >> v >> w;
         M[u][v] = M[v][u] = min(M[u][v], w);
     }
+    for(ll i = 1 ; i <= n ; i++)
+        M[i][i] = 0;
     for(ll k = 1 ; k <= n ; k++)
         for(ll i = 1 ; i <= n ; i++)
             for(ll j = 1 ; j <= n ; j++)
