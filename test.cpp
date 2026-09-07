@@ -6,9 +6,9 @@ using namespace std;
 ll n, m, q;
 vector<vector<pll>> M(505, vector<pll>(505));
 vector<ll> vis(505);
-void dij(ll start, ll end)
+void dij(ll start)
 {
-    vis.assign(505, LLONG_MAX/2);
+    vis.assign(505, LLONG_MAX / 2);
     vis[start] = 0;
     priority_queue<pll, vector<pll>, greater<pll>> pq;
     pq.push({0, start});
@@ -43,6 +43,11 @@ int main()
     {
         ll start, end;
         cin >> start >> end;
+        dij(start);
+        if(vis[end] >= LLONG_MAX / 2)
+            cout << "-1\n";
+        else
+            cout << vis[end] << "\n";
     }
 
     return 0;
