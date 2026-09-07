@@ -4,30 +4,7 @@
 #define ll long long
 using namespace std;
 ll n, m, q;
-vector<vector<pll>> M(505, vector<pll>(505));
-vector<ll> vis(505);
-void dij(ll start)
-{
-    vis.assign(505, LLONG_MAX / 2);
-    vis[start] = 0;
-    priority_queue<pll, vector<pll>, greater<pll>> pq;
-    pq.push({0, start});
-    while(!pq.empty())
-    {
-        auto [d, u] = pq.top();
-        pq.pop();
-        if(d > vis[u]) 
-            continue;
-        for(auto &[w, v] : M[u])
-        {
-            if(vis[u] + w < vis[v])
-            {
-                vis[v] = vis[u] + w;
-                pq.push({vis[v], v});
-            }
-        }
-    }
-}
+ll adj[505][505], dis[505][505];
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -36,18 +13,14 @@ int main()
     {
         ll u, v, w;
         cin >> u >> v >> w;
-        M[u].push_back({w, v});
-        M[v].push_back({w, u});
+        adj[u][v] = min(adj[u][v], w);
+        adj[v][u] = min(adj[v][u], w);
     }
     for(ll i = 0 ; i < q ; i++)
     {
         ll start, end;
         cin >> start >> end;
-        dij(start);
-        if(vis[end] >= LLONG_MAX / 2)
-            cout << "-1\n";
-        else
-            cout << vis[end] << "\n";
+      
     }
 
     return 0;
