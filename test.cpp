@@ -4,10 +4,11 @@
 #define ll long long
 using namespace std;
 ll n, m, q;
-ll adj[505][505], dis[505][505];
+ll adj[505][505], ans[505][505];
 void dij(ll start)
 {
     dis[start][start] = 0;
+    vector<ll> dis(n + 1, LLONG_MAX / 2); 
 }
 int main()
 {
