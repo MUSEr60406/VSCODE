@@ -5,6 +5,10 @@
 using namespace std;
 ll n, m, q;
 ll adj[505][505], dis[505][505];
+void dij(ll start)
+{
+    dis[start][start] = 0;
+}
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -16,6 +20,8 @@ int main()
         adj[u][v] = min(adj[u][v], w);
         adj[v][u] = min(adj[v][u], w);
     }
+    for(ll i = 1 ; i <= 500 ; i++)
+        dij(i);
     for(ll i = 0 ; i < q ; i++)
     {
         ll start, end;
