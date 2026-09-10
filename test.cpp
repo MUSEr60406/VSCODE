@@ -18,5 +18,6 @@ int main()
         M[u].push_back({w, v});
         M[w].push_back({w, u});
     }
+    dis[1] = 0;
     return 0;
 }
