@@ -32,14 +32,17 @@ int main()
             }
         }
     }
-    for(int i = 1 ; i <= n ; i++)
+    for(int ii = 1 ; ii <= n ; ii++)
     {
-        for(auto &[w, v] : M[i])
+        for(int i = 1 ; i <= n ; i++)
         {
-            if(dis[i] <= -LLONG_MAX / 2)
-                continue;
-            if(dis[i] >= LLONG_MAX / 2 || dis[i] + w > dis[v])
-                dis[v] = LLONG_MAX / 2;
+            for(auto &[w, v] : M[i])
+            {
+                if(dis[i] <= -LLONG_MAX / 2)
+                    continue;
+                if(dis[i] >= LLONG_MAX / 2 || dis[i] + w > dis[v])
+                    dis[v] = LLONG_MAX / 2;
+            }
         }
     }
     cout << (dis[n] >= LLONG_MAX / 2 ? -1 : dis[n]) << "\n";
