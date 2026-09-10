@@ -31,5 +31,16 @@ int main()
                 
         }
     }
+    for(int i = 1 ; i <= n ; i++)
+    {
+        for(auto &[w, v] : M[i])
+        {
+            if(dis[i] <= -LLONG_MAX / 2)
+                continue;
+            if(dis[i] >= LLONG_MAX / 2 || dis[i] + w > dis[v])
+                dis[v] = LLONG_MAX / 2;
+        }
+    }
+    cout << (dis[n] >= LLONG_MAX / 2 ? -1 : dis[n]) << "\n";
     return 0;
 }
