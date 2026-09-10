@@ -14,7 +14,7 @@ int main()
     for(int i = 0 ; i < m ; i++)
     {   
         ll u, v, w;
-        cin >> u >> w >> v;
+        cin >> u >> v >> w;
         M[u].push_back({w, v});
         M[w].push_back({w, u});
     }
