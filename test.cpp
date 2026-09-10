@@ -16,19 +16,20 @@ int main()
         ll u, v, w;
         cin >> u >> v >> w;
         M[u].push_back({w, v});
-        M[w].push_back({w, u});
     }
     dis[1] = 0;
-    for(int i = 1 ; i <= n - 1 ; i++)
+    for(int ii = 1 ; ii <= n - 1 ; ii++)
     {
-        for(auto &[w, v] : M[i])
+        for(int i = 1 ; i <= n ; i++)
         {
-            if(dis[i] > -LLONG_MAX / 2)
+            for(auto &[w, v] : M[i])
             {
-                if(dis[i] + w > dis[v])
-                    dis[v] = dis[i] + w;
+                if(dis[i] > -LLONG_MAX / 2)
+                {
+                    if(dis[i] + w > dis[v])
+                        dis[v] = dis[i] + w;
+                }   
             }
-                
         }
     }
     for(int i = 1 ; i <= n ; i++)
