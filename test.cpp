@@ -19,5 +19,17 @@ int main()
         M[w].push_back({w, u});
     }
     dis[1] = 0;
+    for(int i = 1 ; i <= n - 1 ; i++)
+    {
+        for(auto &[w, v] : M[i])
+        {
+            if(dis[i] > -LLONG_MAX / 2)
+            {
+                if(dis[i] + w > dis[v])
+                    dis[v] = dis[i] + w;
+            }
+                
+        }
+    }
     return 0;
 }
