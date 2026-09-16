@@ -19,20 +19,19 @@ int main()
         cin >> u >> v >> w;
         M[u].push_back({v, w});
     }
-    for(ll i = 0 ; i < n - 1 ; i++)
+    for(ll u = 1 ; u <= n ; u++)
     {
-        for(ll j = 1 ; j <= n ; j++)
+        for(ll i = 0 ; i < n - 1 ; i++)
         {
-            for(auto &[v, w] : M[j])
+            for(auto &[v, w] : M[u])
             {
-                if(dis[j] + w < dis[v])
+                if(dis[u] + w < dis[v])
                 {
-                    dis[v] = dis[j] + w;
-                    fa[v] = j;
+                    dis[v] = dis[u] + w;
+                    fa[v] = u;
                 }
             }
         }
     }
-
     return 0;
 }
