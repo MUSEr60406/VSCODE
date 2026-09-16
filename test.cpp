@@ -39,7 +39,12 @@ int main()
         {
             if(dis[u] + w < dis[v])
             {
-                ll node = v;
+                ll node = v, start;
+                for(ll i = 0 ; i < n ; i++)
+                {
+                    start = fa[node];
+                    node = start;
+                }
             }
         }
     }
