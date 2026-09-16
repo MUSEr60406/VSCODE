@@ -45,8 +45,20 @@ int main()
                     start = fa[node];
                     node = start;
                 }
+                ll now = fa[start];
+                cycle.push_back(start);
+                while(now != start)
+                {
+                    cycle.push_back(now);
+                    now = fa[now];
+                }
+                cout << "YES\n";
+                for(ll &i : cycle)
+                    cout << i << " ";
+                return 0;
             }
         }
     }
+    cout << "NO\n";
     return 0;
 }
