@@ -33,5 +33,13 @@ int main()
             }
         }
     }
+    for(ll u = 1 ; u <= n ; u++)
+    {
+        for(auto &[v, w] : M[u])
+        {
+            if(dis[u] + w < dis[v])
+                cycle.push_back(v);
+        }
+    }
     return 0;
 }
