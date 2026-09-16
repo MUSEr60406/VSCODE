@@ -38,7 +38,9 @@ int main()
         for(auto &[v, w] : M[u])
         {
             if(dis[u] + w < dis[v])
-                cycle.push_back(v);
+            {
+                ll node = v;
+            }
         }
     }
     return 0;
