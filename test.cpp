@@ -18,7 +18,7 @@ int main()
         M[u].push_back({w, v});
     }
     dis[1] = 0;
-    for(int ii = 1 ; ii <= n - 1 ; ii++)
+    for(int ii = 1 ; ii <= n - 1 ; ii++) //bellman
     {
         for(int i = 1 ; i <= n ; i++)
         {
