@@ -10,6 +10,20 @@ int main()
     ll n, m;
     cin >> n >> m;
     vector<vector<pll>> M(n + 1);
+    vector<ll> dis(n + 1, 0);
+    for(ll i = 0 ; i < m ; i++)
+    {
+        ll u, v, w;
+        cin >> u >> v >> w;
+        M[u].push_back({v, w});
+    }
+    for(ll i = 0 ; i < n - 1 ; i++)
+    {
+        for(ll j = 1 ; j <= n ; j++)
+        {
+            
+        }
+    }
 
     return 0;
 }
