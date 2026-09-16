@@ -40,9 +40,7 @@ int main()
     else
     {
         for(ll i = 0 ; i < n ; i++)
-        {
             x = fa[x];
-        }
         vector<ll> cycle;
         ll curr = x;
 
@@ -56,7 +54,6 @@ int main()
                 break;
             }
         }
-        reverse(cycle.begin(), cycle.end());
         cout << "YES\n";
         for(ll &node : cycle)
         {
