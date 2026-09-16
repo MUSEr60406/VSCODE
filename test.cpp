@@ -43,16 +43,14 @@ int main()
             x = fa[x];
         vector<ll> cycle;
         ll curr = x;
-        while(true)
+        cycle.push_back(curr);
+        curr = fa[curr];
+        while(curr != x)
         {
             cycle.push_back(curr);
             curr = fa[curr];
-            if(curr == x && cycle.size() > 1) 
-            {
-                cycle.push_back(curr);
-                break;
-            }
         }
+        cycle.push_back(x);
         reverse(cycle.begin(), cycle.end());
         cout << "YES\n";
         for(ll &node : cycle)
