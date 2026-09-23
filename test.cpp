@@ -10,7 +10,7 @@ int main()
     ll n, m;
     cin >> n >> m;
     vector<vector<pll>> M(n + 1);
-    vector<ll> dis(n + 1, 0); // 初
+    vector<ll> dis(n + 1, 0);
     vector<ll> fa(n + 1, 0);
     for(ll i = 0 ; i < m ; i++)
     {
@@ -52,11 +52,10 @@ int main()
         }
         cycle.push_back(x);
         reverse(cycle.begin(), cycle.end());
+
         cout << "YES\n";
         for(ll &node : cycle)
-        {
             cout << node << " ";
-        }
         cout << "\n";
     }
     
