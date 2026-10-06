@@ -22,180 +22,175 @@ char IntToChar(int x)
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    string s;
-    
-    while(getline(cin, s, '\n'))
+    string s, a, b, N;
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
+    size_t arrow = s.find("->");
+    if(arrow == string::npos)
     {
-        string a, b, N;
-        s.erase(remove(s.begin(), s.end(), ' '), s.end());
-        size_t arrow = s.find("->");
-        if(arrow == string::npos)
+        cout << "ERROR: Invalid Format\n";
+        return 0;
+    }
+    a = s.substr(0, arrow), b = s.substr(arrow + 2);
+    int baseM, baseN;
+    //baseN
+    size_t pos = a.find_last_of('(');
+    if(pos == string::npos || a.back() != ')')
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    try
+    {
+        baseN = stoi(a.substr(pos + 1, a.length() - pos - 2));
+    }
+    catch(...)
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    //baseM
+    if(b.empty() || b[0] != '(' || b.back() != ')')
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    try
+    {
+        baseM = stoi(b.substr(1, b.length() - 2));
+    }
+    catch(...)
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    if(baseN < 2 || baseN > 36 || baseM < 2 || baseM > 36)
+    {
+        cout << "ERROR: Base out of range\n";
+        return 0;
+    }
+    //
+    N = a.substr(0, pos);
+    int dot_cnt = 0;
+    for(char &c : N)
+        if(c == '.')
+            dot_cnt++;
+    if(dot_cnt > 1)
+    {
+        cout << "ERROR: too many dots\n";
+        return 0;
+    }
+    //
+    bool neg = false;
+    if(N[0] == '-')
+    {
+        neg = true;
+        N.erase(0, 1);
+    }
+    string interger = "", fraction = "";
+    int dot = N.find('.');
+    if(dot == string::npos)
+        interger = N;
+    else
+    {
+        interger = N.substr(0, dot);
+        fraction = N.substr(dot + 1);
+    }
+    if(interger.empty() && fraction.empty())
+    {
+        cout << "ERROR: Empty number\n";
+        return 0;
+    }
+    if(interger.empty())
+        interger = "0";
+    //int
+    string INTans;
+    long long value = 0;
+    for(char &c : interger)
+    {
+        if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
         {
-            cout << "ERROR: Invalid Format\n";
+            cout << "ERROR: Invalid digit\n";
             return 0;
         }
-        a = s.substr(0, arrow), b = s.substr(arrow + 2);
-        int baseM, baseN;
-        //baseN
-        size_t pos = a.find_last_of('(');
-        if(pos == string::npos || a.back() != ')')
+        value = value * baseN + CharToInt(c);
+    }
+    if(value == 0)
+        INTans = "0";
+    else
+    {
+        while(value > 0)
         {
-            cout << "ERROR: Invalid format\n";
+            INTans += IntToChar(value % baseM);
+            value /= baseM;
+        }
+        reverse(INTans.begin(), INTans.end());
+    }
+    if(dot == string::npos)
+    {
+        cout << INTans << "(" << baseM << ")";
+        return 0;
+    }
+    //fraction
+    string FRAans = "";
+    long long num = 0, den = 1; 
+    for(char &c : fraction)
+    {
+        if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
+        {
+            cout << "ERROR: Invalid digit\n";
             return 0;
         }
-        try
+        num = num * baseN + CharToInt(c);
+        den *= baseN;
+    }
+    int poss = 0;
+    unordered_map<int, int> check;
+    while(num != 0 && poss < 20)
+    {
+        if(check.count(num))
         {
-            baseN = stoi(a.substr(pos + 1, a.length() - pos - 2));
+            int st = check[num];
+            FRAans.insert(FRAans.begin() + st, '[');
+            FRAans += ']';
+            break;
         }
-        catch(...)
-        {
-            cout << "ERROR: Invalid format\n";
-            return 0;
-        }
-        //baseM
-        if(b.empty() || b[0] != '(' || b.back() != ')')
-        {
-            cout << "ERROR: Invalid format\n";
-            return 0;
-        }
-        try
-        {
-            baseM = stoi(b.substr(1, b.length() - 2));
-        }
-        catch(...)
-        {
-            cout << "ERROR: Invalid format\n";
-            return 0;
-        }
-        if(baseN < 2 || baseN > 36 || baseM < 2 || baseM > 36)
-        {
-            cout << "ERROR: Base out of range\n";
-            return 0;
-        }
-        //
-        N = a.substr(0, pos);
-        int dot_cnt = 0;
-        for(char &c : N)
-            if(c == '.')
-                dot_cnt++;
-        if(dot_cnt > 1)
-        {
-            cout << "ERROR: too many dots\n";
-            return 0;
-        }
-        //
-        bool neg = false;
-        if(N[0] == '-')
-        {
-            neg = true;
-            N.erase(0, 1);
-        }
-        string interger = "", fraction = "";
-        int dot = N.find('.');
-        if(dot == string::npos)
-            interger = N;
-        else
-        {
-            interger = N.substr(0, dot);
-            fraction = N.substr(dot + 1);
-        }
-        if(interger.empty() && fraction.empty())
-        {
-            cout << "ERROR: Empty number\n";
-            return 0;
-        }
-        if(interger.empty())
-            interger = "0";
-        //int
-        string INTans;
-        long long value = 0;
-        for(char &c : interger)
-        {
-            if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
-            {
-                cout << "ERROR: Invalid digit\n";
-                return 0;
-            }
-            value = value * baseN + CharToInt(c);
-        }
-        if(value == 0)
-            INTans = "0";
-        else
-        {
-            while(value > 0)
-            {
-                INTans += IntToChar(value % baseM);
-                value /= baseM;
-            }
-            reverse(INTans.begin(), INTans.end());
-        }
-        if(dot == string::npos)
-        {
-            cout << INTans << "(" << baseM << ")";
-            return 0;
-        }
-        //fraction
-        string FRAans = "";
-        long long num = 0, den = 1; 
+        check[num] = poss;
+        num *= baseM;
+        int digit = num / den;
+        num %= den;
+        FRAans += IntToChar(digit);
+        poss++;
+    }
+    if(num != 0 && poss == 20)
+        FRAans += "...";
+    bool zero = (interger == "0" && fraction.empty());
+    if(!fraction.empty())
+    {
+        bool fractionzero = true;
         for(char &c : fraction)
         {
-            if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
+            if(c != '0')
             {
-                cout << "ERROR: Invalid digit\n";
-                return 0;
-            }
-            num = num * baseN + CharToInt(c);
-            den *= baseN;
-        }
-        int poss = 0;
-        unordered_map<int, int> check;
-        while(num != 0 && poss < 20)
-        {
-            if(check.count(num))
-            {
-                int st = check[num];
-                FRAans.insert(FRAans.begin() + st, '[');
-                FRAans += ']';
+                fractionzero = false;
                 break;
             }
-            check[num] = poss;
-            num *= baseM;
-            int digit = num / den;
-            num %= den;
-            FRAans += IntToChar(digit);
-            poss++;
         }
-        if(num != 0 && poss == 20)
-            FRAans += "...";
-        bool zero = (interger == "0" && fraction.empty());
-        if(!fraction.empty())
-        {
-            bool fractionzero = true;
-            for(char &c : fraction)
-            {
-                if(c != '0')
-                {
-                    fractionzero = false;
-                    break;
-                }
-            }
-            if(interger == "0" && fractionzero)
-                zero = true;
-        }
-        if(zero)
-            neg = false;
-        if(neg)
-            cout << "-";
-        cout << INTans;
-        if(dot != string::npos)
-        {
-            if(FRAans.empty()) 
-                cout << ".0"; 
-            else
-                cout << "." << FRAans;
-        }
-
-        cout << "(" << baseM << ")\n";
+        if(interger == "0" && fractionzero)
+            zero = true;
     }
+    if(zero)
+        neg = false;
+    if(neg)
+        cout << "-";
+    cout << INTans;
+    if(dot != string::npos)
+    {
+        if(FRAans.empty()) 
+            cout << ".0"; 
+        else
+            cout << "." << FRAans;
+    }
+
+    cout << "(" << baseM << ")\n";
     return 0;
 }
