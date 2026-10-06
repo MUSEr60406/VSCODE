@@ -8,13 +8,37 @@ int CharToInt(char c)
     if (c >= '0' && c <= '9') return c - '0'; 
     if (c >= 'A' && c <= 'Z') return c - 'A' + 10;
 }
+
 char IntToChar(int x)
 {
     if(x < 10)
         return '0' + x;
     
     return 'A' + x - 10;
-}   
+}  
+
+int to10(string s, int base)
+{
+    int x = 0;
+    for(char &c : s)
+        x = x * base + CharToInt(c);
+    return x;
+}
+
+string from10(int x, int base)
+{
+    if(x == 0)
+        return "0";
+    string res = "";
+    while(x > 0)
+    {
+        res += IntToChar(x % base);
+        x /= base;
+    }
+    reverse(res.begin(), res.end());
+    return res;
+}
+
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -28,7 +52,11 @@ int main()
     //
     N = a.substr(0, a.find('(') - 1);
     bool neg = (N[0] == '+' ? false : true);
+    N.erase(0, 1);
     string interger = N.substr(0, N.find('.' - 1));
     string fraction = N.substr(N.find('.') + 1);
+    if(interger.empty())
+        interger = "0";
+    //
     return 0;
 }
