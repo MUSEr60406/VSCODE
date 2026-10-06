@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<string>
 #define pii pair<int,int>
 #define pll pair<long,long>
 #define ll long long
@@ -11,8 +12,9 @@ int main()
     string a, arrow, b;
     int baseM, baseN;
     ss >> a >> arrow >> b;
-    baseM = stoi(a.substr(a.find('(') + 1, a.find(')') - 1));
-
+    baseN = stoi(a.substr(a.find('(') + 1, a.find(')') - 1));
+    baseM = stoi(b.substr(b.find('(') + 1, b.find(')') - 1));
+    cout << baseN << " " << baseM;
 
     return 0;
 }
