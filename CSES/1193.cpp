@@ -8,6 +8,8 @@
 using namespace std;
 int n, m;
 pii position[2];
+
+
 void bfs(vector<string> &MAP, vector<vector<int>> &visited, vector<vector<char>> &DIR)
 {
     int dx[4] = {0, 1, 0, -1};
