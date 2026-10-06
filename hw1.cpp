@@ -45,6 +45,20 @@ int main()
     int value = 0;
     for(char &c : N)
         value = value * baseN + CharToInt(c);
+
+    if(value == 0)
+        INTans = "0";
+    else
+    {
+        while(value > 0)
+        {
+            INTans += IntToChar(value % baseM);
+            value /= baseM;
+        }
+        reverse(INTans.begin(), INTans.end());
+    }
+    cout << INTans;
+    //fraction
     
     return 0;
 }
