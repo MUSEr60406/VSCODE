@@ -39,7 +39,6 @@ int main()
         cout << "ERROR: Invalid format\n";
         return 0;
     }
-
     try
     {
         baseN = stoi(a.substr(pos + 1, a.length() - pos - 2));
@@ -107,8 +106,14 @@ int main()
     string INTans;
     int value = 0;
     for(char &c : interger)
+    {
+        if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
+        {
+            cout << "ERROR: Invallid digit";
+            return 0;
+        }
         value = value * baseN + CharToInt(c);
-
+    }
     if(value == 0)
         INTans = "0";
     else
