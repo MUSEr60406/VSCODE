@@ -10,6 +10,7 @@ int CharToInt(char c)
         return c - '0'; 
     if (isalpha(c)) 
         return toupper(c) - 'A' + 10;
+    return -1;
 }
 char IntToChar(int x)
 {
@@ -135,6 +136,11 @@ int main()
     int num = 0, den = 1; 
     for(char &c : fraction)
     {
+        if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
+        {
+            cout << "ERROR: Invallid digit";
+            return 0;
+        }
         num = num * baseN + CharToInt(c);
         den *= baseN;
     }
