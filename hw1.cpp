@@ -132,9 +132,9 @@ int main()
         num = num * baseN + CharToInt(c);
         den *= baseN;
     }
-    int pos = 0;
+    int poss = 0;
     unordered_map<int, int> check;
-    while(num != 0 && pos < 20)
+    while(num != 0 && poss < 20)
     {
         if(check.count(num))
         {
@@ -143,14 +143,14 @@ int main()
             FRAans += ']';
             break;
         }
-        check[num] = pos;
+        check[num] = poss;
         num *= baseM;
         int digit = num / den;
         num %= den;
         FRAans += IntToChar(digit);
-        pos++;
+        poss++;
     }
-    if(num != 0 && pos == 20)
+    if(num != 0 && poss == 20)
         FRAans += "...";
     bool zero = (interger == "0" && fraction.empty());
     if(!fraction.empty())
