@@ -1,3 +1,4 @@
+//s1141424
 #include<bits/stdc++.h>
 #define pii pair<int,int>
 #define pll pair<long,long>
@@ -7,8 +8,8 @@ int CharToInt(char c)
 {
     if (c >= '0' && c <= '9') 
         return c - '0'; 
-    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))  
-        return c - 'A' + 10;
+    if (isalpha(c)) 
+        return toupper(c) - 'A' + 10;
 }
 char IntToChar(int x)
 {
