@@ -7,8 +7,7 @@ using namespace std;
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    stringstream ss;
-    cin >> ss;
+    stringstream (ss);
     string a, arrow, b;
     int baseM, baseN;
     ss >> a >> arrow >> b;
