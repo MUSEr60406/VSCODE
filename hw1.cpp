@@ -14,17 +14,17 @@ char IntToChar(int x)
         return '0' + x;
     
     return 'A' + x - 10;
-}
+}   
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    string s, a, arrow, b;
+    string s, a, arrow, b, N;
     getline(cin, s);
     stringstream ss(s);
     int baseM, baseN;
     ss >> a >> arrow >> b;
     baseN = stoi(a.substr(a.find('(') + 1, a.find(')') - 1));
     baseM = stoi(b.substr(b.find('(') + 1, b.find(')') - 1));
-
+    N = stoi(a.substr(0, a.find('(') - 1));
     return 0;
 }
