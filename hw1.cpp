@@ -70,11 +70,11 @@ int main()
     }
     //fraction
     string FRAans = "";
-    int num = 0, dom = 1; 
+    int num = 0, den = 1; 
     for(char &c : fraction)
     {
         num = num * baseN + CharToInt(c);
-        dom *= baseM;
+        den *= baseM;
     }
     int pos = 0;
     unordered_map<int, int> check;
@@ -87,6 +87,11 @@ int main()
             FRAans += ']';
             break;
         }
+        check[num] = pos;
+        num *= baseM;
+        num %= den;
+        FRAans += IntToChar(num / den);
+        pos++;
     }
     
     
