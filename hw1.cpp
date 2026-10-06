@@ -63,7 +63,13 @@ int main()
         }
         reverse(INTans.begin(), INTans.end());
     }
+    if(dot == string::npos)
+    {
+        cout << INTans << "(" << baseM << ")";
+        return 0;
+    }
     //fraction
+    
     
     return 0;
 }
