@@ -26,7 +26,6 @@ int main()
     ss >> a >> arrow >> b;
     baseN = stoi(a.substr(a.find('(') + 1, a.find(')') - 1));
     baseM = stoi(b.substr(b.find('(') + 1, b.find(')') - 1));
-    cout << baseN << " " << baseM << "\n";
     //
     N = a.substr(0, a.find('('));
     bool neg = true;
@@ -35,9 +34,16 @@ int main()
         neg = true;
         N.erase(0, 1);
     }
-    string interger = N.substr(0, N.find('.'));
-    string fraction = N.substr(N.find('.') + 1);
-    cout << interger << " " << fraction;
+
+    string interger = "", fraction = "";
+    int dot = N.find('.');
+    if(dot == string::npos)
+        interger = N;
+    else
+    {
+        interger = N.substr(0, dot);
+        fraction = N.substr(dot + 1);
+    }
     if(interger.empty())
         interger = "0";
     //int
@@ -57,7 +63,6 @@ int main()
         }
         reverse(INTans.begin(), INTans.end());
     }
-    cout << INTans;
     //fraction
     
     return 0;
