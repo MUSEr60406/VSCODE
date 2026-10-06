@@ -21,20 +21,71 @@ char IntToChar(int x)
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    string s, a, arrow, b, N;
+    string s, a, b, N;
     getline(cin, s);
+    size_t arrow = s.find("->");
+    if(arrow == string::npos)
+    {
+        cout << "ERROR: Invalid  Format\n";
+        return 0;
+    }
+    a = s.substr(0, arrow), b = s.substr(arrow + 2);
     int baseM, baseN;
-    baseN = stoi(a.substr(a.find('(') + 1, a.find(')') - 1));
-    baseM = stoi(b.substr(b.find('(') + 1, b.find(')') - 1));
+    //baseN
+    size_t pos = a.find_last_of('(');
+    if(pos == string::npos || a.back() != ')')
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+
+    try
+    {
+        baseN = stoi(a.substr(pos + 1, a.length() - pos - 2));
+    }
+    catch(...)
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    //baseM
+    if(b.empty() || b[0] != '(' || b.back() != ')')
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    try
+    {
+        baseM = stoi(a.substr(1, a.length() - 2));
+    }
+    catch(...)
+    {
+        cout << "ERROR: Invalid format\n";
+        return 0;
+    }
+    if(baseN < 2 || baseN > 36 || baseM < 2 || baseM > 36)
+    {
+        cout << "ERROR: Base out of range\n";
+        return 0;
+    }
     //
-    N = a.substr(0, a.find('('));
+    N = a.substr(0, pos);
+    int dot_cnt = 0;
+    for(char &c : N)
+        if(c == '.')
+            dot_cnt++;
+    if(dot_cnt > 1)
+    {
+        cout << "ERROR: too many dots\n";
+        return 0;
+    }
+    //
     bool neg = false;
     if(N[0] == '-')
     {
         neg = true;
         N.erase(0, 1);
     }
-
     string interger = "", fraction = "";
     int dot = N.find('.');
     if(dot == string::npos)
@@ -43,6 +94,11 @@ int main()
     {
         interger = N.substr(0, dot);
         fraction = N.substr(dot + 1);
+    }
+    if(interger.empty() && fraction.empty())
+    {
+        cout << "ERROR: Empty number\n";
+        return 0;
     }
     if(interger.empty())
         interger = "0";
