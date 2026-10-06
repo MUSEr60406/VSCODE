@@ -28,7 +28,7 @@ int main()
     baseM = stoi(b.substr(b.find('(') + 1, b.find(')') - 1));
     //
     N = a.substr(0, a.find('('));
-    bool neg = true;
+    bool neg = false;
     if(N[0] == '-')
     {
         neg = true;
@@ -74,7 +74,7 @@ int main()
     for(char &c : fraction)
     {
         num = num * baseN + CharToInt(c);
-        den *= baseM;
+        den *= baseN;
     }
     int pos = 0;
     unordered_map<int, int> check;
