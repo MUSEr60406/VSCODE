@@ -28,7 +28,7 @@ int main()
     size_t arrow = s.find("->");
     if(arrow == string::npos)
     {
-        cout << "ERROR: Invalid  Format\n";
+        cout << "ERROR: Invalid Format\n";
         return 0;
     }
     a = s.substr(0, arrow), b = s.substr(arrow + 2);
@@ -105,12 +105,12 @@ int main()
         interger = "0";
     //int
     string INTans;
-    int value = 0;
+    long long value = 0;
     for(char &c : interger)
     {
         if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
         {
-            cout << "ERROR: Invallid digit";
+            cout << "ERROR: Invalid digit\n";
             return 0;
         }
         value = value * baseN + CharToInt(c);
@@ -133,12 +133,12 @@ int main()
     }
     //fraction
     string FRAans = "";
-    int num = 0, den = 1; 
+    long long num = 0, den = 1; 
     for(char &c : fraction)
     {
         if(CharToInt(c) < 0 || CharToInt(c) >= baseN)
         {
-            cout << "ERROR: Invallid digit";
+            cout << "ERROR: Invalid digit\n";
             return 0;
         }
         num = num * baseN + CharToInt(c);
