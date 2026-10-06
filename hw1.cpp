@@ -76,6 +76,18 @@ int main()
         num = num * baseN + CharToInt(c);
         dom *= baseM;
     }
+    int pos = 0;
+    unordered_map<int, int> check;
+    while(num != 0 && pos < 20)
+    {
+        if(check.count(num))
+        {
+            int st = check[num];
+            FRAans.insert(FRAans.begin() + st, '[');
+            FRAans += ']';
+            break;
+        }
+    }
     
     
     return 0;
