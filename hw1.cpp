@@ -23,6 +23,7 @@ int main()
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     string s, a, b, N;
     getline(cin, s);
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
     size_t arrow = s.find("->");
     if(arrow == string::npos)
     {
@@ -56,7 +57,7 @@ int main()
     }
     try
     {
-        baseM = stoi(a.substr(1, a.length() - 2));
+        baseM = stoi(b.substr(1, b.length() - 2));
     }
     catch(...)
     {
