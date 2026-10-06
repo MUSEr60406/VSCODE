@@ -88,6 +88,7 @@ int main()
             FRAans += ']';
             break;
         }
+        check[num] = pos;
         num *= baseM;
         int digit = num / den;
         num %= den;
