@@ -69,7 +69,13 @@ int main()
         return 0;
     }
     //fraction
-    
+    string FRAans = "";
+    int num = 0, dom = 1; 
+    for(char &c : fraction)
+    {
+        num = num * baseN + CharToInt(c);
+        dom *= baseM;
+    }
     
     
     return 0;
