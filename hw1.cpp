@@ -5,10 +5,11 @@
 using namespace std;
 int CharToInt(char c)
 {
-    if (c >= '0' && c <= '9') return c - '0'; 
-    if (c >= 'A' && c <= 'Z') return c - 'A' + 10;
+    if (c >= '0' && c <= '9') 
+        return c - '0'; 
+    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))  
+        return c - 'A' + 10;
 }
-
 char IntToChar(int x)
 {
     if(x < 10)
@@ -49,7 +50,7 @@ int main()
     //int
     string INTans;
     int value = 0;
-    for(char &c : N)
+    for(char &c : interger)
         value = value * baseN + CharToInt(c);
 
     if(value == 0)
@@ -87,10 +88,10 @@ int main()
             FRAans += ']';
             break;
         }
-        check[num] = pos;
         num *= baseM;
+        int digit = num / den;
         num %= den;
-        FRAans += IntToChar(num / den);
+        FRAans += IntToChar(digit);
         pos++;
     }
     if(num != 0 && pos == 20)
