@@ -93,7 +93,30 @@ int main()
         FRAans += IntToChar(num / den);
         pos++;
     }
-    
-    
+    if(num != 0 && pos == 20)
+        FRAans += "...";
+    bool zero = (interger == "0" && fraction.empty());
+    if(!fraction.empty())
+    {
+        bool fractionzero = true;
+        for(char &c : fraction)
+        {
+            if(c != '0')
+            {
+                fractionzero = false;
+                break;
+            }
+        }
+        if(interger == "0" && fractionzero)
+            zero = true;
+    }
+    if(zero)
+        neg = false;
+    if(neg)
+        cout << "-";
+    cout << INTans;
+    if(!FRAans.empty())
+        cout << "." << FRAans;
+    cout << "(" << baseM << ")\n";
     return 0;
 }
