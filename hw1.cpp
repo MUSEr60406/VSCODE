@@ -29,6 +29,6 @@ int main()
     N = a.substr(0, a.find('(') - 1);
     bool neg = (N[0] == '+' ? false : true);
     string interger = N.substr(0, N.find('.' - 1));
-    string fraction = N.substr(N.find('.') + 1, N[N.length() - 1]);
+    string fraction = N.substr(N.find('.') + 1);
     return 0;
 }
