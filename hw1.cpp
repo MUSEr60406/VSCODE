@@ -16,29 +16,6 @@ char IntToChar(int x)
     
     return 'A' + x - 10;
 }  
-
-int to10(string s, int base)
-{
-    int x = 0;
-    for(char &c : s)
-        x = x * base + CharToInt(c);
-    return x;
-}
-
-string from10(int x, int base)
-{
-    if(x == 0)
-        return "0";
-    string res = "";
-    while(x > 0)
-    {
-        res += IntToChar(x % base);
-        x /= base;
-    }
-    reverse(res.begin(), res.end());
-    return res;
-}
-
 int main()
 {
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
@@ -63,6 +40,11 @@ int main()
     cout << interger << " " << fraction;
     if(interger.empty())
         interger = "0";
-    //
+    //int
+    string INTans;
+    int value = 0;
+    for(char &c : N)
+        value = value * baseN + CharToInt(c);
+    
     return 0;
 }
