@@ -184,8 +184,13 @@ int main()
     if(neg)
         cout << "-";
     cout << INTans;
-    if(!FRAans.empty())
-        cout << "." << FRAans;
+    if(dot != string::npos)
+    {
+        if(FRAans.empty()) 
+            cout << ".0"; 
+            cout << "." << FRAans;
+    }
+
     cout << "(" << baseM << ")\n";
     return 0;
 }
