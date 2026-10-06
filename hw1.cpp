@@ -188,6 +188,7 @@ int main()
     {
         if(FRAans.empty()) 
             cout << ".0"; 
+        else
             cout << "." << FRAans;
     }
 
