@@ -19,6 +19,7 @@ void hanoi(int n, char from, char aux, char to) {
 }
 int main()
 {
+    system("chcp 65001 > nul");
     int n;
     cout << "請輸入河內塔的盤子數量: ";
     cin >> n;
