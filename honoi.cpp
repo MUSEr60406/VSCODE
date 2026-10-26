@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 using namespace std;
 void hanoi(int n, char from, char aux, char to) {
     // 終止條件：當只剩 1 個盤子時，直接從起始柱移動到目標柱
