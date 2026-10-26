@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    cout << "寫";
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     ll n, m;
     cin >> n >> m;
