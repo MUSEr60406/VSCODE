@@ -1,11 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
-// n: 盤子數量
-// from: 起始柱
-// aux: 輔助柱
-// to: 目標柱
 void hanoi(int n, char from, char aux, char to) {
     // 終止條件：當只剩 1 個盤子時，直接從起始柱移動到目標柱
     if (n == 1) {
@@ -22,7 +17,6 @@ void hanoi(int n, char from, char aux, char to) {
     // 步驟 3：將 n-1 個盤子從 aux 藉由 from 移動到 to
     hanoi(n - 1, aux, from, to);
 }
-
 int main() {
     int n;
     cout << "請輸入河內塔的盤子數量: ";
