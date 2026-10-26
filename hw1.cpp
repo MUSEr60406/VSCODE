@@ -1,4 +1,4 @@
-﻿//s1141424
+//s1141424
 #include<bits/stdc++.h>
 #define pii pair<int,int>
 #define pll pair<long,long>
