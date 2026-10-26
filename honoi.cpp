@@ -16,7 +16,6 @@ void hanoi(int n, char from, char aux, char to) {
     // 步驟 3：將 n-1 個盤子從 aux 藉由 from 移動到 to
     hanoi(n - 1, aux, from, to);
 }
-int main() {
     int n;
     cout << "請輸入河內塔的盤子數量: ";
     cin >> n;
