@@ -2,25 +2,35 @@
 
 using namespace std;
 
-// æ²³å…§å¡”éè¿´å‡½æ•¸
+// n: ½L¤l¼Æ¶q
+// from: °_©l¬W
+// aux: »²§U¬W
+// to: ¥Ø¼Ğ¬W
 void hanoi(int n, char from, char aux, char to) {
+    // ²×¤î±ø¥ó¡G·í¥u³Ñ 1 ­Ó½L¤l®É¡Aª½±µ±q°_©l¬W²¾°Ê¨ì¥Ø¼Ğ¬W
     if (n == 1) {
-        cout << "ç§»å‹•ç›¤å­ 1 å¾ " << from << " æŸ±å­åˆ° " << to << " æŸ±å­" << endl;
+        cout << "²¾°Ê½L¤l 1 ±q " << from << " ¬W¤l¨ì " << to << " ¬W¤l" << endl;
         return;
     }
+
+    // ¨BÆJ 1¡G±N¤W­± n-1 ­Ó½L¤l±q from ÂÇ¥Ñ to ²¾°Ê¨ì aux
     hanoi(n - 1, from, to, aux);
-    cout << "ç§»å‹•ç›¤å­ " << n << " å¾ " << from << " æŸ±å­åˆ° " << to << " æŸ±å­" << endl;
+
+    // ¨BÆJ 2¡G±N²Ä n ­Ó½L¤l±q from ²¾°Ê¨ì to
+    cout << "²¾°Ê½L¤l " << n << " ±q " << from << " ¬W¤l¨ì " << to << " ¬W¤l" << endl;
+
+    // ¨BÆJ 3¡G±N n-1 ­Ó½L¤l±q aux ÂÇ¥Ñ from ²¾°Ê¨ì to
     hanoi(n - 1, aux, from, to);
 }
 
 int main() {
     int n;
-    cout << "è«‹è¼¸å…¥æ²³å…§å¡”çš„ç›¤å­æ•¸é‡: ";
-    cin >> n; // è®€å–ä½ è¼¸å…¥çš„æ•¸å­—
+    cout << "½Ğ¿é¤Jªe¤º¶ğªº½L¤l¼Æ¶q: ";
+    cin >> n;
 
-    // 2. åŸ·è¡Œæ²³å…§å¡”è¨ˆç®—ä¸¦å°å‡ºéç¨‹
+    // °²³]¤T®Ú¬W¤l¤À§O¥N¸¹¬° 'A', 'B', 'C'
+    // A ¬O°_©l¬W¡AB ¬O»²§U¬W¡AC ¬O¥Ø¼Ğ¬W
     hanoi(n, 'A', 'B', 'C');
-
 
     return 0;
 }
